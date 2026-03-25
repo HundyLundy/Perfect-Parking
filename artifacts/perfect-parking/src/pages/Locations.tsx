@@ -1,68 +1,42 @@
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
-import { MapPin, ArrowRight, TrendingUp } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import { useLocation } from "wouter";
 
 const majorMarkets = [
-  {
-    city: "Houston",
-    state: "TX",
-    note: "Texas Medical Center · Hotels · CRE · Multifamily",
-  },
-  {
-    city: "San Antonio",
-    state: "TX",
-    note: "HOA · Healthcare · Multifamily · Commercial",
-  },
-  {
-    city: "Dallas",
-    state: "TX",
-    note: "CRE · Hotels · Mixed-Use · Airports",
-  },
-  {
-    city: "Austin",
-    state: "TX",
-    note: "Hotels · Student Housing · Mixed-Use",
-  },
-  {
-    city: "Fort Worth",
-    state: "TX",
-    note: "CRE · Hotels · Multifamily",
-  },
-  {
-    city: "El Paso",
-    state: "TX",
-    note: "Military · CRE · Retail",
-  },
-  {
-    city: "Corpus Christi",
-    state: "TX",
-    note: "Marina · Hotels · Coastal CRE",
-  },
+  { city: "Houston",       state: "TX", note: "Texas Medical Center · Hotels · CRE · Multifamily" },
+  { city: "San Antonio",   state: "TX", note: "HOA · Healthcare · Multifamily · Commercial" },
+  { city: "Dallas",        state: "TX", note: "CRE · Hotels · Mixed-Use · Airports" },
+  { city: "Austin",        state: "TX", note: "Hotels · Student Housing · Mixed-Use" },
+  { city: "Fort Worth",    state: "TX", note: "CRE · Hotels · Multifamily" },
+  { city: "El Paso",       state: "TX", note: "Military · CRE · Retail" },
+  { city: "Corpus Christi",state: "TX", note: "Marina · Hotels · Coastal CRE" },
+  { city: "Laredo",        state: "TX", note: "Truck Parking · Border · CRE" },
 ];
 
+// 20 markets — 20 ÷ 4 = 5 perfect desktop rows, 20 ÷ 2 = 10 perfect mobile rows
 const texasMarkets = [
-  { city: "Port Aransas", tag: "Hotels / Tourism" },
+  { city: "Port Aransas",      tag: "Hotels / Tourism" },
   { city: "South Padre Island", tag: "Hotels / Tourism" },
-  { city: "McAllen", tag: "Retail / Hotels" },
-  { city: "Brownsville", tag: "Border / CRE" },
-  { city: "Harlingen", tag: "Healthcare / CRE" },
-  { city: "Galveston", tag: "Hotels / Tourism" },
-  { city: "Victoria", tag: "Healthcare / CRE" },
-  { city: "Kingsville", tag: "University / CRE" },
-  { city: "Flour Bluff", tag: "Coastal / Military" },
-  { city: "Calallen", tag: "Suburban / CRE" },
-  { city: "Robstown", tag: "Retail / CRE" },
-  { city: "Laredo", tag: "Truck Parking / CRE" },
-  { city: "Lubbock", tag: "University / Hotels" },
-  { city: "Waco", tag: "Tourism / University" },
-  { city: "Beaumont", tag: "Healthcare / Industrial" },
-  { city: "Tyler", tag: "Healthcare / Hotels" },
-  { city: "San Marcos", tag: "University / Tourism" },
-  { city: "New Braunfels", tag: "Tourism / Hotels" },
-  { city: "Aransas Pass", tag: "Marina / Coastal" },
-  { city: "Round Rock", tag: "Multifamily / CRE" },
+  { city: "McAllen",           tag: "Retail / Hotels" },
+  { city: "Brownsville",       tag: "Border / CRE" },
+  { city: "Harlingen",         tag: "Healthcare / CRE" },
+  { city: "Galveston",         tag: "Hotels / Tourism" },
+  { city: "Victoria",          tag: "Healthcare / CRE" },
+  { city: "Kingsville",        tag: "University / CRE" },
+  { city: "Flour Bluff",       tag: "Coastal / Military" },
+  { city: "Calallen",          tag: "Suburban / CRE" },
+  { city: "Robstown",          tag: "Retail / CRE" },
+  { city: "Lubbock",           tag: "University / Hotels" },
+  { city: "Waco",              tag: "Tourism / University" },
+  { city: "Beaumont",          tag: "Healthcare / Industrial" },
+  { city: "Tyler",             tag: "Healthcare / Hotels" },
+  { city: "San Marcos",        tag: "University / Tourism" },
+  { city: "New Braunfels",     tag: "Tourism / Hotels" },
+  { city: "Aransas Pass",      tag: "Marina / Coastal" },
+  { city: "Round Rock",        tag: "Multifamily / CRE" },
+  { city: "Midland",           tag: "Energy / CRE" },
 ];
 
 const fadeIn = {
@@ -92,14 +66,8 @@ export default function Locations() {
             "telephone": "(361) 585-1111",
             "email": "info@perfectparking.com",
             "areaServed": [
-              ...majorMarkets.map((m) => ({
-                "@type": "City",
-                "name": m.city + ", TX",
-              })),
-              ...texasMarkets.map((m) => ({
-                "@type": "City",
-                "name": m.city + ", TX",
-              })),
+              ...majorMarkets.map((m) => ({ "@type": "City", "name": m.city + ", TX" })),
+              ...texasMarkets.map((m) => ({ "@type": "City", "name": m.city + ", TX" })),
             ],
             "serviceType": "Parking Revenue Management",
           })}
@@ -124,59 +92,59 @@ export default function Locations() {
         </div>
       </section>
 
-      {/* MAJOR MARKETS */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-3xl font-display font-bold text-foreground mb-2">Major Markets</h2>
-            <p className="text-muted-foreground text-lg">Our largest active service areas across the state.</p>
-          </div>
+      {/* UNIFIED MARKETS — city skyline background */}
+      <section className="relative overflow-hidden">
+        {/* Background image with dark overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={`${import.meta.env.BASE_URL}city-skyline.jpg`}
+            alt="Texas city skyline"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/88 via-navy/82 to-navy/92" />
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+          {/* LARGE MARKET CARDS — 8 cities, 4-col desktop (2 even rows), 2-col mobile (4 even rows) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
             {majorMarkets.map((market, i) => (
               <motion.div
                 key={market.city}
                 {...fadeIn}
                 transition={{ delay: i * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-white hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 p-7"
+                className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/18 hover:border-secondary/60 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 p-6"
               >
                 <div className="flex items-center gap-1.5 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
-                  <span className="text-xs font-bold text-green-600 uppercase tracking-wide">Active</span>
+                  <span className="w-2 h-2 rounded-full bg-green-400 shrink-0 animate-pulse" />
+                  <span className="text-xs font-bold text-green-300 uppercase tracking-wide">Active</span>
                 </div>
-                <div className="text-2xl font-display font-bold text-foreground mb-1 leading-tight group-hover:text-primary transition-colors">
+                <div className="text-xl font-display font-bold text-white mb-0.5 leading-tight group-hover:text-secondary transition-colors">
                   {market.city}
                 </div>
-                <div className="text-sm font-semibold text-muted-foreground mb-3">{market.state}</div>
-                <div className="text-xs text-muted-foreground leading-relaxed">{market.note}</div>
+                <div className="text-xs font-semibold text-white/50 mb-3">{market.state}</div>
+                <div className="text-xs text-white/60 leading-relaxed">{market.note}</div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* COMBINED TEXAS MARKETS */}
-      <section className="py-20 bg-muted border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <h2 className="text-3xl font-display font-bold text-foreground mb-3">
-              Texas Markets We Love to Be a Part Of
-            </h2>
-            <p className="text-muted-foreground max-w-xl">
-              From the Hill Country to the coast, from college towns to border communities — we're active or expanding in markets all across the state.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {/* DIVIDER */}
+          <div className="border-t border-white/15 mb-6" />
+
+          {/* SMALL MARKET TILES — 20 cities, 4-col desktop (5 even rows), 2-col mobile (10 even rows) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {texasMarkets.map((m, i) => (
               <motion.div
                 key={m.city}
                 {...fadeIn}
-                transition={{ delay: i * 0.03 }}
-                className="bg-white rounded-xl border border-border p-4 hover:border-primary/40 hover:shadow-sm transition-all"
+                transition={{ delay: i * 0.025 }}
+                className="flex items-center gap-3 bg-white/8 backdrop-blur-sm border border-white/12 rounded-xl px-4 py-3 hover:bg-white/15 hover:border-white/25 transition-all"
               >
-                <MapPin className="w-4 h-4 text-primary mb-2" />
-                <div className="font-semibold text-sm text-foreground leading-tight mb-1">{m.city}, TX</div>
-                <div className="text-xs text-muted-foreground">{m.tag}</div>
+                <MapPin className="w-3.5 h-3.5 text-secondary shrink-0" />
+                <div>
+                  <div className="text-sm font-semibold text-white leading-tight">{m.city}</div>
+                  <div className="text-xs text-white/45 mt-0.5">{m.tag}</div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -188,7 +156,7 @@ export default function Locations() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <div className="text-4xl font-display font-bold text-secondary mb-2">27+</div>
+              <div className="text-4xl font-display font-bold text-secondary mb-2">28+</div>
               <div className="text-white/70 font-medium">Texas Markets Served</div>
             </div>
             <div>

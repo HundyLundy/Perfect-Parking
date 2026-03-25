@@ -49,6 +49,30 @@ export default function About() {
         </div>
       </section>
 
+      {/* MILITARY WARRIORS PARTNERSHIP */}
+      <section className="py-16 bg-navy">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center gap-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-10">
+            <div className="shrink-0">
+              <img
+                src={`${import.meta.env.BASE_URL}military-warriors-logo.png`}
+                alt="Military Warriors Support Foundation"
+                className="h-28 w-auto object-contain"
+              />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-3">Community Partner</p>
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
+                Proud Partners with the Military Warriors Support Foundation
+              </h2>
+              <p className="text-white/80 leading-relaxed">
+                Perfect Parking is honored to partner with the Military Warriors Support Foundation — an organization dedicated to supporting veterans, active-duty service members, and their families. We believe in giving back to those who have given so much, and this partnership reflects our commitment to the communities we serve. A portion of our growth goes toward supporting veteran programs in Texas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TEAM */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,30 +113,6 @@ export default function About() {
             <p className="text-muted-foreground italic leading-relaxed">
               Full leadership bios and company story are coming soon. In the meantime, reach out directly — we're happy to tell you more about why we built this.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* MILITARY WARRIORS PARTNERSHIP */}
-      <section className="py-16 bg-navy">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center gap-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-10">
-            <div className="shrink-0">
-              <img
-                src={`${import.meta.env.BASE_URL}military-warriors-logo.png`}
-                alt="Military Warriors Support Foundation"
-                className="h-28 w-auto object-contain"
-              />
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-3">Community Partner</p>
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
-                Proud Partners with the Military Warriors Support Foundation
-              </h2>
-              <p className="text-white/80 leading-relaxed">
-                Perfect Parking is honored to partner with the Military Warriors Support Foundation — an organization dedicated to supporting veterans, active-duty service members, and their families. We believe in giving back to those who have given so much, and this partnership reflects our commitment to the communities we serve. A portion of our growth goes toward supporting veteran programs in Texas.
-              </p>
-            </div>
           </div>
         </div>
       </section>
