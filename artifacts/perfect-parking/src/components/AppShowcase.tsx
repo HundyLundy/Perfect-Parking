@@ -10,10 +10,6 @@ const screens = [
     color: "text-secondary",
     headline: "Find a spot. Pay in seconds.",
     body: "Drivers scan a QR code, enter their plate, and pay via Apple Pay or credit card — no app download required.",
-    callouts: [
-      { text: "Real-time availability", pos: "top-[12%] -left-[110px]", arrow: "right" },
-      { text: "QR code scan", pos: "bottom-[35%] -left-[120px]", arrow: "right" },
-    ]
   },
   {
     id: "permits",
@@ -22,10 +18,6 @@ const screens = [
     color: "text-green-400",
     headline: "No more paper parking permits.",
     body: "Issue digital permits to residents and guests instantly. Manage who belongs in your community — all from the dashboard.",
-    callouts: [
-      { text: "Resident permit", pos: "top-[20%] -right-[115px]", arrow: "left" },
-      { text: "Guest pass", pos: "bottom-[30%] -right-[110px]", arrow: "left" },
-    ]
   },
   {
     id: "control",
@@ -34,10 +26,6 @@ const screens = [
     color: "text-blue-400",
     headline: "Authorized people only.",
     body: "You decide who parks in your lot. Enforce it automatically with LPR technology — no confrontations, no hassle.",
-    callouts: [
-      { text: "Auto enforcement", pos: "top-[15%] -left-[125px]", arrow: "right" },
-      { text: "Violation alerts", pos: "bottom-[28%] -left-[115px]", arrow: "right" },
-    ]
   },
   {
     id: "revenue",
@@ -46,10 +34,6 @@ const screens = [
     color: "text-secondary",
     headline: "Your lot. Your income stream.",
     body: "Track every transaction live. Receive direct deposits monthly. Our Revenue Share Program means we only win when you win.",
-    callouts: [
-      { text: "Live dashboard", pos: "top-[18%] -right-[120px]", arrow: "left" },
-      { text: "Monthly deposit", pos: "bottom-[32%] -right-[115px]", arrow: "left" },
-    ]
   },
   {
     id: "alerts",
@@ -58,10 +42,6 @@ const screens = [
     color: "text-amber-400",
     headline: "Stay informed, hands-free.",
     body: "Get instant notifications on occupancy changes, violations, and monthly summaries — all without lifting a finger.",
-    callouts: [
-      { text: "Instant alerts", pos: "top-[16%] -left-[115px]", arrow: "right" },
-      { text: "Occupancy data", pos: "bottom-[30%] -left-[110px]", arrow: "right" },
-    ]
   },
   {
     id: "billing",
@@ -70,10 +50,6 @@ const screens = [
     color: "text-purple-400",
     headline: "Frictionless billing. Zero disputes.",
     body: "Apple Pay, Google Pay, and credit card — all accepted. Receipts sent automatically. Chargebacks handled by us.",
-    callouts: [
-      { text: "Apple/Google Pay", pos: "top-[20%] -right-[125px]", arrow: "left" },
-      { text: "Auto receipts", pos: "bottom-[28%] -right-[110px]", arrow: "left" },
-    ]
   }
 ];
 
@@ -105,83 +81,47 @@ export function AppShowcase() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Phone mockup */}
+          {/* App screenshot — image already contains the phone frame */}
           <div className="flex justify-center">
             <div className="relative">
-              {/* Callouts */}
-              <AnimatePresence>
-                {screen.callouts.map((c, i) => (
-                  <motion.div
-                    key={`${active}-${i}`}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ delay: i * 0.2 + 0.3 }}
-                    className={`absolute z-20 hidden lg:flex items-center gap-2 ${c.pos}`}
-                  >
-                    {c.arrow === "right" && (
-                      <>
-                        <div className="bg-white/10 backdrop-blur border border-white/20 rounded-lg px-3 py-2 text-white text-xs font-semibold whitespace-nowrap">
-                          {c.text}
-                        </div>
-                        <div className="w-8 h-[2px] bg-secondary/60" />
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                      </>
-                    )}
-                    {c.arrow === "left" && (
-                      <>
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                        <div className="w-8 h-[2px] bg-secondary/60" />
-                        <div className="bg-white/10 backdrop-blur border border-white/20 rounded-lg px-3 py-2 text-white text-xs font-semibold whitespace-nowrap">
-                          {c.text}
-                        </div>
-                      </>
-                    )}
-                  </motion.div>
-                ))}
+              {/* Ambient glow */}
+              <div className="absolute inset-0 bg-primary/40 blur-[60px] rounded-full scale-90" />
+              <div className="absolute inset-0 bg-secondary/10 blur-[80px] rounded-full scale-75" />
+
+              {/* The screenshot already has the phone frame baked in */}
+              <motion.div
+                key={active}
+                initial={{ opacity: 0.7, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="relative z-10"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}app-screenshot.png`}
+                  alt="Perfect Parking App"
+                  className="w-[300px] md:w-[340px] drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Feature callout badge — bottom */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.35, delay: 0.2 }}
+                  className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3 whitespace-nowrap"
+                >
+                  <screen.icon className={`w-5 h-5 ${screen.color}`} />
+                  <span className="text-white text-sm font-semibold">{screen.label}</span>
+                </motion.div>
               </AnimatePresence>
-
-              {/* Glow */}
-              <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full scale-75" />
-
-              {/* Phone frame */}
-              <div className="relative z-10 w-[260px] h-[530px] bg-gray-900 rounded-[44px] p-3 shadow-2xl border-[6px] border-gray-700">
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-gray-900 rounded-b-2xl z-20" />
-                <div className="w-full h-full rounded-[36px] overflow-hidden bg-white relative">
-                  <img
-                    src={`${import.meta.env.BASE_URL}app-screenshot.png`}
-                    alt="Perfect Parking App"
-                    className="w-full h-full object-cover object-top"
-                  />
-                  {/* Feature overlay that slides in */}
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={active}
-                      initial={{ y: "100%", opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: "100%", opacity: 0 }}
-                      transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                      className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/95 to-transparent p-5 pt-10"
-                    >
-                      <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${screen.color}`}>
-                        {screen.label}
-                      </div>
-                      <p className="text-white text-sm font-semibold leading-snug">
-                        {screen.headline}
-                      </p>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-                {/* Home indicator */}
-                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-24 h-1 bg-white/30 rounded-full" />
-              </div>
             </div>
           </div>
 
           {/* Feature tabs + description */}
           <div>
-            {/* Tab buttons */}
             <div className="grid grid-cols-3 gap-2 mb-10">
               {screens.map((s, i) => (
                 <button
@@ -201,7 +141,6 @@ export function AppShowcase() {
               ))}
             </div>
 
-            {/* Active feature description */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -210,7 +149,7 @@ export function AppShowcase() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6`}>
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
                   <screen.icon className={`w-7 h-7 ${screen.color}`} />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
@@ -222,7 +161,6 @@ export function AppShowcase() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Progress dots */}
             <div className="flex gap-2 items-center">
               {screens.map((_, i) => (
                 <button
@@ -235,7 +173,6 @@ export function AppShowcase() {
               ))}
             </div>
 
-            {/* App store badges */}
             <div className="mt-10 pt-8 border-t border-white/10">
               <p className="text-white/50 text-sm mb-4 font-medium">Download the Perfect Parking app</p>
               <div className="flex gap-4 flex-wrap">

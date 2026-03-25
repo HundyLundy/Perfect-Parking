@@ -4,24 +4,10 @@ import { Target, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function About() {
   const team = [
-    {
-      name: "Cooper Lundquist",
-      initials: "CL",
-      role: "Co-Founder",
-      phone: "361-533-2159",
-      email: "cooper@perfectparking.com"
-    },
-    {
-      name: "Ray Euresti",
-      initials: "RE",
-      role: "Co-Founder"
-    },
-    {
-      name: "Hunter Lundquist",
-      initials: "HL",
-      role: "Co-Founder",
-      phone: "720-937-3004"
-    }
+    { name: "Cooper Lundquist", initials: "CL", role: "Co-Founder" },
+    { name: "Laura Lundquist",  initials: "LL", role: "Co-Founder" },
+    { name: "Ray Euresti",      initials: "RE", role: "Co-Founder" },
+    { name: "Hunter Lundquist", initials: "HL", role: "Co-Founder" },
   ];
 
   const values = [
@@ -54,7 +40,9 @@ export default function About() {
       {/* HERO */}
       <section className="py-24 bg-muted text-center border-b border-border">
         <div className="max-w-3xl mx-auto px-4">
-          <h1 className="text-5xl font-display font-bold text-foreground mb-6">Operators and problem-solvers, not corporate consultants.</h1>
+          <h1 className="text-5xl font-display font-bold text-foreground mb-6">
+            Operators and problem-solvers, not corporate consultants.
+          </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             We are a team of real estate and technology operators dedicated to unlocking the hidden value sitting in commercial parking assets across the country.
           </p>
@@ -71,7 +59,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {team.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -79,19 +67,13 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-muted rounded-2xl p-8 text-center border border-border hover:border-primary/30 hover:shadow-md transition-all"
+                className="bg-muted rounded-2xl p-8 text-center border border-border hover:border-primary/30 hover:shadow-lg transition-all"
               >
-                <div className="w-24 h-24 mx-auto bg-primary text-white font-display font-bold text-2xl flex items-center justify-center rounded-full mb-6 shadow-md">
+                <div className="w-20 h-20 mx-auto bg-primary text-white font-display font-bold text-xl flex items-center justify-center rounded-full mb-5 shadow-md ring-4 ring-primary/20">
                   {member.initials}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{member.name}</h3>
-                <p className="text-primary font-semibold text-sm mb-4">{member.role}</p>
-                {member.phone && (
-                  <p className="text-muted-foreground text-sm">{member.phone}</p>
-                )}
-                {member.email && (
-                  <p className="text-muted-foreground text-sm">{member.email}</p>
-                )}
+                <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
+                <p className="text-primary font-semibold text-sm">{member.role}</p>
               </motion.div>
             ))}
           </div>

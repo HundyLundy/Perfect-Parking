@@ -37,66 +37,18 @@ export default function Home() {
   ];
 
   const whyFeatures = [
-    {
-      icon: QrCode,
-      title: "No More Paper Parking Permits",
-      desc: "Issue digital permits for residents and guests instantly from the dashboard — no printing, no handouts, no lost passes."
-    },
-    {
-      icon: UserCheck,
-      title: "You Are In Control",
-      desc: "Only authorized people park in your community. You decide who belongs — we enforce it automatically."
-    },
-    {
-      icon: ShieldCheck,
-      title: "Eliminate Guest Parking Abuse",
-      desc: "Stop unauthorized vehicles from taking spaces meant for residents. Real enforcement, zero confrontations."
-    },
-    {
-      icon: MapPin,
-      title: "Real-Time Space Availability",
-      desc: "Live occupancy data ensures accurate, up-to-the-minute information on every space in your property."
-    },
-    {
-      icon: Activity,
-      title: "User-Friendly Interface",
-      desc: "Intuitive navigation for a seamless parking experience — for property managers and parkers alike."
-    },
-    {
-      icon: BarChart3,
-      title: "Reporting & Analytics",
-      desc: "User-friendly dashboards with detailed reports on revenue, occupancy, violations, and compliance."
-    },
-    {
-      icon: CreditCard,
-      title: "Payment & Billing Support",
-      desc: "Apple Pay, Google Pay, credit card — accepted instantly. Auto receipts. Zero billing disputes on your end."
-    },
-    {
-      icon: TrendingUp,
-      title: "Revenue Share Program",
-      desc: "We only win when you win. Our revenue share model aligns our incentives with your property's success."
-    },
-    {
-      icon: Globe,
-      title: "Integration & Scalability",
-      desc: "Connect with your existing PMS, access control, and property management systems. Scale across multiple locations."
-    },
-    {
-      icon: Bell,
-      title: "Hassle-Free Setup & Onboarding",
-      desc: "From satellite mapping to digital signage to enforcement — we handle everything. You're live in under 30 days."
-    },
-    {
-      icon: CheckCircle2,
-      title: "Eliminate Enforcement Mistakes",
-      desc: "Digital LPR and automated violation notices eliminate the human error in manual enforcement."
-    },
-    {
-      icon: ShieldCheck,
-      title: "Create a Safer Parking Environment",
-      desc: "Only authorized vehicles on property means fewer strangers, less trespassing, and a safer community overall."
-    }
+    { icon: QrCode,       title: "No More Paper Parking Permits",   desc: "Issue digital permits for residents and guests instantly from the dashboard — no printing, no handouts, no lost passes." },
+    { icon: UserCheck,    title: "You Are In Control",              desc: "Only authorized people park in your community. You decide who belongs — we enforce it automatically." },
+    { icon: ShieldCheck,  title: "Eliminate Guest Parking Abuse",   desc: "Stop unauthorized vehicles from taking spaces meant for residents. Real enforcement, zero confrontations." },
+    { icon: MapPin,       title: "Real-Time Space Availability",    desc: "Live occupancy data ensures accurate, up-to-the-minute information on every space in your property." },
+    { icon: Activity,     title: "User-Friendly Interface",         desc: "Intuitive navigation for a seamless parking experience — for property managers and parkers alike." },
+    { icon: BarChart3,    title: "Reporting & Analytics",           desc: "User-friendly dashboards with detailed reports on revenue, occupancy, violations, and compliance." },
+    { icon: CreditCard,   title: "Payment & Billing Support",       desc: "Apple Pay, Google Pay, credit card — accepted instantly. Auto receipts. Zero billing disputes on your end." },
+    { icon: TrendingUp,   title: "Revenue Share Program",           desc: "We only win when you win. Our revenue share model aligns our incentives with your property's success.", green: true },
+    { icon: Globe,        title: "Integration & Scalability",       desc: "Connect with your existing PMS, access control, and property management systems. Scale across multiple locations." },
+    { icon: Bell,         title: "Hassle-Free Setup & Onboarding",  desc: "From satellite mapping to digital signage to enforcement — we handle everything. You're live in under 30 days." },
+    { icon: CheckCircle2, title: "Eliminate Enforcement Mistakes",  desc: "Digital LPR and automated violation notices eliminate the human error in manual enforcement.", green: true },
+    { icon: ShieldCheck,  title: "Create a Safer Parking Environment", desc: "Only authorized vehicles on property means fewer strangers, less trespassing, and a safer community overall." }
   ];
 
   return (
@@ -159,7 +111,7 @@ export default function Home() {
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Locations Served</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
-              <div className="text-3xl lg:text-4xl font-display font-bold text-green-700 mb-1">$1M+</div>
+              <div className="text-3xl lg:text-4xl font-display font-bold text-accent mb-1">$1M+</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Revenue Generated</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
@@ -187,16 +139,16 @@ export default function Home() {
               { num: "01", title: "Free Audit", desc: "We analyze your property to project exact revenue potential." },
               { num: "02", title: "Custom Setup", desc: "We deploy our hardware-light, automated system at zero cost to you." },
               { num: "03", title: "Automated Collections", desc: "We handle payments, compliance, and guest support 24/7." },
-              { num: "04", title: "Monthly Revenue", desc: "You receive a direct deposit and transparent reporting every month." }
+              { num: "04", title: "Monthly Revenue", desc: "You receive a direct deposit and transparent reporting every month.", accent: true }
             ].map((step, i) => (
               <motion.div
                 key={i}
-                className="relative p-8 rounded-2xl bg-muted border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className={`relative p-8 rounded-2xl border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${step.accent ? "bg-accent/5 border-accent/30" : "bg-muted border-border"}`}
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="text-5xl font-display font-extrabold text-primary/20 mb-4">{step.num}</div>
-                <h4 className="text-xl font-bold text-foreground mb-3">{step.title}</h4>
+                <div className={`text-5xl font-display font-extrabold mb-4 ${step.accent ? "text-accent/30" : "text-primary/20"}`}>{step.num}</div>
+                <h4 className={`text-xl font-bold mb-3 ${step.accent ? "text-accent" : "text-foreground"}`}>{step.title}</h4>
                 <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -222,7 +174,7 @@ export default function Home() {
                   <div className="text-secondary text-3xl font-bold mb-1">50</div>
                   <div className="text-white/60 text-sm font-medium uppercase">Spaces</div>
                 </div>
-                <div className="glass-panel-dark p-6 rounded-xl">
+                <div className="glass-panel-dark p-6 rounded-xl border-l-4 border-accent">
                   <div className="text-green-400 text-3xl font-bold mb-1">$1,000</div>
                   <div className="text-white/60 text-sm font-medium uppercase">Monthly Profit</div>
                 </div>
@@ -284,14 +236,20 @@ export default function Home() {
             {whyFeatures.map((feature, i) => (
               <motion.div
                 key={i}
-                className="bg-white p-7 rounded-2xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 hover:border-primary/20 transition-all duration-200"
+                className={`p-7 rounded-2xl shadow-sm border transition-all duration-200 hover:shadow-lg hover:-translate-y-1 ${
+                  feature.green
+                    ? "bg-accent/5 border-accent/25 hover:border-accent/50"
+                    : "bg-white border-border hover:border-primary/20"
+                }`}
                 {...fadeIn}
                 transition={{ delay: (i % 6) * 0.07 }}
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
+                  feature.green ? "bg-accent/15 text-accent" : "bg-primary/10 text-primary"
+                }`}>
                   <feature.icon className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-bold text-foreground mb-2">{feature.title}</h4>
+                <h4 className={`text-lg font-bold mb-2 ${feature.green ? "text-accent" : "text-foreground"}`}>{feature.title}</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
