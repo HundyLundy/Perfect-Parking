@@ -1,0 +1,150 @@
+Update the existing Perfect Parking website with the following improvements. Do NOT redesign from scratch. Refine and improve what already exists.
+
+---
+
+GLOBAL DESIGN FIXES:
+- Improve readability everywhere:
+  - Add dark overlays or gradients behind text on images
+  - Ensure strong contrast (WCAG readable)
+  - Avoid black text on dark blue backgrounds
+  - Use white or light text with subtle shadow or outline when on images
+- Increase background image visibility in hero sections (reduce over-darkening)
+- Fix any missing images/logos (ensure all assets render properly)
+
+---
+
+HOME PAGE:
+
+1. INDUSTRIES WE SERVE (EXPAND)
+Keep existing 3 featured:
+- Hotels & Resorts
+- Healthcare Facilities
+- Commercial Real Estate
+
+Add additional industries (grid style, not full sections):
+- Multifamily / Apartments
+- Retail Centers / Shopping Centers
+- Office Buildings
+- Mixed-Use Developments
+- Event Venues
+- Universities / Campuses
+- Municipal Parking / Cities
+- Airports / Transportation Hubs
+
+This section should be SEO-rich and scannable.
+
+---
+
+2. “WHAT’S YOUR PARKING WORTH” SECTION
+- Improve readability:
+  - Add overlay or blur behind text
+  - Increase font weight
+  - Add subtle text shadow or outline
+- Keep bold, high-impact feel
+
+---
+
+CONTACT PAGE:
+Update contact info to:
+
+Name: Cooper Lundquist  
+Phone: 361-533-2159  
+Emails:
+- info@perfectparking.com
+- cooper@perfectparking.com
+
+---
+
+SOLUTIONS PAGE:
+- Fix readability issues (especially black text on blue)
+- Ensure all sections have strong contrast
+- Keep structure the same (no redesign)
+
+---
+
+CASE STUDIES PAGE:
+
+1. Wimberley Image
+- Replace current boat ramp image with a neutral parking-related image placeholder
+
+2. “PARKING IS TRENDING UP” SECTION
+- Improve readability (contrast, overlays)
+
+3. UPDATE + VERIFY STATS:
+Replace with more credible, conservative language if needed.
+
+Use:
+
+- “Parking monetization demand has increased significantly since 2020, driven by rising operational costs and asset optimization trends.”
+- “A large percentage of commercial properties underutilize their parking assets.”
+- “Many properties see positive cash flow within months of implementing structured parking systems.”
+
+Add citations below (use placeholder citations if needed, labeled clearly):
+- Source: Urban Land Institute (ULI)
+- Source: McKinsey / Deloitte (if applicable)
+- Source: Parking Industry Reports
+
+DO NOT fabricate precise statistics. If uncertain, generalize.
+
+---
+
+EDUCATION PAGE:
+
+1. HERO SECTION
+- Fix readability (overlay, contrast, typography)
+
+2. “IS YOUR PROPERTY A GOOD CANDIDATE?”
+Expand with:
+
+- Hotels
+- Hospitals
+- Apartments
+- Retail centers
+- Office buildings
+- Mixed-use
+- Event-driven locations
+- High foot-traffic areas
+
+Make this section more robust and scannable.
+
+---
+
+ABOUT PAGE:
+
+1. TEAM ORDER:
+Display in this order:
+- Cooper Lundquist
+- Ray (placeholder if needed)
+- Hunter Lundquist
+
+2. CORE VALUES SECTION:
+Upgrade this section:
+- Make it feel stronger, more premium
+- Reduce generic language
+- Use sharper, more outcome-driven wording
+
+Example tone:
+- “We treat parking like a revenue asset, not an afterthought”
+- “Execution over theory”
+- “Transparency in reporting and results”
+- “Aligned incentives with property owners”
+
+---
+
+GENERAL UX IMPROVEMENTS:
+- Improve spacing and layout consistency
+- Ensure mobile responsiveness is clean
+- Maintain modern, tech-forward feel (AirGarage-inspired)
+
+---
+
+IMPORTANT:
+- Do NOT break existing structure
+- Do NOT remove working sections
+- Focus on refinement, clarity, and conversion
+
+---
+
+OUTPUT:
+Return updated site with all fixes applied and consistent styling across pages.
+---

@@ -1,5 +1,5 @@
 import { SEO } from "@/components/SEO";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,7 +20,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
-  
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,7 +49,7 @@ export default function Contact() {
       <section className="bg-muted py-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-            
+
             <div>
               <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-6">
                 Get Your Free Parking Revenue Audit.
@@ -58,7 +58,7 @@ export default function Contact() {
                 In 15 minutes, we'll identify your exact revenue opportunity and build a custom monetization plan for your property.
               </p>
 
-              <div className="space-y-8 bg-white p-8 rounded-2xl shadow-sm border border-border mb-8">
+              <div className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-border mb-8">
                 <h3 className="font-bold text-lg border-b border-border pb-4">Direct Contact</h3>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
@@ -66,24 +66,25 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Call us directly</div>
-                    <div className="font-bold text-foreground text-lg">Hunter Lundquist - (720) 937-3004</div>
+                    <div className="font-bold text-foreground text-lg">Cooper Lundquist — 361-533-2159</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Email us</div>
-                    <div className="font-bold text-foreground text-lg">hello@perfectparking.com</div>
+                    <div className="text-sm text-muted-foreground mb-1">Email us</div>
+                    <div className="font-bold text-foreground">info@perfectparking.com</div>
+                    <div className="font-semibold text-primary text-sm mt-1">cooper@perfectparking.com</div>
                   </div>
                 </div>
               </div>
 
               <div className="text-sm text-muted-foreground bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <strong>What happens next?</strong><br/>
-                1. We review your property via satellite map.<br/>
-                2. We project monthly revenue based on comparable lots.<br/>
+                <strong className="text-foreground">What happens next?</strong><br />
+                1. We review your property via satellite map.<br />
+                2. We project monthly revenue based on comparable lots.<br />
                 3. We schedule a quick call to share the numbers.
               </div>
             </div>
@@ -134,7 +135,13 @@ export default function Contact() {
                             <SelectItem value="hotel">Hotel / Resort</SelectItem>
                             <SelectItem value="hospital">Hospital / Medical</SelectItem>
                             <SelectItem value="cre">Commercial Real Estate</SelectItem>
+                            <SelectItem value="multifamily">Multifamily / Apartments</SelectItem>
+                            <SelectItem value="retail">Retail Center</SelectItem>
+                            <SelectItem value="office">Office Building</SelectItem>
+                            <SelectItem value="mixed">Mixed-Use Development</SelectItem>
+                            <SelectItem value="event">Event Venue</SelectItem>
                             <SelectItem value="marina">Marina / Boat Ramp</SelectItem>
+                            <SelectItem value="university">University / Campus</SelectItem>
                             <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
@@ -158,9 +165,9 @@ export default function Contact() {
                     </FormItem>
                   )} />
 
-                  <button 
-                    type="submit" 
-                    className="w-full h-14 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                  <button
+                    type="submit"
+                    className="w-full h-14 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 text-lg"
                   >
                     Submit Audit Request
                   </button>

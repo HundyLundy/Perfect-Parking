@@ -13,14 +13,14 @@ export default function Solutions() {
         description="A fully automated, hardware-light parking management system that eliminates revenue leakage."
       />
 
-      <section className="bg-muted py-24 border-b border-border">
+      <section className="bg-navy py-24 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-6">
+              <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
                 Modern Parking.<br/>Zero Headaches.
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              <p className="text-xl text-white/80 leading-relaxed mb-8">
                 Old parking systems rely on expensive boom gates, constant maintenance, and staff intervention. Perfect Parking is a 100% digital, integration-first platform that runs on autopilot.
               </p>
               <ul className="space-y-4 mb-10">
@@ -30,15 +30,15 @@ export default function Solutions() {
                   "Automated enforcement and compliance",
                   "Live revenue dashboard"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                    <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
+                  <li key={i} className="flex items-center gap-3 text-white font-medium">
+                    <CheckCircle2 className="w-6 h-6 text-secondary shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
               <button 
                 onClick={() => setLocation("/contact")}
-                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg"
+                className="px-8 py-4 bg-secondary text-secondary-foreground font-bold rounded-xl hover:bg-secondary/90 transition-colors shadow-lg"
               >
                 Book a Platform Demo
               </button>
