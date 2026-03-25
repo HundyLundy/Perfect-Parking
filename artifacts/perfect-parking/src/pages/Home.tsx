@@ -321,39 +321,64 @@ export default function Home() {
       </section>
 
       {/* MILITARY PARTNER SECTION */}
-      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
+      <section className="relative py-24 text-white overflow-hidden min-h-[520px] flex items-center">
+        {/* Soldiers background image */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/98 to-navy/60" />
+          <img
+            src={`${import.meta.env.BASE_URL}military-partner.png`}
+            alt="Soldiers background"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "30% center" }}
+          />
+          {/* Strong overlay to obscure any rectangle artifacts from the source image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/85 to-black/78" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* LEFT — quote content, no box */}
             <motion.div {...fadeIn}>
-              <div className="inline-flex items-center gap-2 bg-red-900/30 border border-red-700/40 text-red-300 px-4 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-wide">
-                ★ Partnership Announcement
-              </div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
-                Every parking spot supports our nation's heroes.
-              </h2>
-              <p className="text-white/80 text-lg leading-relaxed mb-6">
-                We are proud to partner with the <strong className="text-white">Military Warriors Support Foundation</strong> — the organization that serves combat-wounded veterans and Gold Star spouses.
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary mb-4">★ New Partnership Announcement</p>
+              <p className="text-white/90 text-lg leading-relaxed italic mb-6" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
+                "We are thrilled to share some exciting news! Today, we proudly announce our brand-new partnership with Perfect Parking, a collaboration that will help make a real difference in the lives of our nation's heroes. Now, every time you park at a Perfect Parking lot, you're not just finding a spot — you're actively supporting combat-wounded veterans and Gold Star spouses. Together, we're turning everyday moments into meaningful change."
               </p>
-              <blockquote className="border-l-4 border-secondary pl-6 italic text-white/70 leading-relaxed mb-8">
-                "Now, every time you park at a Perfect Parking lot, you're not just finding a spot — you're actively supporting combat-wounded veterans and Gold Star spouses. Together, we're turning everyday moments into meaningful change."
-              </blockquote>
-              <p className="text-secondary font-bold text-sm uppercase tracking-wider">— Military Warriors Support Foundation</p>
+              <p className="text-secondary font-bold text-sm mb-6 uppercase tracking-wider" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
+                — Military Warriors Support Foundation
+              </p>
+              <p className="text-white/60 text-xs uppercase tracking-widest">Show Your Support</p>
             </motion.div>
 
+            {/* RIGHT — Perfect Parking partnership card, rebuilt without image box */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex justify-center"
+              className="flex flex-col items-center text-center"
             >
-              <img
-                src={`${import.meta.env.BASE_URL}military-partner.png`}
-                alt="Military Warriors Support Foundation Partnership with Perfect Parking"
-                className="rounded-2xl shadow-2xl max-w-full w-full border-2 border-white/10"
-              />
+              <div className="inline-block bg-primary/90 text-white text-xs font-bold uppercase tracking-[0.25em] px-6 py-2 mb-5">
+                New Partnership
+              </div>
+
+              {/* PERFECT PARKING grid-style wordmark */}
+              <div className="mb-4 grid grid-cols-8 gap-[3px] text-white font-display font-black text-2xl md:text-3xl leading-none w-fit mx-auto">
+                {["P","E","R","F","E","C","T",""].map((l, i) => (
+                  <div key={`r1-${i}`} className={`w-9 h-9 md:w-11 md:h-11 flex items-center justify-center border border-white/40 ${l ? "bg-white/15" : "bg-transparent border-transparent"}`}>{l}</div>
+                ))}
+                {["P","A","R","K","🚗","N","G",""].map((l, i) => (
+                  <div key={`r2-${i}`} className={`w-9 h-9 md:w-11 md:h-11 flex items-center justify-center border border-white/40 text-xl ${l && l !== "" ? "bg-white/15" : "bg-transparent border-transparent"}`}>{l}</div>
+                ))}
+              </div>
+
+              <p className="text-white/70 text-xs uppercase tracking-[0.2em] mb-1">Manage &amp; Monetize Your Parking</p>
+              <p className="text-white font-bold text-sm tracking-wider mb-8">PERFECTPARKING.COM</p>
+
+              <div className="w-full border-t border-white/25 pt-6">
+                <p className="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Thank You For Helping Us</p>
+                <p className="text-white/80 text-xs uppercase tracking-[0.18em] flex items-center justify-center gap-2">
+                  <span>★</span> Serve the Heroes Who Serve For Us
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
