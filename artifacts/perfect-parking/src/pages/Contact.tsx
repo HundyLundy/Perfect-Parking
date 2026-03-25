@@ -66,7 +66,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Call us directly</div>
-                    <div className="font-bold text-foreground text-lg">Ph: (361) 585-1111</div>
+                    <a href="tel:+13615851111" className="font-bold text-foreground text-lg hover:text-primary transition-colors">Ph: (361) 585-1111</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -75,8 +75,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Email us</div>
-                    <div className="font-bold text-foreground">info@perfectparking.com</div>
-                    <div className="font-semibold text-primary text-sm mt-1">cooper@perfectparking.com</div>
+                    <a href="mailto:info@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectparking.com</a>
+                    <a href="mailto:cooper@perfectparking.com" className="font-semibold text-primary text-sm mt-1 block hover:text-primary/80 transition-colors">cooper@perfectparking.com</a>
                   </div>
                 </div>
               </div>

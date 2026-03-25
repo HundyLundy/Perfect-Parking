@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                <span className="text-white/80 text-sm">Ph: (361) 585-1111</span>
+                <a href="tel:+13615851111" className="text-white/80 hover:text-secondary transition-colors text-sm">Ph: (361) 585-1111</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />

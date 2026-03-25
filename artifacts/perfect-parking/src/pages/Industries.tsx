@@ -167,15 +167,25 @@ export default function Industries() {
               </div>
             </div>
 
-            <div className="text-center">
-              <button
-                onClick={() => setLocation("/contact")}
-                className="px-10 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg text-lg inline-flex items-center gap-2"
-              >
-                Get a Custom Audit for Your Property <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA FOOTER — brand-teal to match hero */}
+      <section className="bg-brand-teal py-20 text-white text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            Ready to monetize your parking?
+          </h2>
+          <p className="text-white/80 text-lg mb-10 leading-relaxed">
+            Tell us about your property and we'll build a custom revenue projection — no commitment required.
+          </p>
+          <button
+            onClick={() => setLocation("/contact")}
+            className="px-10 py-4 bg-secondary text-secondary-foreground font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-lg inline-flex items-center gap-2"
+          >
+            Get a Custom Audit for Your Property <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </section>
     </>
