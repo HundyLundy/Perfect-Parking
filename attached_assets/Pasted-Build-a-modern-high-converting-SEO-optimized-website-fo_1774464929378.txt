@@ -1,0 +1,181 @@
+Build a modern, high-converting, SEO-optimized website for a company called “Perfect Parking.”
+
+This is NOT a basic website. This should feel like a premium, high-growth, venture-backed company similar to AirGarage.
+
+⸻
+
+GOALS:
+	•	Generate inbound leads (form submissions + calls)
+	•	Rank for SEO (parking monetization, parking management, etc.)
+	•	Clearly communicate value: turning parking into revenue
+	•	Feel bold, modern, clean, and slightly flashy (but still professional)
+
+⸻
+
+TARGET AUDIENCE:
+	•	Hotel owners
+	•	Hospital administrators
+	•	Commercial real estate owners/operators
+	•	Property managers
+
+⸻
+
+BRAND STYLE:
+	•	Use existing Perfect Parking brand colors (blue, gold, white)
+	•	Modernize slightly with gradients, contrast, and clean UI
+	•	Add subtle motion/animations (hover effects, transitions)
+	•	Look more like a tech company than a traditional parking company
+
+⸻
+
+SITE STRUCTURE:
+
+Create a FULL multi-page website with the following pages:
+	1.	HOME PAGE
+
+	•	Strong hero:
+Headline: “Turn Your Parking Into Profit”
+Subheadline: “We help properties generate consistent monthly revenue from parking with zero operational burden.”
+CTA: “Get a Parking Revenue Analysis”
+	•	Sections:
+	•	“How It Works” (3–4 steps, simple + visual)
+	•	“Why Perfect Parking” (automation, no CAPEX, reporting, turnkey)
+	•	“Industries We Serve” (Hotels, Hospitals, CRE)
+	•	“Case Study Highlight – Wimberley”
+	•	“Revenue Potential” (numbers, examples, ranges)
+	•	CTA section repeated
+
+⸻
+
+	2.	SOLUTIONS PAGE (or “How It Works”)
+
+	•	Explain system clearly:
+	•	Fully automated
+	•	No staff training required
+	•	Payment + enforcement handled
+	•	Revenue reporting dashboard
+	•	Include icons, diagrams, simple visuals
+	•	Emphasize “turnkey” and “hands-off”
+
+⸻
+
+	3.	INDUSTRIES PAGE
+Separate sections for:
+
+	•	Hotels
+	•	Hospitals
+	•	Commercial Real Estate
+
+Each should explain:
+	•	Problem (underutilized parking)
+	•	Opportunity (monetization)
+	•	Outcome (revenue + control)
+
+⸻
+
+	4.	CASE STUDIES / DATA PAGE
+
+	•	Highlight Wimberley example (use realistic numbers if needed)
+	•	Show:
+	•	monthly revenue
+	•	number of spaces
+	•	usage patterns
+	•	Add additional “example scenarios” if real data is limited
+	•	Include a “Parking is Trending Up” section:
+	•	mention increase in parking monetization demand
+	•	include placeholder for cited stats (we will refine later)
+
+⸻
+
+	5.	INDUSTRY / EDUCATION PAGE
+
+	•	Explain:
+	•	why parking is an underutilized asset
+	•	how owners lose money today
+	•	how monetization works
+	•	This page should be SEO-heavy and content-rich
+
+⸻
+
+	6.	ABOUT PAGE
+
+	•	Founders (Hunter, Cooper, Ray)
+	•	Position as operators + problem-solvers
+	•	Keep tone confident but not corporate fluff
+
+⸻
+
+	7.	CONTACT PAGE
+
+	•	Simple, clean form (placeholder for GoHighLevel embed)
+	•	Fields:
+Name, Email, Phone, Property Type, Message
+	•	CTA: “Request a Parking Revenue Analysis”
+
+⸻
+
+	8.	LANDING PAGE TEMPLATE (IMPORTANT)
+Create a reusable landing page template for ads:
+
+	•	Minimal navigation
+	•	Strong headline
+	•	Form above the fold
+	•	Short trust + benefits sections
+
+⸻
+
+DESIGN REQUIREMENTS:
+	•	Mobile-first design
+	•	Fast loading
+	•	Clean typography
+	•	Large spacing (modern feel)
+	•	Subtle animations (fade-in, hover effects)
+	•	Strong CTA buttons throughout
+
+⸻
+
+SEO REQUIREMENTS:
+	•	Optimize for:
+“parking management”
+“parking revenue”
+“monetize parking”
+“parking solutions for hotels”
+“hospital parking revenue”
+	•	Use proper headings (H1, H2, etc.)
+	•	Include meta titles + descriptions
+
+⸻
+
+TECH REQUIREMENTS:
+	•	Build in a way that can be hosted on Vercel
+	•	Clean component structure
+	•	Easy to swap in GoHighLevel forms later
+	•	No unnecessary bloat
+
+⸻
+
+TONE:
+	•	Confident
+	•	Clear
+	•	Revenue-focused
+	•	No corporate jargon
+
+⸻
+
+INSPIRATION:
+	•	AirGarage (modern, clean, strong messaging)
+	•	Tech startup landing pages
+
+⸻
+
+IMPORTANT:
+Do NOT make this look like a generic contractor website.
+This should feel like a scalable, tech-enabled revenue platform.
+
+⸻
+
+OUTPUT:
+	•	Fully working multi-page website
+	•	Clean UI
+	•	Realistic placeholder content where needed
+	•	Ready to deploy
