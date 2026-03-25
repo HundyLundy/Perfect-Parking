@@ -7,14 +7,15 @@ import {
   ArrowRight, CheckCircle2, TrendingUp, ShieldCheck, Activity,
   Building, Hospital, CarFront, Users, Home as HomeIcon, ShoppingBag,
   Landmark, LayoutGrid, Music, GraduationCap, ParkingCircle, Plane,
-  Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, UserCheck, Globe
+  Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, UserCheck, Globe,
+  Search, Zap, DollarSign, Download, ChevronDown, Smartphone
 } from "lucide-react";
 import { useLocation } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
 
 export default function Home() {
   const [, setLocation] = useLocation();
-  const [activeTab, setActiveTab] = useState<"owners" | "drivers">("owners");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "driver" | "reporting">("dashboard");
 
   const { count: locationsCount, ref: locationsRef } = useCountUp(50, 1600);
   const { count: revenueCount, ref: revenueRef } = useCountUp(1, 2000);
@@ -199,45 +200,38 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">The Process</h2>
-            <h3 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">From empty spaces to monthly deposits in 4 steps.</h3>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">How It Works</h2>
+            <h3 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">Up and running in under 30 days.</h3>
+            <p className="text-muted-foreground text-lg">Four steps from analysis to automatic monthly income.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { num: "01", title: "Free Audit",             desc: "We analyze your property to project exact revenue potential.",                                         color: "blue" },
-              { num: "02", title: "Custom Setup",           desc: "We deploy our hardware-light, automated system at zero cost to you.",                                  color: "teal" },
-              { num: "03", title: "Automated Collections",  desc: "We handle payments, compliance, and guest support 24/7.",                                              color: "primary" },
-              { num: "04", title: "Monthly Revenue",        desc: "You receive a direct deposit and transparent reporting every month.",                                   color: "accent" }
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                className={`relative p-8 rounded-2xl border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
-                  step.color === "accent"  ? "bg-accent/5 border-accent/30" :
-                  step.color === "blue"   ? "bg-brand-blue/5 border-brand-blue/25" :
-                  step.color === "teal"   ? "bg-brand-teal/5 border-brand-teal/25" :
-                  "bg-muted border-border"
-                }`}
-                {...fadeIn}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className={`text-5xl font-display font-extrabold mb-4 ${
-                  step.color === "accent"  ? "text-accent/30" :
-                  step.color === "blue"   ? "text-brand-blue/25" :
-                  step.color === "teal"   ? "text-brand-teal/25" :
-                  "text-primary/20"
-                }`}>{step.num}</div>
-                <h4 className={`text-xl font-bold mb-3 ${
-                  step.color === "accent" ? "text-accent" :
-                  step.color === "blue"  ? "text-brand-blue" :
-                  step.color === "teal"  ? "text-brand-teal" :
-                  "text-foreground"
-                }`}>{step.title}</h4>
-                <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Desktop connector line */}
+            <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-accent/30 z-0" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {[
+                { num: "01", icon: Search,      title: "Analyze",      desc: "We map your property and model your exact revenue potential — free, no commitment.", color: "bg-primary/10 text-primary" },
+                { num: "02", icon: Zap,         title: "Deploy",       desc: "Hardware-light system installed at zero cost. Signage, software, and enforcement — done.", color: "bg-brand-teal/10 text-brand-teal" },
+                { num: "03", icon: CreditCard,  title: "Drivers Pay",  desc: "QR scan or text-to-pay. Apple Pay, Google Pay, or card. Automated 24/7 — no staff.", color: "bg-blue-50 text-brand-blue" },
+                { num: "04", icon: DollarSign,  title: "You Earn",     desc: "Monthly direct deposit with full transparent reporting. You do nothing.", color: "bg-accent/10 text-accent" },
+              ].map((step, i) => (
+                <motion.div
+                  key={i}
+                  className="relative flex flex-col items-center text-center p-8 rounded-2xl bg-white border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-200 z-10"
+                  {...fadeIn}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${step.color}`}>
+                    <step.icon className="w-7 h-7" />
+                  </div>
+                  <div className="text-xs font-bold text-muted-foreground/50 uppercase tracking-widest mb-1">{step.num}</div>
+                  <h4 className="text-lg font-display font-bold text-foreground mb-3">{step.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -309,12 +303,12 @@ export default function Home() {
       <section className="py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Why Perfect Parking?</h2>
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">The Platform</h2>
             <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              An easy-to-use system built for real property owners.
+              Built to run without you.
             </h3>
             <p className="text-muted-foreground text-lg">
-              One platform that handles parking space management, payment and billing, integration, enforcement, and reporting — all without adding work to your team.
+              Every feature is designed around one goal: maximum owner revenue with zero operational overhead. Payments, enforcement, reporting, and compliance — fully automated.
             </p>
           </div>
 
@@ -355,75 +349,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLATFORM DEMO */}
-      <section className="py-24 bg-navy text-white overflow-hidden">
+      {/* PLATFORM PREVIEW */}
+      <section className="py-24 bg-[#0a1628] text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-secondary font-bold tracking-widest uppercase text-sm mb-3">The Platform</h2>
-            <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">One platform. Two perspectives.</h3>
-            <p className="text-white/70 text-lg">See what it's like for your renters and for you as an owner.</p>
+            <h2 className="text-secondary font-bold tracking-widest uppercase text-sm mb-3">Platform Preview</h2>
+            <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">See How It Works</h3>
+            <p className="text-white/60 text-lg">One platform built for property owners. Zero complexity. Total visibility.</p>
           </div>
 
-          <div className="flex justify-center gap-3 mb-10">
-            {(["owners", "drivers"] as const).map((tab) => (
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {([
+              { id: "dashboard", label: "Owner Dashboard", icon: BarChart3 },
+              { id: "driver",    label: "Driver Experience", icon: Smartphone },
+              { id: "reporting", label: "Reporting",         icon: TrendingUp },
+            ] as const).map(({ id, label, icon: Icon }) => (
               <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${
-                  activeTab === tab
-                    ? "bg-secondary text-navy shadow-lg scale-105"
-                    : "bg-white/10 text-white/70 hover:bg-white/20"
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${
+                  activeTab === id
+                    ? "bg-secondary text-navy shadow-lg"
+                    : "bg-white/8 text-white/60 hover:bg-white/12 hover:text-white border border-white/10"
                 }`}
               >
-                {tab === "owners" ? "For Property Owners" : "For Drivers"}
+                <Icon className="w-4 h-4" /> {label}
               </button>
             ))}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              {activeTab === "owners" ? (
-                <motion.div key="owners" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                  <h4 className="text-2xl font-display font-bold text-white mb-4">Your revenue dashboard — always on.</h4>
-                  <p className="text-white/70 mb-8 leading-relaxed">
-                    Log in anytime to see live transactions, occupancy rates, and monthly projections. We handle all the accounting and deposit revenue directly to your account.
-                  </p>
+          <div className="grid lg:grid-cols-5 gap-12 items-start">
+            {/* Left panel — copy */}
+            <div className="lg:col-span-2 pt-4">
+              {activeTab === "dashboard" && (
+                <motion.div key="d-copy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+                  <h4 className="text-2xl font-display font-bold text-white mb-4 leading-snug">Your revenue, always visible.</h4>
+                  <p className="text-white/60 leading-relaxed mb-8">Log in anytime to see live revenue, occupancy rates, session activity, and violation status. We send a monthly summary and direct deposit automatically.</p>
                   <ul className="space-y-4">
-                    {[
-                      { label: "Real-time revenue tracking", desc: "See every transaction as it happens" },
-                      { label: "Occupancy & utilization reports", desc: "Know exactly how your lot is performing" },
-                      { label: "Violation management", desc: "Automated notices — no confrontations" },
-                      { label: "Monthly direct deposit", desc: "Revenue lands in your account automatically" },
-                    ].map((item) => (
-                      <li key={item.label} className="flex gap-3">
+                    {["Real-time revenue & occupancy", "Every session tracked with time & plate", "Automated violation notices", "Monthly direct deposit with full audit trail"].map((l) => (
+                      <li key={l} className="flex gap-3 items-start">
                         <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                        <div>
-                          <div className="text-white font-semibold text-sm">{item.label}</div>
-                          <div className="text-white/50 text-xs">{item.desc}</div>
-                        </div>
+                        <span className="text-white/80 text-sm">{l}</span>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
-              ) : (
-                <motion.div key="drivers" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                  <h4 className="text-2xl font-display font-bold text-white mb-4">Pay in seconds. No app required.</h4>
-                  <p className="text-white/70 mb-8 leading-relaxed">
-                    Drivers scan a QR code or text a shortcode to pay with Apple Pay, Google Pay, or any card. Instant receipt. Zero friction.
-                  </p>
+              )}
+              {activeTab === "driver" && (
+                <motion.div key="dr-copy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+                  <h4 className="text-2xl font-display font-bold text-white mb-4 leading-snug">Frictionless for drivers. Profitable for you.</h4>
+                  <p className="text-white/60 leading-relaxed mb-8">Drivers scan a QR code or text a shortcode to pay in seconds. No app download. No meter hunting. Apple Pay, Google Pay, or any card accepted.</p>
                   <ul className="space-y-4">
-                    {[
-                      { label: "Scan or text to pay", desc: "QR code visible on every sign" },
-                      { label: "Apple Pay & Google Pay", desc: "One tap checkout, no card entry needed" },
-                      { label: "Instant digital receipt", desc: "Sent by text or email automatically" },
-                      { label: "No app download", desc: "Works on any smartphone, any time" },
-                    ].map((item) => (
-                      <li key={item.label} className="flex gap-3">
+                    {["Scan QR or text to pay instantly", "Apple Pay & Google Pay — one tap", "Instant digital receipt by text or email", "No app required — works on any phone"].map((l) => (
+                      <li key={l} className="flex gap-3 items-start">
                         <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                        <div>
-                          <div className="text-white font-semibold text-sm">{item.label}</div>
-                          <div className="text-white/50 text-xs">{item.desc}</div>
-                        </div>
+                        <span className="text-white/80 text-sm">{l}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+              {activeTab === "reporting" && (
+                <motion.div key="r-copy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+                  <h4 className="text-2xl font-display font-bold text-white mb-4 leading-snug">Complete reporting. Zero accounting work.</h4>
+                  <p className="text-white/60 leading-relaxed mb-8">Every session, payment, and violation is logged and exportable. Month-end summaries automatically prepared. Export to CSV in one click.</p>
+                  <ul className="space-y-4">
+                    {["Revenue by day, week, and month", "Per-space and per-lot breakdown", "Violation and compliance tracking", "One-click CSV export for your records"].map((l) => (
+                      <li key={l} className="flex gap-3 items-start">
+                        <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                        <span className="text-white/80 text-sm">{l}</span>
                       </li>
                     ))}
                   </ul>
@@ -431,88 +426,216 @@ export default function Home() {
               )}
             </div>
 
-            {/* Mock Dashboard */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
-              <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/10">
-                {activeTab === "owners" ? (
-                  <motion.div key="owners-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                    {/* Dashboard Header */}
-                    <div className="bg-navy px-5 py-4 flex items-center gap-3">
-                      <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-400"/><div className="w-3 h-3 rounded-full bg-yellow-400"/><div className="w-3 h-3 rounded-full bg-green-400"/></div>
-                      <span className="text-white/60 text-xs font-mono">owner.perfectparking.com/dashboard</span>
-                    </div>
-                    <div className="bg-gray-50 p-6">
-                      <div className="mb-5">
-                        <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Revenue This Month</div>
-                        <div className="text-4xl font-display font-bold text-foreground">$2,847</div>
-                        <div className="flex items-center gap-1.5 mt-1.5">
-                          <TrendingUp className="w-4 h-4 text-green-500" />
-                          <span className="text-green-600 text-sm font-bold">+18%</span>
-                          <span className="text-muted-foreground text-xs">vs last month</span>
-                        </div>
+            {/* Right panel — mock UI */}
+            <div className="lg:col-span-3">
+              <div className="relative">
+                <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full pointer-events-none" />
+                <div className="relative rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)] border border-white/10">
+
+                  {/* OWNER DASHBOARD */}
+                  {activeTab === "dashboard" && (
+                    <motion.div key="d-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                      <div className="bg-[#111827] px-5 py-3 flex items-center gap-3 border-b border-white/10">
+                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
+                        <span className="text-white/40 text-xs font-mono">owner.perfectparking.com / dashboard</span>
                       </div>
-                      <div className="mb-5">
-                        <div className="flex justify-between text-xs font-semibold text-muted-foreground mb-1.5">
-                          <span>Lot Occupancy</span><span className="text-foreground">76%</span>
+                      <div className="bg-[#0f172a] p-5">
+                        {/* Header row */}
+                        <div className="flex items-start justify-between mb-5">
+                          <div>
+                            <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Revenue — June 2025</div>
+                            <div className="text-4xl font-display font-bold text-white">$2,847</div>
+                            <div className="flex items-center gap-1.5 mt-1">
+                              <TrendingUp className="w-3.5 h-3.5 text-green-400" />
+                              <span className="text-green-400 text-xs font-bold">+18%</span>
+                              <span className="text-white/30 text-xs">vs last month</span>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Net to Owner</div>
+                            <div className="text-2xl font-display font-bold text-secondary">$2,107</div>
+                          </div>
                         </div>
-                        <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-                          <div className="h-3 bg-primary rounded-full" style={{ width: "76%" }} />
+                        {/* Bar chart */}
+                        <div className="mb-5 bg-white/5 rounded-xl p-4">
+                          <div className="flex items-end gap-1.5 h-16 mb-2">
+                            {[55, 70, 48, 80, 65, 90, 75, 82, 68, 95, 71, 88].map((h, i) => (
+                              <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, backgroundColor: i === 10 ? '#dec600' : 'rgba(55,139,255,0.5)' }} />
+                            ))}
+                          </div>
+                          <div className="flex justify-between text-[10px] text-white/25 font-mono">
+                            <span>Jun 1</span><span>Jun 15</span><span>Jun 30</span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="grid grid-cols-3 gap-3">
-                        <div className="bg-white rounded-xl p-3 border border-border text-center">
-                          <div className="text-xl font-bold text-foreground">47</div>
-                          <div className="text-xs text-muted-foreground">Transactions</div>
+                        {/* Occupancy */}
+                        <div className="mb-4 bg-white/5 rounded-xl p-4">
+                          <div className="flex justify-between text-xs font-semibold mb-2">
+                            <span className="text-white/50">Lot Occupancy</span><span className="text-white">76%</span>
+                          </div>
+                          <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-2 bg-primary rounded-full" style={{ width: "76%" }} />
+                          </div>
                         </div>
-                        <div className="bg-white rounded-xl p-3 border border-border text-center">
-                          <div className="text-xl font-bold text-red-500">3</div>
-                          <div className="text-xs text-muted-foreground">Violations</div>
-                        </div>
-                        <div className="bg-white rounded-xl p-3 border border-green-100 bg-green-50 text-center">
-                          <div className="text-xl font-bold text-green-600">$0</div>
-                          <div className="text-xs text-muted-foreground">Staff Cost</div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ) : (
-                  <motion.div key="drivers-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                    <div className="bg-primary px-5 py-4 flex items-center gap-3">
-                      <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-400"/><div className="w-3 h-3 rounded-full bg-yellow-400"/><div className="w-3 h-3 rounded-full bg-green-400"/></div>
-                      <span className="text-white/60 text-xs font-mono">pay.perfectparking.com</span>
-                    </div>
-                    <div className="bg-gray-50 p-6">
-                      <div className="text-center mb-4">
-                        <div className="bg-white inline-flex p-4 rounded-2xl shadow-sm mb-3 border border-border">
-                          <QrCode className="w-16 h-16 text-foreground" />
-                        </div>
-                        <div className="font-bold text-foreground text-lg">Lot 14A — Main Street</div>
-                        <div className="text-muted-foreground text-sm">$3.00 / hour · Open 24 hrs</div>
-                      </div>
-                      <div className="bg-white rounded-xl border border-border p-4 mb-4">
-                        <div className="text-xs font-semibold text-muted-foreground mb-3">SELECT DURATION</div>
-                        <div className="flex gap-2 mb-4">
-                          {["1 hr", "2 hrs", "4 hrs", "All Day"].map((d, i) => (
-                            <button key={d} className={`flex-1 py-2 rounded-lg text-xs font-bold border transition-all ${i === 1 ? "bg-primary text-white border-primary" : "border-border text-muted-foreground"}`}>{d}</button>
+                        {/* Session list */}
+                        <div className="bg-white/5 rounded-xl overflow-hidden">
+                          <div className="px-4 py-2.5 border-b border-white/10 text-xs font-bold text-white/40 uppercase tracking-wider">Recent Sessions</div>
+                          {[
+                            { plate: "TX·4AFJ21", lot: "Lot 14A", amt: "$8.00", dur: "2h 14m" },
+                            { plate: "TX·8BXK09", lot: "Main St", amt: "$3.00", dur: "1h 00m" },
+                            { plate: "TX·2ZKL55", lot: "Lot 14A", amt: "$15.00", dur: "All Day" },
+                          ].map((s, i) => (
+                            <div key={i} className="flex items-center justify-between px-4 py-3 border-b border-white/5 last:border-0">
+                              <div className="font-mono text-xs text-white/60">{s.plate}</div>
+                              <div className="text-xs text-white/40">{s.lot}</div>
+                              <div className="text-xs text-white/40">{s.dur}</div>
+                              <div className="text-xs font-bold text-green-400">{s.amt}</div>
+                            </div>
                           ))}
                         </div>
-                        <div className="flex justify-between text-sm font-semibold">
-                          <span className="text-muted-foreground">Total</span>
-                          <span className="text-foreground">$6.00</span>
+                        {/* Stat pills */}
+                        <div className="grid grid-cols-3 gap-3 mt-4">
+                          <div className="bg-white/5 rounded-xl p-3 text-center">
+                            <div className="text-lg font-bold text-white">47</div>
+                            <div className="text-[10px] text-white/40 uppercase tracking-wide">Sessions</div>
+                          </div>
+                          <div className="bg-red-900/30 rounded-xl p-3 text-center">
+                            <div className="text-lg font-bold text-red-400">3</div>
+                            <div className="text-[10px] text-white/40 uppercase tracking-wide">Violations</div>
+                          </div>
+                          <div className="bg-green-900/30 rounded-xl p-3 text-center">
+                            <div className="text-lg font-bold text-green-400">$0</div>
+                            <div className="text-[10px] text-white/40 uppercase tracking-wide">Staff Cost</div>
+                          </div>
                         </div>
                       </div>
-                      <div className="space-y-2">
-                        <button className="w-full py-3 bg-black text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2">
-                          <span className="text-lg"></span> Apple Pay
-                        </button>
-                        <button className="w-full py-3 bg-white border border-border text-foreground rounded-xl font-bold text-sm flex items-center justify-center gap-2">
-                          <CreditCard className="w-4 h-4" /> Pay with Card
-                        </button>
+                    </motion.div>
+                  )}
+
+                  {/* DRIVER EXPERIENCE */}
+                  {activeTab === "driver" && (
+                    <motion.div key="dr-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                      <div className="bg-primary px-5 py-3 flex items-center gap-3 border-b border-white/10">
+                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
+                        <span className="text-white/50 text-xs font-mono">pay.perfectparking.com / lot-14a</span>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
+                      <div className="bg-white p-6">
+                        {/* Lot header */}
+                        <div className="flex items-center gap-3 mb-5 pb-5 border-b border-gray-100">
+                          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shrink-0">
+                            <MapPin className="w-5 h-5 text-white" />
+                          </div>
+                          <div>
+                            <div className="font-bold text-foreground text-base leading-tight">Lot 14A — Main Street</div>
+                            <div className="text-muted-foreground text-sm">$3.00 / hour · Open 24 hrs</div>
+                          </div>
+                          <div className="ml-auto flex items-center gap-1.5 bg-green-50 text-green-600 px-2.5 py-1 rounded-full text-xs font-bold border border-green-100">
+                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> Open
+                          </div>
+                        </div>
+                        {/* QR */}
+                        <div className="flex justify-center mb-5">
+                          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 inline-flex flex-col items-center gap-2">
+                            <QrCode className="w-20 h-20 text-foreground" />
+                            <div className="text-xs text-muted-foreground font-medium">Scan to pay</div>
+                          </div>
+                        </div>
+                        {/* Duration */}
+                        <div className="bg-gray-50 rounded-xl p-4 mb-4">
+                          <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Select Duration</div>
+                          <div className="grid grid-cols-4 gap-2 mb-4">
+                            {[{l:"1 hr",v:3},{l:"2 hrs",v:6},{l:"4 hrs",v:12},{l:"All Day",v:20}].map((d, i) => (
+                              <button key={d.l} className={`py-2.5 rounded-xl text-xs font-bold border transition-all ${i === 1 ? "bg-primary text-white border-primary shadow-sm" : "border-gray-200 text-muted-foreground bg-white"}`}>{d.l}</button>
+                            ))}
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-muted-foreground text-sm font-medium">Total due</span>
+                            <span className="text-2xl font-display font-bold text-foreground">$6.00</span>
+                          </div>
+                        </div>
+                        {/* Pay buttons */}
+                        <div className="space-y-2.5">
+                          <button className="w-full py-3.5 bg-black text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-sm">
+                            <span className="text-base"> </span>Apple Pay
+                          </button>
+                          <button className="w-full py-3.5 bg-white border border-gray-200 text-foreground rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+                            <CreditCard className="w-4 h-4 text-muted-foreground" /> Pay with Card
+                          </button>
+                        </div>
+                        <p className="text-center text-xs text-muted-foreground mt-3">No account needed · Receipt sent by text</p>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* REPORTING */}
+                  {activeTab === "reporting" && (
+                    <motion.div key="r-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                      <div className="bg-[#111827] px-5 py-3 flex items-center gap-3 border-b border-white/10">
+                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
+                        <span className="text-white/40 text-xs font-mono">owner.perfectparking.com / reports</span>
+                      </div>
+                      <div className="bg-[#0f172a] p-5">
+                        {/* Report header */}
+                        <div className="flex items-center justify-between mb-5">
+                          <div>
+                            <div className="text-white font-bold text-base">Revenue Report</div>
+                            <div className="text-white/40 text-xs mt-0.5">All Locations</div>
+                          </div>
+                          <div className="flex gap-2">
+                            <button className="flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-2 rounded-lg border border-white/10 font-medium">
+                              June 2025 <ChevronDown className="w-3 h-3" />
+                            </button>
+                            <button className="flex items-center gap-1.5 text-xs text-secondary bg-secondary/10 px-3 py-2 rounded-lg border border-secondary/20 font-bold">
+                              <Download className="w-3 h-3" /> Export
+                            </button>
+                          </div>
+                        </div>
+                        {/* KPI row */}
+                        <div className="grid grid-cols-3 gap-3 mb-5">
+                          <div className="bg-white/5 rounded-xl p-3.5">
+                            <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Total Revenue</div>
+                            <div className="text-xl font-display font-bold text-white">$2,847</div>
+                          </div>
+                          <div className="bg-white/5 rounded-xl p-3.5">
+                            <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Avg Ticket</div>
+                            <div className="text-xl font-display font-bold text-white">$6.20</div>
+                          </div>
+                          <div className="bg-white/5 rounded-xl p-3.5">
+                            <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Sessions</div>
+                            <div className="text-xl font-display font-bold text-white">459</div>
+                          </div>
+                        </div>
+                        {/* Bar chart */}
+                        <div className="bg-white/5 rounded-xl p-4 mb-4">
+                          <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">Revenue by Day</div>
+                          <div className="flex items-end gap-1 h-16">
+                            {[40,55,35,70,60,85,72,50,65,90,78,45,80,68,55,75,88,65,70,45,82,60,50,72,65,88,75,92,65,80].map((h, i) => (
+                              <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, backgroundColor: h > 85 ? '#dec600' : 'rgba(55,139,255,0.45)' }} />
+                            ))}
+                          </div>
+                        </div>
+                        {/* Peak hours */}
+                        <div className="bg-white/5 rounded-xl p-4">
+                          <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">Peak Activity Hours</div>
+                          <div className="space-y-2.5">
+                            <div>
+                              <div className="flex justify-between text-xs mb-1"><span className="text-white/60">10 AM – 2 PM</span><span className="text-secondary font-bold">38%</span></div>
+                              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden"><div className="h-2 bg-secondary rounded-full" style={{ width: "78%" }} /></div>
+                            </div>
+                            <div>
+                              <div className="flex justify-between text-xs mb-1"><span className="text-white/60">5 PM – 8 PM</span><span className="text-primary font-bold">27%</span></div>
+                              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden"><div className="h-2 bg-primary rounded-full" style={{ width: "55%" }} /></div>
+                            </div>
+                            <div>
+                              <div className="flex justify-between text-xs mb-1"><span className="text-white/60">8 PM – 12 AM</span><span className="text-white/50 font-bold">18%</span></div>
+                              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden"><div className="h-2 bg-white/30 rounded-full" style={{ width: "36%" }} /></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                </div>
               </div>
             </div>
           </div>
