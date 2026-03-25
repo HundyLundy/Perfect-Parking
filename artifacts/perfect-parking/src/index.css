@@ -32,6 +32,9 @@
 
   --color-navy: hsl(var(--navy));
   --color-navy-foreground: hsl(var(--navy-foreground));
+
+  --color-brand-blue: #0374a7;
+  --color-brand-teal: #3c6e7f;
   
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

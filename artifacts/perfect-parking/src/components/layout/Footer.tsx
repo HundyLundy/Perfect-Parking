@@ -3,7 +3,7 @@ import { Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-navy pt-20 pb-10 text-white">
+    <footer className="bg-navy pt-20 pb-10 text-white" style={{ borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg, #0374a7, #3c6e7f, #1965b1) 1' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 

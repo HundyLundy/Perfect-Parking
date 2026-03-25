@@ -37,18 +37,18 @@ export default function Home() {
   ];
 
   const whyFeatures = [
-    { icon: QrCode,       title: "No More Paper Parking Permits",   desc: "Issue digital permits for residents and guests instantly from the dashboard — no printing, no handouts, no lost passes." },
-    { icon: UserCheck,    title: "You Are In Control",              desc: "Only authorized people park in your community. You decide who belongs — we enforce it automatically." },
-    { icon: ShieldCheck,  title: "Eliminate Guest Parking Abuse",   desc: "Stop unauthorized vehicles from taking spaces meant for residents. Real enforcement, zero confrontations." },
-    { icon: MapPin,       title: "Real-Time Space Availability",    desc: "Live occupancy data ensures accurate, up-to-the-minute information on every space in your property." },
-    { icon: Activity,     title: "User-Friendly Interface",         desc: "Intuitive navigation for a seamless parking experience — for property managers and parkers alike." },
-    { icon: BarChart3,    title: "Reporting & Analytics",           desc: "User-friendly dashboards with detailed reports on revenue, occupancy, violations, and compliance." },
-    { icon: CreditCard,   title: "Payment & Billing Support",       desc: "Apple Pay, Google Pay, credit card — accepted instantly. Auto receipts. Zero billing disputes on your end." },
-    { icon: TrendingUp,   title: "Revenue Share Program",           desc: "We only win when you win. Our revenue share model aligns our incentives with your property's success.", green: true },
-    { icon: Globe,        title: "Integration & Scalability",       desc: "Connect with your existing PMS, access control, and property management systems. Scale across multiple locations." },
-    { icon: Bell,         title: "Hassle-Free Setup & Onboarding",  desc: "From satellite mapping to digital signage to enforcement — we handle everything. You're live in under 30 days." },
-    { icon: CheckCircle2, title: "Eliminate Enforcement Mistakes",  desc: "Digital LPR and automated violation notices eliminate the human error in manual enforcement.", green: true },
-    { icon: ShieldCheck,  title: "Create a Safer Parking Environment", desc: "Only authorized vehicles on property means fewer strangers, less trespassing, and a safer community overall." }
+    { icon: QrCode,       title: "No More Paper Parking Permits",      desc: "Issue digital permits for residents and guests instantly from the dashboard — no printing, no handouts, no lost passes." },
+    { icon: UserCheck,    title: "You Are In Control",                  desc: "Only authorized people park in your community. You decide who belongs — we enforce it automatically." },
+    { icon: ShieldCheck,  title: "Eliminate Guest Parking Abuse",       desc: "Stop unauthorized vehicles from taking spaces meant for residents. Real enforcement, zero confrontations.", teal: true },
+    { icon: MapPin,       title: "Real-Time Space Availability",        desc: "Live occupancy data ensures accurate, up-to-the-minute information on every space in your property.", teal: true },
+    { icon: Activity,     title: "User-Friendly Interface",             desc: "Intuitive navigation for a seamless parking experience — for property managers and parkers alike." },
+    { icon: BarChart3,    title: "Reporting & Analytics",               desc: "User-friendly dashboards with detailed reports on revenue, occupancy, violations, and compliance.", teal: true },
+    { icon: CreditCard,   title: "Payment & Billing Support",           desc: "Apple Pay, Google Pay, credit card — accepted instantly. Auto receipts. Zero billing disputes on your end." },
+    { icon: TrendingUp,   title: "Revenue Share Program",               desc: "We only win when you win. Our revenue share model aligns our incentives with your property's success.", green: true },
+    { icon: Globe,        title: "Integration & Scalability",           desc: "Connect with your existing PMS, access control, and property management systems. Scale across multiple locations.", teal: true },
+    { icon: Bell,         title: "Hassle-Free Setup & Onboarding",      desc: "From satellite mapping to digital signage to enforcement — we handle everything. You're live in under 30 days." },
+    { icon: CheckCircle2, title: "Eliminate Enforcement Mistakes",       desc: "Digital LPR and automated violation notices eliminate the human error in manual enforcement.", green: true },
+    { icon: ShieldCheck,  title: "Create a Safer Parking Environment",  desc: "Only authorized vehicles on property means fewer strangers, less trespassing, and a safer community overall." }
   ];
 
   return (
@@ -107,7 +107,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/50 text-center">
             <motion.div {...fadeIn} transition={{ delay: 0.1 }}>
-              <div className="text-3xl lg:text-4xl font-display font-bold text-navy mb-1">50+</div>
+              <div className="text-3xl lg:text-4xl font-display font-bold text-brand-blue mb-1">50+</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Locations Served</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
@@ -115,7 +115,7 @@ export default function Home() {
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Revenue Generated</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
-              <div className="text-3xl lg:text-4xl font-display font-bold text-navy mb-1">0</div>
+              <div className="text-3xl lg:text-4xl font-display font-bold text-brand-teal mb-1">0</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Staff Required</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.4 }}>
@@ -136,19 +136,34 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { num: "01", title: "Free Audit", desc: "We analyze your property to project exact revenue potential." },
-              { num: "02", title: "Custom Setup", desc: "We deploy our hardware-light, automated system at zero cost to you." },
-              { num: "03", title: "Automated Collections", desc: "We handle payments, compliance, and guest support 24/7." },
-              { num: "04", title: "Monthly Revenue", desc: "You receive a direct deposit and transparent reporting every month.", accent: true }
+              { num: "01", title: "Free Audit",             desc: "We analyze your property to project exact revenue potential.",                                         color: "blue" },
+              { num: "02", title: "Custom Setup",           desc: "We deploy our hardware-light, automated system at zero cost to you.",                                  color: "teal" },
+              { num: "03", title: "Automated Collections",  desc: "We handle payments, compliance, and guest support 24/7.",                                              color: "primary" },
+              { num: "04", title: "Monthly Revenue",        desc: "You receive a direct deposit and transparent reporting every month.",                                   color: "accent" }
             ].map((step, i) => (
               <motion.div
                 key={i}
-                className={`relative p-8 rounded-2xl border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${step.accent ? "bg-accent/5 border-accent/30" : "bg-muted border-border"}`}
+                className={`relative p-8 rounded-2xl border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
+                  step.color === "accent"  ? "bg-accent/5 border-accent/30" :
+                  step.color === "blue"   ? "bg-brand-blue/5 border-brand-blue/25" :
+                  step.color === "teal"   ? "bg-brand-teal/5 border-brand-teal/25" :
+                  "bg-muted border-border"
+                }`}
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className={`text-5xl font-display font-extrabold mb-4 ${step.accent ? "text-accent/30" : "text-primary/20"}`}>{step.num}</div>
-                <h4 className={`text-xl font-bold mb-3 ${step.accent ? "text-accent" : "text-foreground"}`}>{step.title}</h4>
+                <div className={`text-5xl font-display font-extrabold mb-4 ${
+                  step.color === "accent"  ? "text-accent/30" :
+                  step.color === "blue"   ? "text-brand-blue/25" :
+                  step.color === "teal"   ? "text-brand-teal/25" :
+                  "text-primary/20"
+                }`}>{step.num}</div>
+                <h4 className={`text-xl font-bold mb-3 ${
+                  step.color === "accent" ? "text-accent" :
+                  step.color === "blue"  ? "text-brand-blue" :
+                  step.color === "teal"  ? "text-brand-teal" :
+                  "text-foreground"
+                }`}>{step.title}</h4>
                 <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -237,19 +252,21 @@ export default function Home() {
               <motion.div
                 key={i}
                 className={`p-7 rounded-2xl shadow-sm border transition-all duration-200 hover:shadow-lg hover:-translate-y-1 ${
-                  feature.green
-                    ? "bg-accent/5 border-accent/25 hover:border-accent/50"
-                    : "bg-white border-border hover:border-primary/20"
+                  feature.green ? "bg-accent/5 border-accent/25 hover:border-accent/50"
+                  : feature.teal ? "bg-brand-teal/5 border-brand-teal/20 hover:border-brand-teal/40"
+                  : "bg-white border-border hover:border-primary/20"
                 }`}
                 {...fadeIn}
                 transition={{ delay: (i % 6) * 0.07 }}
               >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
-                  feature.green ? "bg-accent/15 text-accent" : "bg-primary/10 text-primary"
+                  feature.green ? "bg-accent/15 text-accent"
+                  : feature.teal ? "bg-brand-teal/15 text-brand-teal"
+                  : "bg-primary/10 text-primary"
                 }`}>
                   <feature.icon className="w-6 h-6" />
                 </div>
-                <h4 className={`text-lg font-bold mb-2 ${feature.green ? "text-accent" : "text-foreground"}`}>{feature.title}</h4>
+                <h4 className={`text-lg font-bold mb-2 ${feature.green ? "text-accent" : feature.teal ? "text-brand-teal" : "text-foreground"}`}>{feature.title}</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
@@ -340,7 +357,7 @@ export default function Home() {
             {/* LEFT — quote content, no box */}
             <motion.div {...fadeIn}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary mb-4">★ New Partnership Announcement</p>
-              <p className="text-white/90 text-lg leading-relaxed italic mb-6" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
+              <p className="text-white/90 text-lg leading-relaxed italic mb-6 border-l-4 border-brand-teal pl-6" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
                 "We are thrilled to share some exciting news! Today, we proudly announce our brand-new partnership with Perfect Parking, a collaboration that will help make a real difference in the lives of our nation's heroes. Now, every time you park at a Perfect Parking lot, you're not just finding a spot — you're actively supporting combat-wounded veterans and Gold Star spouses. Together, we're turning everyday moments into meaningful change."
               </p>
               <p className="text-secondary font-bold text-sm mb-6 uppercase tracking-wider" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
@@ -356,7 +373,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center"
             >
-              <div className="inline-block bg-primary/90 text-white text-xs font-bold uppercase tracking-[0.25em] px-6 py-2 mb-5">
+              <div className="inline-block bg-brand-blue text-white text-xs font-bold uppercase tracking-[0.25em] px-6 py-2 mb-5">
                 New Partnership
               </div>
 
