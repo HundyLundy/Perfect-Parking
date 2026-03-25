@@ -1,5 +1,7 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { AppShowcase } from "@/components/AppShowcase";
 import {
   ArrowRight, CheckCircle2, TrendingUp, ShieldCheck, Activity,
@@ -8,9 +10,14 @@ import {
   Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, UserCheck, Globe
 } from "lucide-react";
 import { useLocation } from "wouter";
+import { useCountUp } from "@/hooks/useCountUp";
 
 export default function Home() {
   const [, setLocation] = useLocation();
+
+  const { count: locationsCount, ref: locationsRef } = useCountUp(50, 1600);
+  const { count: revenueCount, ref: revenueRef } = useCountUp(1, 2000);
+  const { count: setupCount, ref: setupRef } = useCountUp(30, 1400);
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -55,18 +62,55 @@ export default function Home() {
     <>
       <SEO
         title="Turn Your Parking Into Profit"
-        description="We help properties generate consistent monthly revenue from parking with zero operational burden."
+        description="We help hotels, hospitals, multifamily communities, HOAs, and commercial real estate owners generate consistent monthly revenue from underutilized parking. Zero upfront cost. Zero staff required."
+        keywords="parking management company, parking revenue share, hotel parking management, HOA parking management, multifamily parking management, automated parking enforcement Texas, manage and monetize parking"
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Perfect Parking",
+            "description": "Technology-enabled parking revenue platform. We help hotels, hospitals, multifamily communities, HOAs, and commercial real estate owners monetize underutilized parking into passive monthly income.",
+            "slogan": "We Turn Parking Into Profits",
+            "url": "https://www.perfectparking.com",
+            "telephone": "(361) 585-1111",
+            "email": "info@perfectparking.com",
+            "areaServed": ["San Antonio, TX", "Austin, TX", "Houston, TX", "Corpus Christi, TX", "Dallas, TX", "Fort Worth, TX", "Texas"],
+            "serviceType": "Parking Revenue Management",
+            "priceRange": "Revenue Share — No Upfront Cost",
+            "sameAs": [],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Parking Management Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hotel Parking Management" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HOA Parking Management" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multifamily Parking Management" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Healthcare Facility Parking" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Real Estate Parking" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Parking Permits" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automated Parking Enforcement" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parking Revenue Reporting" } }
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
 
       {/* HERO SECTION */}
       <section className="relative bg-navy overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img
-            src={`${import.meta.env.BASE_URL}parking-dollar.png`}
-            alt="Parking Revenue"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/50" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-50"
+          >
+            <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/60" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
@@ -106,20 +150,20 @@ export default function Home() {
       <section className="bg-muted py-8 border-y border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/50 text-center">
-            <motion.div {...fadeIn} transition={{ delay: 0.1 }}>
-              <div className="text-3xl lg:text-4xl font-display font-bold text-brand-blue mb-1">50+</div>
+            <motion.div ref={locationsRef as unknown as React.RefObject<HTMLDivElement>} {...fadeIn} transition={{ delay: 0.1 }}>
+              <div className="text-3xl lg:text-4xl font-display font-bold text-brand-blue mb-1">{locationsCount}+</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Locations Served</div>
             </motion.div>
-            <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
-              <div className="text-3xl lg:text-4xl font-display font-bold text-accent mb-1">$1M+</div>
+            <motion.div ref={revenueRef as unknown as React.RefObject<HTMLDivElement>} {...fadeIn} transition={{ delay: 0.2 }}>
+              <div className="text-3xl lg:text-4xl font-display font-bold text-accent mb-1">${revenueCount}M+</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Revenue Generated</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
               <div className="text-3xl lg:text-4xl font-display font-bold text-brand-teal mb-1">0</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Staff Required</div>
             </motion.div>
-            <motion.div {...fadeIn} transition={{ delay: 0.4 }}>
-              <div className="text-3xl lg:text-4xl font-display font-bold text-primary mb-1">30 Days</div>
+            <motion.div ref={setupRef as unknown as React.RefObject<HTMLDivElement>} {...fadeIn} transition={{ delay: 0.4 }}>
+              <div className="text-3xl lg:text-4xl font-display font-bold text-primary mb-1">{setupCount} Days</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Average Setup</div>
             </motion.div>
           </div>

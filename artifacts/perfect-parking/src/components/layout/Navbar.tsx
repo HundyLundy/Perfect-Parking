@@ -26,6 +26,8 @@ export function Navbar() {
     { name: "Industries", href: "/industries" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Education", href: "/education" },
+    { name: "Locations", href: "/locations" },
+    { name: "FAQ", href: "/faq" },
     { name: "About", href: "/about" },
   ];
 

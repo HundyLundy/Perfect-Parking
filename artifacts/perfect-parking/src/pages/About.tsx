@@ -4,10 +4,10 @@ import { Target, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function About() {
   const team = [
-    { name: "Cooper Lundquist", initials: "CL" },
-    { name: "Ray Euresti",      initials: "RE" },
-    { name: "Laura Lundquist",  initials: "LL" },
-    { name: "Hunter Lundquist", initials: "HL" },
+    { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png" },
+    { name: "Ray Euresti",      initials: "RE", photo: null },
+    { name: "Laura Lundquist",  initials: "LL", photo: "team-laura.png" },
+    { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter.png" },
   ];
 
   const values = [
@@ -69,9 +69,17 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-muted rounded-2xl p-8 text-center border border-border hover:border-primary/30 hover:shadow-lg transition-all"
               >
-                <div className="w-20 h-20 mx-auto bg-primary text-white font-display font-bold text-xl flex items-center justify-center rounded-full mb-5 shadow-md ring-4 ring-primary/20">
-                  {member.initials}
-                </div>
+                {member.photo ? (
+                  <img
+                    src={`${import.meta.env.BASE_URL}${member.photo}`}
+                    alt={member.name}
+                    className="w-24 h-24 mx-auto rounded-full object-cover object-top mb-5 shadow-md ring-4 ring-primary/20"
+                  />
+                ) : (
+                  <div className="w-24 h-24 mx-auto bg-primary text-white font-display font-bold text-xl flex items-center justify-center rounded-full mb-5 shadow-md ring-4 ring-primary/20">
+                    {member.initials}
+                  </div>
+                )}
                 <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
               </motion.div>
             ))}
