@@ -45,8 +45,8 @@ export default function Solutions() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-[8px] border-white relative">
-                <div className="absolute top-4 right-4 z-10 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-xs font-bold flex items-center gap-2">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 relative">
+                <div className="absolute top-3 right-3 z-10 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-xs font-bold flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Live Feed
                 </div>
                 <video 
@@ -55,7 +55,7 @@ export default function Solutions() {
                   loop 
                   muted 
                   playsInline 
-                  className="w-full h-[500px] object-cover"
+                  className="w-full aspect-video object-cover"
                 />
               </div>
             </motion.div>
