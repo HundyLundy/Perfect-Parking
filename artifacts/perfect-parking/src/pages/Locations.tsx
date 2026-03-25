@@ -4,85 +4,72 @@ import { Helmet } from "react-helmet-async";
 import { MapPin, ArrowRight, TrendingUp } from "lucide-react";
 import { useLocation } from "wouter";
 
-const primaryMarkets = [
+const majorMarkets = [
   {
-    city: "San Antonio, TX",
-    description: "Our home market. Active partners across multifamily communities, HOAs, healthcare campuses, and commercial real estate throughout the greater San Antonio area.",
-    industries: ["Multifamily", "HOA", "Healthcare", "CRE"],
+    city: "Houston",
+    state: "TX",
+    note: "Texas Medical Center · Hotels · CRE · Multifamily",
   },
   {
-    city: "Austin, TX",
-    description: "Serving hotels, mixed-use developments, and student housing in one of the fastest-growing urban parking markets in the country.",
-    industries: ["Hotels", "Mixed-Use", "Student Housing"],
+    city: "San Antonio",
+    state: "TX",
+    note: "HOA · Healthcare · Multifamily · Commercial",
   },
   {
-    city: "Houston, TX",
-    description: "Houston's sprawling commercial real estate landscape and large Texas Medical Center make it a prime market for automated parking revenue optimization.",
-    industries: ["CRE", "Healthcare", "Hotels", "Retail"],
+    city: "Dallas",
+    state: "TX",
+    note: "CRE · Hotels · Mixed-Use · Airports",
   },
   {
-    city: "Corpus Christi, TX",
-    description: "Coastal hospitality, marina facilities, and waterfront commercial properties are actively partnering with Perfect Parking in the Coastal Bend.",
-    industries: ["Hotels", "Marinas", "CRE", "Multifamily"],
+    city: "Austin",
+    state: "TX",
+    note: "Hotels · Student Housing · Mixed-Use",
   },
   {
-    city: "Dallas / Fort Worth, TX",
-    description: "The DFW metroplex's density of commercial office parks, hotels, and multifamily developments makes it a high-opportunity expansion market.",
-    industries: ["CRE", "Hotels", "Multifamily", "Airports"],
+    city: "Fort Worth",
+    state: "TX",
+    note: "CRE · Hotels · Multifamily",
   },
   {
-    city: "Texas Hill Country",
-    description: "Event venues, weekend tourism destinations, and boat ramps in the Hill Country corridor — including our verified Wimberley case study property.",
-    industries: ["Event Venues", "Marinas", "Tourism"],
+    city: "El Paso",
+    state: "TX",
+    note: "Military · CRE · Retail",
   },
   {
-    city: "Laredo, TX",
-    description: "Truck parking and commercial logistics are high-demand use cases in the Laredo border corridor, with consistent daily volume year-round.",
-    industries: ["Truck Parking", "CRE"],
+    city: "Corpus Christi",
+    state: "TX",
+    note: "Marina · Hotels · Coastal CRE",
   },
 ];
 
-const coastalMarkets = [
-  { city: "Flour Bluff, TX", tag: "Coastal / Military" },
-  { city: "Calallen, TX", tag: "Suburban / CRE" },
-  { city: "Portland, TX", tag: "Industrial / CRE" },
-  { city: "Aransas Pass, TX", tag: "Marina / Tourism" },
-  { city: "Port Aransas, TX", tag: "Hotels / Tourism" },
-  { city: "Rockport, TX", tag: "Marina / Hotels" },
-  { city: "Kingsville, TX", tag: "University / CRE" },
-  { city: "Alice, TX", tag: "CRE / Retail" },
-  { city: "Brownsville, TX", tag: "Border / CRE" },
-  { city: "McAllen, TX", tag: "Retail / Hotels" },
-  { city: "Harlingen, TX", tag: "Healthcare / CRE" },
-  { city: "South Padre Island, TX", tag: "Hotels / Tourism" },
-  { city: "Victoria, TX", tag: "Healthcare / CRE" },
-  { city: "Beeville, TX", tag: "CRE / Retail" },
-  { city: "Robstown, TX", tag: "Retail / CRE" },
-];
-
-const stateMarkets = [
-  { city: "El Paso, TX", tag: "Major Market" },
-  { city: "Lubbock, TX", tag: "University / CRE" },
-  { city: "Amarillo, TX", tag: "Hotels / CRE" },
-  { city: "Waco, TX", tag: "University / Tourism" },
-  { city: "Midland / Odessa, TX", tag: "CRE / Hotels" },
-  { city: "Beaumont, TX", tag: "Healthcare / CRE" },
-  { city: "Tyler, TX", tag: "Healthcare / Hotels" },
-  { city: "Abilene, TX", tag: "Military / CRE" },
-  { city: "Wichita Falls, TX", tag: "Military / CRE" },
-  { city: "San Marcos, TX", tag: "University / Hotels" },
-  { city: "New Braunfels, TX", tag: "Tourism / Hotels" },
-  { city: "College Station, TX", tag: "University / CRE" },
-  { city: "Round Rock, TX", tag: "Multifamily / CRE" },
-  { city: "Georgetown, TX", tag: "HOA / Multifamily" },
-  { city: "Killeen / Fort Cavazos, TX", tag: "Military / Multifamily" },
+const texasMarkets = [
+  { city: "Port Aransas", tag: "Hotels / Tourism" },
+  { city: "South Padre Island", tag: "Hotels / Tourism" },
+  { city: "McAllen", tag: "Retail / Hotels" },
+  { city: "Brownsville", tag: "Border / CRE" },
+  { city: "Harlingen", tag: "Healthcare / CRE" },
+  { city: "Galveston", tag: "Hotels / Tourism" },
+  { city: "Victoria", tag: "Healthcare / CRE" },
+  { city: "Kingsville", tag: "University / CRE" },
+  { city: "Flour Bluff", tag: "Coastal / Military" },
+  { city: "Calallen", tag: "Suburban / CRE" },
+  { city: "Robstown", tag: "Retail / CRE" },
+  { city: "Laredo", tag: "Truck Parking / CRE" },
+  { city: "Lubbock", tag: "University / Hotels" },
+  { city: "Waco", tag: "Tourism / University" },
+  { city: "Beaumont", tag: "Healthcare / Industrial" },
+  { city: "Tyler", tag: "Healthcare / Hotels" },
+  { city: "San Marcos", tag: "University / Tourism" },
+  { city: "New Braunfels", tag: "Tourism / Hotels" },
+  { city: "Aransas Pass", tag: "Marina / Coastal" },
+  { city: "Round Rock", tag: "Multifamily / CRE" },
 ];
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.4 }
+  transition: { duration: 0.4 },
 };
 
 export default function Locations() {
@@ -92,8 +79,8 @@ export default function Locations() {
     <>
       <SEO
         title="Locations We Serve | Parking Management Texas"
-        description="Perfect Parking provides automated parking revenue management in San Antonio, Austin, Houston, Corpus Christi, Dallas-Fort Worth, the Texas Gulf Coast, South Texas, and across the state. Expanding nationally."
-        keywords="parking management Texas, parking management San Antonio, parking management Corpus Christi, parking management Austin, parking management Houston, HOA parking Texas, hotel parking Texas, Flour Bluff parking, Port Aransas parking, South Padre Island parking"
+        description="Perfect Parking provides automated parking revenue management across Texas — Houston, San Antonio, Dallas, Austin, Fort Worth, El Paso, Corpus Christi, and dozens of growing Texas markets."
+        keywords="parking management Texas, parking management San Antonio, parking management Corpus Christi, parking management Austin, parking management Houston, parking management Dallas, HOA parking Texas, hotel parking Texas"
       />
       <Helmet>
         <script type="application/ld+json">
@@ -105,9 +92,14 @@ export default function Locations() {
             "telephone": "(361) 585-1111",
             "email": "info@perfectparking.com",
             "areaServed": [
-              ...primaryMarkets.map(m => ({ "@type": "City", "name": m.city })),
-              ...coastalMarkets.map(m => ({ "@type": "City", "name": m.city })),
-              ...stateMarkets.map(m => ({ "@type": "City", "name": m.city }))
+              ...majorMarkets.map((m) => ({
+                "@type": "City",
+                "name": m.city + ", TX",
+              })),
+              ...texasMarkets.map((m) => ({
+                "@type": "City",
+                "name": m.city + ", TX",
+              })),
             ],
             "serviceType": "Parking Revenue Management",
           })}
@@ -119,104 +111,71 @@ export default function Locations() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full text-sm font-semibold mb-6 text-white/80">
-              <TrendingUp className="w-4 h-4 text-secondary" /> Texas-Born. Fast-Growing.
+              <MapPin className="w-4 h-4 text-secondary" /> Where We Operate
             </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
-              Parking Management<br />
-              <span className="text-secondary">Across Texas</span> — and Growing Fast.
+              Parking Revenue Management<br />
+              <span className="text-secondary">Across Texas.</span>
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mx-auto">
-              We are rooted in Texas and expanding aggressively. From major metros to small coastal towns, Perfect Parking is bringing passive parking revenue to property owners across the state.
+              From major metros to coastal towns, we partner with property owners across the state to turn underutilized parking into passive monthly income.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* PRIMARY MARKETS */}
+      {/* MAJOR MARKETS */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Major Markets</p>
-            <h2 className="text-3xl font-display font-bold text-foreground">Primary Service Areas</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground mb-2">Major Markets</h2>
+            <p className="text-muted-foreground text-lg">Our largest active service areas across the state.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {primaryMarkets.map((market, i) => (
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {majorMarkets.map((market, i) => (
               <motion.div
                 key={market.city}
                 {...fadeIn}
-                transition={{ delay: i * 0.07 }}
-                className="p-7 rounded-2xl border border-border bg-white hover:shadow-lg hover:-translate-y-1 hover:border-primary/30 transition-all"
+                transition={{ delay: i * 0.06 }}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-white hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 p-7"
               >
-                <div className="flex items-start gap-3 mb-3">
-                  <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-foreground">{market.city}</h3>
-                    <span className="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full mt-1">
-                      ● Active Market
-                    </span>
-                  </div>
+                <div className="flex items-center gap-1.5 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+                  <span className="text-xs font-bold text-green-600 uppercase tracking-wide">Active</span>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{market.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {market.industries.map((ind) => (
-                    <span key={ind} className="text-xs font-semibold px-2.5 py-1 rounded-full bg-muted text-muted-foreground border border-border">
-                      {ind}
-                    </span>
-                  ))}
+                <div className="text-2xl font-display font-bold text-foreground mb-1 leading-tight group-hover:text-primary transition-colors">
+                  {market.city}
                 </div>
+                <div className="text-sm font-semibold text-muted-foreground mb-3">{market.state}</div>
+                <div className="text-xs text-muted-foreground leading-relaxed">{market.note}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* COASTAL SOUTH TEXAS */}
+      {/* COMBINED TEXAS MARKETS */}
       <section className="py-20 bg-muted border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-teal mb-2">Gulf Coast & South Texas</p>
-            <h2 className="text-3xl font-display font-bold text-foreground mb-3">Corpus Christi Region & Coastal Markets</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground mb-3">
+              Texas Markets We Love to Be a Part Of
+            </h2>
             <p className="text-muted-foreground max-w-xl">
-              The Gulf Coast is one of our fastest-growing corridors. From marina towns to border communities, we're bringing automated parking revenue to every corner of Coastal Bend and South Texas.
+              From the Hill Country to the coast, from college towns to border communities — we're active or expanding in markets all across the state.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {coastalMarkets.map((m, i) => (
+            {texasMarkets.map((m, i) => (
               <motion.div
                 key={m.city}
                 {...fadeIn}
-                transition={{ delay: i * 0.04 }}
-                className="bg-white rounded-xl border border-border p-4 hover:border-brand-teal/40 hover:shadow-sm transition-all"
-              >
-                <MapPin className="w-4 h-4 text-brand-teal mb-2" />
-                <div className="font-semibold text-sm text-foreground leading-tight mb-1">{m.city}</div>
-                <div className="text-xs text-muted-foreground">{m.tag}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* STATEWIDE MARKETS */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Statewide Expansion</p>
-            <h2 className="text-3xl font-display font-bold text-foreground mb-3">Growing Across All of Texas</h2>
-            <p className="text-muted-foreground max-w-xl">
-              We are not just a coastal company. Perfect Parking is actively expanding to serve property owners in every major and mid-size Texas city — from the Panhandle to the Permian Basin.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {stateMarkets.map((m, i) => (
-              <motion.div
-                key={m.city}
-                {...fadeIn}
-                transition={{ delay: i * 0.04 }}
-                className="bg-muted rounded-xl border border-border p-4 hover:border-primary/40 hover:shadow-sm transition-all"
+                transition={{ delay: i * 0.03 }}
+                className="bg-white rounded-xl border border-border p-4 hover:border-primary/40 hover:shadow-sm transition-all"
               >
                 <MapPin className="w-4 h-4 text-primary mb-2" />
-                <div className="font-semibold text-sm text-foreground leading-tight mb-1">{m.city}</div>
+                <div className="font-semibold text-sm text-foreground leading-tight mb-1">{m.city}, TX</div>
                 <div className="text-xs text-muted-foreground">{m.tag}</div>
               </motion.div>
             ))}
@@ -229,12 +188,12 @@ export default function Locations() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <div className="text-4xl font-display font-bold text-secondary mb-2">37+</div>
-              <div className="text-white/70 font-medium">Texas Cities Served or Expanding</div>
+              <div className="text-4xl font-display font-bold text-secondary mb-2">27+</div>
+              <div className="text-white/70 font-medium">Texas Markets Served</div>
             </div>
             <div>
               <div className="text-4xl font-display font-bold text-secondary mb-2">$1M+</div>
-              <div className="text-white/70 font-medium">Revenue Generated for TX Partners</div>
+              <div className="text-white/70 font-medium">Revenue Generated for Partners</div>
             </div>
             <div>
               <div className="text-4xl font-display font-bold text-secondary mb-2">50+</div>
@@ -244,17 +203,14 @@ export default function Locations() {
         </div>
       </section>
 
-      {/* NATIONAL + CTA */}
+      {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full text-sm font-semibold mb-6 text-primary">
-            <TrendingUp className="w-4 h-4" /> National Expansion in Progress
-          </div>
           <h2 className="text-3xl font-display font-bold text-foreground mb-4">
-            Texas First. Then Everywhere.
+            Don't see your city?
           </h2>
           <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-            We are building the most comprehensive parking revenue network in Texas — then taking it national. If you own a property anywhere in the U.S. with high parking demand, reach out. We evaluate new markets fast.
+            We evaluate new markets quickly. If your property has consistent parking demand, reach out and we'll run the numbers.
           </p>
           <button
             onClick={() => setLocation("/contact")}
