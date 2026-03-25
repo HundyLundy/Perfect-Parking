@@ -1,0 +1,13 @@
+packages:
+  "framer-motion": "For premium page transitions and scroll-triggered animations"
+  "react-helmet-async": "For SEO management and meta tags per page"
+  "react-hook-form": "For robust contact form handling"
+  "@hookform/resolvers": "For Zod schema validation with react-hook-form"
+  "zod": "For contact form schema definition"
+
+images: []
+
+notes:
+  - "The site uses framer-motion for all scroll reveals to give a premium AirGarage/tech-startup feel."
+  - "Contact form uses a placeholder submit function but is fully wired with react-hook-form and Zod validation."
+  - "Vite base URL is used for all asset references to ensure they load correctly."
