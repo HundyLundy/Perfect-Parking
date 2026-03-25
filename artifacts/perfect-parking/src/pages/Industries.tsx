@@ -93,17 +93,17 @@ export default function Industries() {
         description="Tailored parking monetization solutions for Hotels, Hospitals, Multifamily, HOAs, CRE, Universities, Truck Parking, and Airports."
       />
 
-      <section className="bg-navy py-24 text-white">
+      <section className="bg-brand-teal py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold mb-6"
+            className="text-4xl md:text-6xl font-display font-bold mb-6 text-white"
           >
             Specialized Solutions.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-xl text-white/80 max-w-2xl mx-auto"
+            className="text-xl text-white/90 max-w-2xl mx-auto"
           >
             Different properties have different rules. We customize our technology to fit your specific operational needs — from HOA communities to airports.
           </motion.p>

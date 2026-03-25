@@ -4,10 +4,10 @@ import { Target, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function About() {
   const team = [
-    { name: "Cooper Lundquist", initials: "CL", role: "Co-Founder" },
-    { name: "Laura Lundquist",  initials: "LL", role: "Co-Founder" },
-    { name: "Ray Euresti",      initials: "RE", role: "Co-Founder" },
-    { name: "Hunter Lundquist", initials: "HL", role: "Co-Founder" },
+    { name: "Cooper Lundquist", initials: "CL" },
+    { name: "Ray Euresti",      initials: "RE" },
+    { name: "Laura Lundquist",  initials: "LL" },
+    { name: "Hunter Lundquist", initials: "HL" },
   ];
 
   const values = [
@@ -59,7 +59,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
             {team.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -72,8 +72,7 @@ export default function About() {
                 <div className="w-20 h-20 mx-auto bg-primary text-white font-display font-bold text-xl flex items-center justify-center rounded-full mb-5 shadow-md ring-4 ring-primary/20">
                   {member.initials}
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
-                <p className="text-primary font-semibold text-sm">{member.role}</p>
+                <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
               </motion.div>
             ))}
           </div>
