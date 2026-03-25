@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,23 +7,24 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
-            <img 
-              src={`${import.meta.env.BASE_URL}logo-pp.webp`} 
-              alt="Perfect Parking" 
-              className="h-12 w-auto mb-6 brightness-0 invert" 
+            <img
+              src={`${import.meta.env.BASE_URL}logo-pp.webp`}
+              alt="Perfect Parking"
+              className="h-12 w-auto mb-6 brightness-0 invert"
             />
             <p className="text-white/70 text-sm leading-relaxed mb-6">
               One partner. Proven strategies. More profit. We turn your underutilized parking real estate into consistent, passive monthly revenue.
             </p>
           </div>
-          
+
           <div>
             <h4 className="font-display font-bold text-lg mb-6">Solutions</h4>
             <ul className="space-y-4">
               <li><Link href="/solutions" className="text-white/70 hover:text-secondary transition-colors text-sm">Fully Automated Setup</Link></li>
               <li><Link href="/solutions" className="text-white/70 hover:text-secondary transition-colors text-sm">Revenue Reporting</Link></li>
               <li><Link href="/industries" className="text-white/70 hover:text-secondary transition-colors text-sm">Hotel Parking</Link></li>
-              <li><Link href="/industries" className="text-white/70 hover:text-secondary transition-colors text-sm">CRE & Hospitals</Link></li>
+              <li><Link href="/industries" className="text-white/70 hover:text-secondary transition-colors text-sm">Multifamily & HOA</Link></li>
+              <li><Link href="/industries" className="text-white/70 hover:text-secondary transition-colors text-sm">Hospitals & CRE</Link></li>
             </ul>
           </div>
 
@@ -41,12 +42,16 @@ export function Footer() {
             <h4 className="font-display font-bold text-lg mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-white/70 text-sm">
-                <Phone className="w-5 h-5 text-secondary shrink-0" />
-                <span>Hunter Lundquist<br/>(720) 937-3004</span>
+                <Phone className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                <span>Ph: (361) 585-1111</span>
               </li>
               <li className="flex items-center gap-3 text-white/70 text-sm">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
-                <a href="mailto:hunter@perfectparking.com" className="hover:text-secondary transition-colors">hello@perfectparking.com</a>
+                <a href="mailto:info@perfectparking.com" className="hover:text-secondary transition-colors">info@perfectparking.com</a>
+              </li>
+              <li className="flex items-center gap-3 text-white/70 text-sm">
+                <Mail className="w-5 h-5 text-secondary shrink-0" />
+                <a href="mailto:cooper@perfectparking.com" className="hover:text-secondary transition-colors">cooper@perfectparking.com</a>
               </li>
             </ul>
           </div>

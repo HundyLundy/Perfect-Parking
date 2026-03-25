@@ -66,7 +66,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Call us directly</div>
-                    <div className="font-bold text-foreground text-lg">Cooper Lundquist — 361-533-2159</div>
+                    <div className="font-bold text-foreground text-lg">Ph: (361) 585-1111</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

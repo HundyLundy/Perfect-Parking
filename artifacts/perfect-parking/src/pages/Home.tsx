@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
+import { AppShowcase } from "@/components/AppShowcase";
 import {
   ArrowRight, CheckCircle2, TrendingUp, ShieldCheck, Activity,
   Building, Hospital, CarFront, Users, Home as HomeIcon, ShoppingBag,
-  Landmark, LayoutGrid, Music, GraduationCap, ParkingCircle, Plane
+  Landmark, LayoutGrid, Music, GraduationCap, ParkingCircle, Plane,
+  Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, UserCheck, Globe
 } from "lucide-react";
 import { useLocation } from "wouter";
 
@@ -25,13 +27,76 @@ export default function Home() {
 
   const additionalIndustries = [
     { icon: HomeIcon, label: "Multifamily / Apartments" },
-    { icon: ShoppingBag, label: "Retail Centers" },
+    { icon: Users, label: "HOA Communities" },
     { icon: Landmark, label: "Office Buildings" },
     { icon: LayoutGrid, label: "Mixed-Use Developments" },
     { icon: Music, label: "Event Venues" },
-    { icon: GraduationCap, label: "Universities / Campuses" },
-    { icon: ParkingCircle, label: "Municipal Parking" },
+    { icon: GraduationCap, label: "Universities & Student Housing" },
+    { icon: Truck, label: "Truck Parking" },
     { icon: Plane, label: "Airports & Transit Hubs" }
+  ];
+
+  const whyFeatures = [
+    {
+      icon: QrCode,
+      title: "No More Paper Parking Permits",
+      desc: "Issue digital permits for residents and guests instantly from the dashboard — no printing, no handouts, no lost passes."
+    },
+    {
+      icon: UserCheck,
+      title: "You Are In Control",
+      desc: "Only authorized people park in your community. You decide who belongs — we enforce it automatically."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Eliminate Guest Parking Abuse",
+      desc: "Stop unauthorized vehicles from taking spaces meant for residents. Real enforcement, zero confrontations."
+    },
+    {
+      icon: MapPin,
+      title: "Real-Time Space Availability",
+      desc: "Live occupancy data ensures accurate, up-to-the-minute information on every space in your property."
+    },
+    {
+      icon: Activity,
+      title: "User-Friendly Interface",
+      desc: "Intuitive navigation for a seamless parking experience — for property managers and parkers alike."
+    },
+    {
+      icon: BarChart3,
+      title: "Reporting & Analytics",
+      desc: "User-friendly dashboards with detailed reports on revenue, occupancy, violations, and compliance."
+    },
+    {
+      icon: CreditCard,
+      title: "Payment & Billing Support",
+      desc: "Apple Pay, Google Pay, credit card — accepted instantly. Auto receipts. Zero billing disputes on your end."
+    },
+    {
+      icon: TrendingUp,
+      title: "Revenue Share Program",
+      desc: "We only win when you win. Our revenue share model aligns our incentives with your property's success."
+    },
+    {
+      icon: Globe,
+      title: "Integration & Scalability",
+      desc: "Connect with your existing PMS, access control, and property management systems. Scale across multiple locations."
+    },
+    {
+      icon: Bell,
+      title: "Hassle-Free Setup & Onboarding",
+      desc: "From satellite mapping to digital signage to enforcement — we handle everything. You're live in under 30 days."
+    },
+    {
+      icon: CheckCircle2,
+      title: "Eliminate Enforcement Mistakes",
+      desc: "Digital LPR and automated violation notices eliminate the human error in manual enforcement."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Create a Safer Parking Environment",
+      desc: "Only authorized vehicles on property means fewer strangers, less trespassing, and a safer community overall."
+    }
   ];
 
   return (
@@ -62,7 +127,7 @@ export default function Home() {
                 Turn Your Parking <br /><span className="text-secondary">Into Profit.</span>
               </h1>
               <p className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
-                We help hotels, hospitals, and commercial real estate owners generate consistent monthly revenue from underutilized parking—with zero operational burden.
+                We help hotels, hospitals, multifamily communities, and commercial real estate owners generate consistent monthly revenue from underutilized parking — with zero operational burden.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -206,34 +271,48 @@ export default function Home() {
       <section className="py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">Why properties choose Perfect Parking.</h3>
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Why Perfect Parking?</h2>
+            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              An easy-to-use system built for real property owners.
+            </h3>
+            <p className="text-muted-foreground text-lg">
+              One platform that handles parking space management, payment and billing, integration, enforcement, and reporting — all without adding work to your team.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Activity, title: "Fully Automated", desc: "No boom gates, no tickets, no cash. 100% digital payment infrastructure." },
-              { icon: ShieldCheck, title: "Zero CAPEX", desc: "We provide the signage and digital setup. You pay nothing out of pocket." },
-              { icon: TrendingUp, title: "Real-Time Reporting", desc: "Watch your revenue grow daily via our transparent partner dashboard." },
-              { icon: CheckCircle2, title: "Turnkey Setup", desc: "From mapping to signage to enforcement, we handle the entire launch." }
-            ].map((feature, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyFeatures.map((feature, i) => (
               <motion.div
                 key={i}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-border hover:shadow-lg transition-all"
+                className="bg-white p-7 rounded-2xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 hover:border-primary/20 transition-all duration-200"
                 {...fadeIn}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: (i % 6) * 0.07 }}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-                  <feature.icon className="w-7 h-7" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                  <feature.icon className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-bold text-foreground mb-3">{feature.title}</h4>
-                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                <h4 className="text-lg font-bold text-foreground mb-2">{feature.title}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
+          </div>
+
+          {/* CTA below features */}
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setLocation("/contact")}
+              className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2"
+            >
+              Schedule a Free Demo <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* INDUSTRIES — FEATURED 3 */}
+      {/* APP SHOWCASE */}
+      <AppShowcase />
+
+      {/* INDUSTRIES */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -246,7 +325,6 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Featured 3 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
             {featuredIndustries.map((ind, i) => (
               <motion.div key={i} className="group cursor-pointer" onClick={() => setLocation("/industries")} {...fadeIn}>
@@ -262,7 +340,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Additional industries grid */}
           <div className="border-t border-border pt-10">
             <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">Also serving</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -281,6 +358,45 @@ export default function Home() {
                 </motion.button>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MILITARY PARTNER SECTION */}
+      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/98 to-navy/60" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div {...fadeIn}>
+              <div className="inline-flex items-center gap-2 bg-red-900/30 border border-red-700/40 text-red-300 px-4 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-wide">
+                ★ Partnership Announcement
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
+                Every parking spot supports our nation's heroes.
+              </h2>
+              <p className="text-white/80 text-lg leading-relaxed mb-6">
+                We are proud to partner with the <strong className="text-white">Military Warriors Support Foundation</strong> — the organization that serves combat-wounded veterans and Gold Star spouses.
+              </p>
+              <blockquote className="border-l-4 border-secondary pl-6 italic text-white/70 leading-relaxed mb-8">
+                "Now, every time you park at a Perfect Parking lot, you're not just finding a spot — you're actively supporting combat-wounded veterans and Gold Star spouses. Together, we're turning everyday moments into meaningful change."
+              </blockquote>
+              <p className="text-secondary font-bold text-sm uppercase tracking-wider">— Military Warriors Support Foundation</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex justify-center"
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}military-partner.png`}
+                alt="Military Warriors Support Foundation Partnership with Perfect Parking"
+                className="rounded-2xl shadow-2xl max-w-full w-full border-2 border-white/10"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -320,7 +436,7 @@ export default function Home() {
               onClick={() => setLocation("/contact")}
               className="px-10 py-5 bg-secondary text-secondary-foreground text-xl font-bold rounded-xl shadow-[0_0_40px_rgba(222,198,0,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(222,198,0,0.5)] transition-all duration-200"
             >
-              Get Your Custom Estimate
+              Schedule a Free Demo
             </button>
           </motion.div>
         </div>
