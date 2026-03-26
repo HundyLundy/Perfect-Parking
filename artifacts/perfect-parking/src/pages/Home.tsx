@@ -433,6 +433,105 @@ export default function Home() {
         </div>
       </section>
 
+      {/* BUILT FOR OWNERS. DESIGNED FOR DRIVERS. */}
+      <section className="py-0 overflow-hidden">
+        <div className="grid lg:grid-cols-2">
+
+          {/* OWNERS PANEL */}
+          <motion.div
+            className="bg-navy text-white px-10 py-20 lg:px-16 lg:py-24 flex flex-col justify-between"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 text-secondary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
+                <Building className="w-3.5 h-3.5" /> Property Owners
+              </div>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6">
+                Built for<br /><span className="text-secondary">Owners.</span>
+              </h2>
+              <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-md">
+                We manage everything. You collect a check every month.
+              </p>
+              <ul className="space-y-5 mb-12">
+                {[
+                  "Turn unused parking into consistent monthly revenue",
+                  "Real-time reporting and full financial visibility",
+                  "Fully managed system — we handle operations",
+                  "Zero operational burden on your team",
+                  "Easy setup and deployment in under 30 days",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                    <span className="text-white/85 leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <button
+              onClick={() => setLocation("/contact")}
+              className="self-start px-8 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2 group"
+            >
+              Get My Parking Analysis
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+
+          {/* DRIVERS PANEL */}
+          <motion.div
+            className="bg-white text-foreground px-10 py-20 lg:px-16 lg:py-24 flex flex-col justify-between border-l border-border"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
+                <Smartphone className="w-3.5 h-3.5" /> Drivers
+              </div>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground leading-tight mb-6">
+                Designed for<br /><span className="text-primary">Drivers.</span>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
+                Pay in seconds from your phone. No app. No confusion. No hassle.
+              </p>
+              <ul className="space-y-5">
+                {[
+                  "Fast, simple mobile payment — scan & pay in seconds",
+                  "Extend parking time remotely from your phone",
+                  "Clear instructions posted at every location",
+                  "No account, no app download, no confusion",
+                  "Secure payments — Apple Pay, Google Pay, or card",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-foreground/85 leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Visual accent — mock pay flow */}
+            <div className="mt-12 bg-muted border border-border rounded-2xl p-5 flex items-center gap-4">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shrink-0">
+                <QrCode className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <div className="font-bold text-foreground text-sm">Scan. Pay. Park.</div>
+                <div className="text-muted-foreground text-xs mt-0.5">Works on any smartphone, any carrier, anywhere.</div>
+              </div>
+              <div className="ml-auto text-right">
+                <div className="text-xs text-muted-foreground">Avg. pay time</div>
+                <div className="font-display font-bold text-primary text-lg">14 sec</div>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* PLATFORM PREVIEW */}
       <section className="py-24 bg-[#0a1628] text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
