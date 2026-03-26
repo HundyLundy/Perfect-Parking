@@ -74,11 +74,21 @@ export default function About() {
       </section>
 
       {/* TEAM */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-24">
+        {/* Night city background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={`${import.meta.env.BASE_URL}corpus-night.jpg`}
+            alt="Texas city at night"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-navy/72" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-display font-bold text-foreground mb-4">Our Leadership</h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            <h2 className="text-3xl font-display font-bold text-white mb-4">Our Leadership</h2>
+            <p className="text-white/70 text-lg max-w-xl mx-auto">
               The co-founders of Perfect Parking — detailed bios coming soon.
             </p>
           </div>
@@ -91,26 +101,26 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-muted rounded-2xl p-8 text-center border border-border hover:border-primary/30 hover:shadow-lg transition-all"
+                className="bg-white/12 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 hover:border-secondary/50 hover:bg-white/18 hover:shadow-xl transition-all"
               >
                 {member.photo ? (
                   <img
                     src={`${import.meta.env.BASE_URL}${member.photo}`}
                     alt={member.name}
-                    className="w-24 h-24 mx-auto rounded-full object-cover object-top mb-5 shadow-md ring-4 ring-primary/20"
+                    className="w-24 h-24 mx-auto rounded-full object-cover object-top mb-5 shadow-md ring-4 ring-secondary/30"
                   />
                 ) : (
-                  <div className="w-24 h-24 mx-auto bg-primary text-white font-display font-bold text-xl flex items-center justify-center rounded-full mb-5 shadow-md ring-4 ring-primary/20">
+                  <div className="w-24 h-24 mx-auto bg-primary text-white font-display font-bold text-xl flex items-center justify-center rounded-full mb-5 shadow-md ring-4 ring-secondary/30">
                     {member.initials}
                   </div>
                 )}
-                <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
+                <h3 className="text-lg font-bold text-white">{member.name}</h3>
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-12 max-w-2xl mx-auto text-center bg-muted border border-border rounded-2xl p-8">
-            <p className="text-muted-foreground italic leading-relaxed">
+          <div className="mt-12 max-w-2xl mx-auto text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+            <p className="text-white/70 italic leading-relaxed">
               Full leadership bios and company story are coming soon. In the meantime, reach out directly — we're happy to tell you more about why we built this.
             </p>
           </div>

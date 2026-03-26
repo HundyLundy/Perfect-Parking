@@ -101,7 +101,7 @@ export default function Locations() {
             alt="Texas city skyline"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/88 via-navy/82 to-navy/92" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/55 via-navy/45 to-navy/60" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -113,7 +113,7 @@ export default function Locations() {
                 key={market.city}
                 {...fadeIn}
                 transition={{ delay: i * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/18 hover:border-secondary/60 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 p-6"
+                className="group relative overflow-hidden rounded-2xl border border-white/30 bg-white/22 backdrop-blur-sm hover:bg-white/30 hover:border-secondary/60 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 p-6"
               >
                 <div className="flex items-center gap-1.5 mb-3">
                   <span className="w-2 h-2 rounded-full bg-green-400 shrink-0 animate-pulse" />
@@ -138,7 +138,7 @@ export default function Locations() {
                 key={m.city}
                 {...fadeIn}
                 transition={{ delay: i * 0.025 }}
-                className="flex items-center gap-3 bg-white/8 backdrop-blur-sm border border-white/12 rounded-xl px-4 py-3 hover:bg-white/15 hover:border-white/25 transition-all"
+                className="flex items-center gap-3 bg-white/20 backdrop-blur-sm border border-white/25 rounded-xl px-4 py-3 hover:bg-white/28 hover:border-white/35 transition-all"
               >
                 <MapPin className="w-3.5 h-3.5 text-secondary shrink-0" />
                 <div>
