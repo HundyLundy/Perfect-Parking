@@ -4,11 +4,11 @@ import { SEO } from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
 import { AppShowcase } from "@/components/AppShowcase";
 import {
-  ArrowRight, CheckCircle2, TrendingUp, ShieldCheck, Activity,
-  Building, Hospital, CarFront, Users, Home as HomeIcon, ShoppingBag,
-  Landmark, LayoutGrid, Music, GraduationCap, ParkingCircle, Plane,
-  Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, UserCheck, Globe,
-  Search, Zap, DollarSign, Download, ChevronDown, Smartphone
+  ArrowRight, CheckCircle2, TrendingUp, ShieldCheck,
+  Building, Hospital, CarFront, Users, Home as HomeIcon,
+  Landmark, LayoutGrid, Music, GraduationCap, Plane,
+  Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, Globe,
+  Search, Zap, DollarSign, Download, ChevronDown, Smartphone, X
 } from "lucide-react";
 import { useLocation } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -46,18 +46,12 @@ export default function Home() {
   ];
 
   const whyFeatures = [
-    { icon: QrCode,       title: "No More Paper Parking Permits",      desc: "Issue digital permits for residents and guests instantly from the dashboard — no printing, no handouts, no lost passes." },
-    { icon: UserCheck,    title: "You Are In Control",                  desc: "Only authorized people park in your community. You decide who belongs — we enforce it automatically." },
-    { icon: ShieldCheck,  title: "Eliminate Guest Parking Abuse",       desc: "Stop unauthorized vehicles from taking spaces meant for residents. Real enforcement, zero confrontations.", teal: true },
-    { icon: MapPin,       title: "Real-Time Space Availability",        desc: "Live occupancy data ensures accurate, up-to-the-minute information on every space in your property.", teal: true },
-    { icon: Activity,     title: "User-Friendly Interface",             desc: "Intuitive navigation for a seamless parking experience — for property managers and parkers alike." },
-    { icon: BarChart3,    title: "Reporting & Analytics",               desc: "User-friendly dashboards with detailed reports on revenue, occupancy, violations, and compliance.", teal: true },
-    { icon: CreditCard,   title: "Payment & Billing Support",           desc: "Apple Pay, Google Pay, credit card — accepted instantly. Auto receipts. Zero billing disputes on your end." },
-    { icon: TrendingUp,   title: "Revenue Share Program",               desc: "We only win when you win. Our revenue share model aligns our incentives with your property's success.", green: true },
-    { icon: Globe,        title: "Integration & Scalability",           desc: "Connect with your existing PMS, access control, and property management systems. Scale across multiple locations.", teal: true },
-    { icon: Bell,         title: "Hassle-Free Setup & Onboarding",      desc: "From satellite mapping to digital signage to enforcement — we handle everything. You're live in under 30 days." },
-    { icon: CheckCircle2, title: "Eliminate Enforcement Mistakes",       desc: "Digital LPR and automated violation notices eliminate the human error in manual enforcement.", green: true },
-    { icon: ShieldCheck,  title: "Create a Safer Parking Environment",  desc: "Only authorized vehicles on property means fewer strangers, less trespassing, and a safer community overall." }
+    { icon: TrendingUp,   title: "Revenue Share — Aligned Incentives",  desc: "We earn when you earn. Zero management fee. Zero upfront cost. Your success is the only metric we track.", green: true },
+    { icon: Bell,         title: "Live in Under 30 Days",               desc: "Satellite mapping, digital signage, software config, enforcement setup — we handle everything. You sign off." },
+    { icon: QrCode,       title: "Instant Digital Payments",            desc: "QR scan or text-to-pay. Apple Pay, Google Pay, or card. Works on any phone. No app required." },
+    { icon: BarChart3,    title: "Real-Time Revenue Dashboard",         desc: "Live occupancy, session activity, violation status, and revenue — visible from any device, any time.", teal: true },
+    { icon: ShieldCheck,  title: "Automated Enforcement",               desc: "Digital LPR, automated violation notices, and compliance tracking — no staff, no confrontations.", teal: true },
+    { icon: Globe,        title: "Built to Scale",                      desc: "Connect to your existing PMS and access control. Manage one lot or fifty from a single dashboard." },
   ];
 
   return (
@@ -299,20 +293,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY PERFECT PARKING */}
+      {/* THE PLATFORM */}
       <section className="py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">The Platform</h2>
             <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
               Built to run without you.
             </h3>
             <p className="text-muted-foreground text-lg">
-              Every feature is designed around one goal: maximum owner revenue with zero operational overhead. Payments, enforcement, reporting, and compliance — fully automated.
+              Maximum revenue. Zero overhead. Every feature automates a task your staff used to handle manually.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
             {whyFeatures.map((feature, i) => (
               <motion.div
                 key={i}
@@ -337,11 +331,101 @@ export default function Home() {
             ))}
           </div>
 
-          {/* CTA below features */}
-          <div className="text-center mt-12">
+          {/* CTA */}
+          <div className="text-center">
             <button
               onClick={() => setLocation("/contact")}
               className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2"
+            >
+              Get My Parking Analysis <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY US VS OTHERS */}
+      <section className="py-24 bg-white border-y border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Why Perfect Parking</h2>
+            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Not all parking management is equal.
+            </h3>
+            <p className="text-muted-foreground text-lg">We're the only platform that combines full automation, revenue-share alignment, and zero upfront cost.</p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left py-4 pr-6 text-muted-foreground font-semibold w-48"></th>
+                  <th className="py-4 px-4 text-center">
+                    <div className="inline-flex flex-col items-center gap-1">
+                      <div className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full">Perfect Parking</div>
+                    </div>
+                  </th>
+                  <th className="py-4 px-4 text-center text-muted-foreground font-semibold">Traditional Meters</th>
+                  <th className="py-4 px-4 text-center text-muted-foreground font-semibold">Human Attendants</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: "Upfront Cost",        pp: "$0",         meters: "$10K+",    humans: "$0" },
+                  { label: "Staff Required",       pp: "None",       meters: "None",     humans: "1–3 per lot" },
+                  { label: "Revenue to Owner",     pp: "You keep it",meters: "City fee", humans: "Shared 3+ ways" },
+                  { label: "Setup Time",           pp: "< 30 days",  meters: "Months",   humans: "Weeks" },
+                  { label: "Digital Payments",     pp: true,         meters: false,      humans: "Sometimes" },
+                  { label: "Real-Time Reporting",  pp: true,         meters: false,      humans: false },
+                  { label: "24/7 Enforcement",     pp: true,         meters: false,      humans: false },
+                ].map((row, i) => (
+                  <motion.tr
+                    key={i}
+                    className="border-b border-border/60 last:border-0"
+                    {...fadeIn}
+                    transition={{ delay: i * 0.04 }}
+                  >
+                    <td className="py-4 pr-6 font-semibold text-foreground">{row.label}</td>
+                    <td className="py-4 px-4 text-center bg-primary/5">
+                      {row.pp === true ? (
+                        <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
+                      ) : row.pp === false ? (
+                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
+                      ) : (
+                        <span className="font-bold text-primary">{row.pp}</span>
+                      )}
+                    </td>
+                    <td className="py-4 px-4 text-center">
+                      {row.meters === true ? (
+                        <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
+                      ) : row.meters === false ? (
+                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
+                      ) : (
+                        <span className="text-muted-foreground">{row.meters}</span>
+                      )}
+                    </td>
+                    <td className="py-4 px-4 text-center">
+                      {row.humans === true ? (
+                        <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
+                      ) : row.humans === false ? (
+                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
+                      ) : (
+                        <span className="text-muted-foreground">{row.humans}</span>
+                      )}
+                    </td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-10 bg-primary/5 border border-primary/15 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-foreground font-semibold text-lg leading-snug max-w-lg">
+              Ready to see how much your lot is worth?<br />
+              <span className="text-muted-foreground font-normal text-base">Analysis is free. No commitment.</span>
+            </p>
+            <button
+              onClick={() => setLocation("/contact")}
+              className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md shrink-0 inline-flex items-center gap-2"
             >
               Get My Parking Analysis <ArrowRight className="w-5 h-5" />
             </button>

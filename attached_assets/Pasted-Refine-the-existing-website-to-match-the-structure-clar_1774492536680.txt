@@ -1,0 +1,83 @@
+Refine the existing website to match the structure, clarity, and authority level of top-tier parking technology companies. Do not rebuild from scratch. Improve the current site.
+
+1. Messaging and positioning:
+- Shift tone from explaining to authority
+- Write as if we already operate at scale
+- Replace passive language with confident statements
+- Emphasize revenue, automation, and outcomes
+
+2. Visual structure and layout:
+- Reduce text by ~20%
+- Increase whitespace between sections
+- Use bold headers and short, scannable sections
+- Keep design colorful, modern, and visually engaging (do not make it bland)
+
+3. Remove repetition:
+- Eliminate duplicate concepts
+- Say each idea once, clearly and strongly
+- Push detailed explanations into subpages instead of homepage
+
+4. CTA optimization:
+- Use one dominant CTA across the site: “Get My Parking Analysis”
+- Add supporting urgency text before CTA
+- Ensure buttons are visually prominent and repeated consistently
+
+5. Add “How It Works” section:
+- Create a clean 4-step visual flow:
+  1. We analyze your lot
+  2. We deploy the system
+  3. Drivers pay digitally
+  4. You receive revenue
+- Use icons or simple visuals
+
+6. Add “Product Preview” section:
+- Create a mock dashboard UI (even if placeholder)
+- Include:
+  - revenue numbers
+  - occupancy rate
+  - activity
+- Add tabs:
+  - Driver Experience
+  - Owner Dashboard
+  - Reporting
+
+7. Add “Typical Results” section:
+- Show realistic ranges:
+  - $500–$3,000/month
+  - ROI in 30–60 days
+  - Minimal owner involvement
+- Make this visually prominent
+
+8. Add Wimberley case study block:
+- Highlight:
+  - ~50 spaces
+  - weekends only
+  - ~$1,000/month
+- Make it a strong featured proof section
+
+9. Add “Why Us vs Others” section:
+- Focus on:
+  - automation
+  - simplicity
+  - revenue generation
+  - minimal effort required
+
+10. Add trust anchors:
+- Include:
+  - “Serving Texas properties”
+  - partner mention (Military Warrior Support Foundation)
+  - industry-focused credibility statements
+
+11. Maintain strengths:
+- Keep clean, modern design
+- Keep strong “parking = profit” positioning
+- Keep industry targeting (hotels, healthcare, commercial, etc.)
+- Avoid overly technical jargon
+
+12. Improve hero section:
+- Make headline instantly clear and bold
+- Focus on revenue outcome
+- Ensure background image is visible but text is highly readable
+
+Goal:
+Make the website feel like an established, tech-enabled parking platform that already operates at scale, not a local service business.
