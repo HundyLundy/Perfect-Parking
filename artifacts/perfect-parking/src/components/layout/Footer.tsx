@@ -9,12 +9,18 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <div className="inline-block bg-white rounded-xl px-3 py-2 mb-6 shadow-sm">
-              <img
-                src={`${import.meta.env.BASE_URL}logo-pp.webp`}
-                alt="Perfect Parking"
-                className="h-10 w-auto object-contain"
-              />
+            <div className="mb-4">
+              <video
+                autoPlay loop muted playsInline
+                className="h-20 w-auto rounded-xl"
+                poster={`${import.meta.env.BASE_URL}logo-pp.webp`}
+              >
+                <source src={`${import.meta.env.BASE_URL}pp-logo-anim.mov`} type="video/mp4" />
+                <source src={`${import.meta.env.BASE_URL}pp-logo-anim.mov`} type="video/quicktime" />
+                <div className="inline-block bg-white rounded-xl px-3 py-2 shadow-sm">
+                  <img src={`${import.meta.env.BASE_URL}logo-pp.webp`} alt="Perfect Parking" className="h-10 w-auto object-contain" />
+                </div>
+              </video>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
               One partner. Proven strategies. More profit. We turn your underutilized parking real estate into consistent, passive monthly revenue.

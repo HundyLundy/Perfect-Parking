@@ -7,7 +7,7 @@ export default function About() {
     { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png" },
     { name: "Ray Euresti",      initials: "RE", photo: null },
     { name: "Laura Lundquist",  initials: "LL", photo: "team-laura.png" },
-    { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter.png" },
+    { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter2.jpg" },
   ];
 
   const values = [

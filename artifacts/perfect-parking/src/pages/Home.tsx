@@ -8,7 +8,7 @@ import {
   Building, Hospital, CarFront, Users, Home as HomeIcon,
   Landmark, LayoutGrid, Music, GraduationCap, Plane,
   Truck, MapPin, BarChart3, QrCode, Bell, CreditCard, Globe,
-  Search, Zap, DollarSign, Download, ChevronDown, Smartphone, X
+  Search, Zap, DollarSign, Download, ChevronDown, Smartphone, X, KeyRound, Play
 } from "lucide-react";
 import { useLocation } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -192,6 +192,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHAT THIS MEANS FINANCIALLY */}
+      <section className="py-20 bg-navy text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+              What This Means Financially
+            </h2>
+            <p className="text-white/60 text-lg max-w-xl mx-auto">
+              Most property owners don't realize how much their parking is underperforming.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              { stat: "20–40%", label: "of parking revenue goes unrealized at a typical property", color: "text-secondary" },
+              { stat: "30 Days", label: "Most locations start collecting revenue within 30 days of setup", color: "text-secondary" },
+              { stat: "$0", label: "No upfront capital required — we invest in the infrastructure", color: "text-secondary" },
+            ].map((item, i) => (
+              <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.1 }}
+                className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center hover:bg-white/15 transition-all"
+              >
+                <div className={`text-4xl md:text-5xl font-display font-bold mb-4 ${item.color}`}>{item.stat}</div>
+                <p className="text-white/75 leading-snug">{item.label}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center bg-secondary/15 border border-secondary/30 rounded-2xl px-8 py-7">
+            <p className="text-secondary font-display font-bold text-xl md:text-2xl leading-snug mb-2">
+              "Your parking should be producing income every day."
+            </p>
+            <p className="text-white/70 text-base">
+              Most properties are leaving money on the table. Let's find out how much yours is worth.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -226,6 +262,33 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MARKETING VIDEO */}
+      <section className="py-24 bg-muted border-b border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">See It In Action</h2>
+            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              The Automated Parking Revenue System
+            </h3>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              No operational burden. No staff required. See how Perfect Parking turns your lot into a revenue-generating asset.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-black aspect-video">
+            <video controls playsInline className="w-full h-full object-contain">
+              <source src={`${import.meta.env.BASE_URL}pp-marketing.mov`} type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}pp-marketing.mov`} type="video/quicktime" />
+              <p className="text-white text-center p-8">Your browser does not support video playback.</p>
+            </video>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+            <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-accent" /> Zero staff required</span>
+            <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-accent" /> Increase property income without adding work</span>
+            <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-accent" /> Live in under 30 days</span>
           </div>
         </div>
       </section>
@@ -275,8 +338,8 @@ export default function Home() {
             >
               <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full" />
               <img
-                src={`${import.meta.env.BASE_URL}boat-ramp.jpeg`}
-                alt="Perfect Parking Sign at Property"
+                src={`${import.meta.env.BASE_URL}pp-sign-wall.jpg`}
+                alt="Perfect Parking Sign Installed at Property"
                 className="relative z-10 w-full rounded-2xl shadow-2xl border-4 border-white/10"
               />
               <div className="absolute -bottom-6 -left-6 z-20 glass-panel-dark p-6 rounded-xl flex items-center gap-4 max-w-[280px]">
@@ -339,6 +402,37 @@ export default function Home() {
             >
               Get My Parking Analysis <ArrowRight className="w-5 h-5" />
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY OWNERS SWITCH */}
+      <section className="py-20 bg-muted border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <motion.div {...fadeIn}>
+              <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Why Owners Switch</h2>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-5 leading-tight">
+                Why Owners Switch<br />to Perfect Parking
+              </h3>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Turn parking into a revenue-generating asset — without adding work, staff, or complexity to your operations.
+              </p>
+            </motion.div>
+            <motion.ul {...fadeIn} transition={{ delay: 0.1 }} className="space-y-5">
+              {[
+                "Underperforming lots become predictable revenue streams",
+                "No staffing, no training, no operational burden",
+                "Real-time reporting and full transparency",
+                "Faster setup than traditional operators",
+                "Designed for property owners, not parking companies",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-border hover:border-primary/25 hover:shadow-sm transition-all">
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  <span className="text-foreground font-medium leading-snug">{item}</span>
+                </li>
+              ))}
+            </motion.ul>
           </div>
         </div>
       </section>
@@ -821,6 +915,54 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BUILT ON A REAL OPERATING SYSTEM */}
+      <section className="py-24 bg-white border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Technology</h2>
+            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Built on a Real Operating System
+            </h3>
+            <p className="text-muted-foreground text-lg">
+              Not just an app. A full infrastructure layer for automated parking revenue management with zero operational burden.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            {[
+              { icon: KeyRound, title: "Permit Management", desc: "Digital resident, staff, and guest permits. No paper. No manual tracking.", badge: "Automated" },
+              { icon: CreditCard, title: "Payment Automation", desc: "QR & text-to-pay. Apple Pay, Google Pay, or card. Every session captured automatically.", badge: "24/7" },
+              { icon: ShieldCheck, title: "Enforcement Integration", desc: "Automated violation detection and digital notices. No staff confrontations.", badge: "Passive" },
+              { icon: BarChart3, title: "Reporting Dashboard", desc: "Live revenue, occupancy, and session data. Exportable, visible from anywhere.", badge: "Real-Time" },
+            ].map((item, i) => (
+              <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.08 }}
+                className="relative p-8 rounded-2xl bg-muted border border-border hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all text-center group"
+              >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">{item.badge}</span>
+                </div>
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-5 mt-3 group-hover:bg-primary group-hover:text-white transition-all">
+                  <item.icon className="w-7 h-7" />
+                </div>
+                <h4 className="font-bold text-foreground mb-2">{item.title}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center bg-primary/5 border border-primary/15 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div>
+              <p className="text-primary font-bold text-base">Full platform demo available on request</p>
+              <p className="text-muted-foreground text-sm mt-1">Contact us for a live walkthrough of the complete operating system.</p>
+            </div>
+            <button
+              onClick={() => setLocation("/contact")}
+              className="shrink-0 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md inline-flex items-center gap-2"
+            >
+              Request Demo <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>
