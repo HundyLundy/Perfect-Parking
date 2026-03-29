@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
+  const { openContactModal } = useContactModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +18,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
@@ -44,10 +45,10 @@ export function Navbar() {
               src={`${import.meta.env.BASE_URL}logo-pp.webp`} 
               alt="Perfect Parking Logo" 
               className="h-10 w-auto object-contain"
+              loading="eager"
             />
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link 
@@ -64,7 +65,7 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center">
             <button 
-              onClick={() => setLocation("/contact")}
+              onClick={openContactModal}
               className="group relative inline-flex items-center gap-2 px-6 py-2.5 bg-secondary text-secondary-foreground font-bold rounded-xl overflow-hidden shadow-[0_4px_14px_rgba(222,198,0,0.3)] hover:shadow-[0_6px_20px_rgba(222,198,0,0.4)] hover:-translate-y-0.5 transition-all duration-200"
             >
               <span>Get a Free Audit</span>
@@ -72,7 +73,6 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button 
             className="lg:hidden z-50 p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -83,7 +83,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
@@ -105,7 +104,7 @@ export function Navbar() {
               ))}
               <div className="pt-4 border-t border-border">
                 <button 
-                  onClick={() => setLocation("/contact")}
+                  onClick={openContactModal}
                   className="w-full flex justify-center items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground font-bold rounded-xl"
                 >
                   Get a Free Audit

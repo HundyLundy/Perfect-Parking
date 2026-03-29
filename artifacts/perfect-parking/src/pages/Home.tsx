@@ -12,9 +12,11 @@ import {
 } from "lucide-react";
 import { useLocation } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function Home() {
   const [, setLocation] = useLocation();
+  const { openContactModal, openComboModal } = useContactModal();
   const [activeTab, setActiveTab] = useState<"dashboard" | "driver" | "reporting">("dashboard");
 
   const { count: locationsCount, ref: locationsRef } = useCountUp(50, 1600);
@@ -102,6 +104,7 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="none"
             className="w-full h-full object-cover opacity-50"
           >
             <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
@@ -124,7 +127,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button
-                  onClick={() => setLocation("/contact")}
+                  onClick={openContactModal}
                   className="px-8 py-4 bg-secondary text-secondary-foreground text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-secondary/90 transition-all duration-200 flex items-center justify-center gap-2 group"
                 >
                   Get My Parking Analysis
@@ -279,7 +282,7 @@ export default function Home() {
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-border bg-black aspect-video">
-            <video controls playsInline className="w-full h-full object-contain">
+            <video controls playsInline preload="none" className="w-full h-full object-contain">
               <source src={`${import.meta.env.BASE_URL}pp-marketing.mov`} type="video/mp4" />
               <source src={`${import.meta.env.BASE_URL}pp-marketing.mov`} type="video/quicktime" />
               <p className="text-white text-center p-8">Your browser does not support video playback.</p>
@@ -340,6 +343,7 @@ export default function Home() {
               <img
                 src={`${import.meta.env.BASE_URL}pp-sign-wall.jpg`}
                 alt="Perfect Parking Sign Installed at Property"
+                loading="lazy"
                 className="relative z-10 w-full rounded-2xl shadow-2xl border-4 border-white/10"
               />
               <div className="absolute -bottom-6 -left-6 z-20 glass-panel-dark p-6 rounded-xl flex items-center gap-4 max-w-[280px]">
@@ -397,7 +401,7 @@ export default function Home() {
           {/* CTA */}
           <div className="text-center">
             <button
-              onClick={() => setLocation("/contact")}
+              onClick={openContactModal}
               className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2"
             >
               Get My Parking Analysis <ArrowRight className="w-5 h-5" />
@@ -518,7 +522,7 @@ export default function Home() {
               <span className="text-muted-foreground font-normal text-base">Analysis is free. No commitment.</span>
             </p>
             <button
-              onClick={() => setLocation("/contact")}
+              onClick={openContactModal}
               className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md shrink-0 inline-flex items-center gap-2"
             >
               Get My Parking Analysis <ArrowRight className="w-5 h-5" />
@@ -565,7 +569,7 @@ export default function Home() {
               </ul>
             </div>
             <button
-              onClick={() => setLocation("/contact")}
+              onClick={openContactModal}
               className="self-start px-8 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2 group"
             >
               Get My Parking Analysis
@@ -958,7 +962,7 @@ export default function Home() {
               <p className="text-muted-foreground text-sm mt-1">Contact us for a live walkthrough of the complete operating system.</p>
             </div>
             <button
-              onClick={() => setLocation("/contact")}
+              onClick={openContactModal}
               className="shrink-0 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md inline-flex items-center gap-2"
             >
               Request Demo <ArrowRight className="w-4 h-4" />
@@ -1054,6 +1058,7 @@ export default function Home() {
               <img
                 src={`${import.meta.env.BASE_URL}military-partner.png`}
                 alt="Military Warriors Support Foundation Partnership with Perfect Parking"
+                loading="lazy"
                 className="rounded-2xl shadow-2xl max-w-full w-full border-2 border-white/10"
               />
             </motion.div>
@@ -1101,12 +1106,41 @@ export default function Home() {
             </div>
 
             <button
-              onClick={() => setLocation("/contact")}
+              onClick={openContactModal}
               className="px-10 py-5 bg-secondary text-secondary-foreground text-xl font-bold rounded-xl shadow-[0_0_40px_rgba(222,198,0,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(222,198,0,0.5)] transition-all duration-200 inline-flex items-center gap-3"
             >
               Get My Parking Analysis <ArrowRight className="w-6 h-6" />
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* CROSS-SELL: PERFECT WATER VALVE */}
+      <section className="py-20 bg-[#111827] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-secondary text-xs font-bold uppercase tracking-widest mb-5">
+            Also a Property Owner?
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-5 max-w-3xl">
+            Also spending $5,000/month on water?<br />We handle that too.
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-2xl">
+            Perfect Water Valve helps commercial and industrial property owners reduce water costs by 15–40% with zero operational burden. Same proven operator model.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => window.open("https://perfectwatervalve.com", "_blank")}
+              className="px-7 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white/60 hover:bg-white/10 transition-all text-left sm:text-center"
+            >
+              Learn About Perfect Water Valve →
+            </button>
+            <button
+              onClick={openComboModal}
+              className="px-7 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-left sm:text-center"
+            >
+              I Want the Combo — Parking + Water →
+            </button>
+          </div>
         </div>
       </section>
     </>

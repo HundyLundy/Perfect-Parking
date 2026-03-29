@@ -1,7 +1,9 @@
 import { Link } from "wouter";
 import { Mail, Phone } from "lucide-react";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export function Footer() {
+  const { openContactModal } = useContactModal();
   return (
     <footer className="bg-navy pt-20 pb-10 text-white" style={{ borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg, #0374a7, #3c6e7f, #1965b1) 1' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +13,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-4">
               <video
-                autoPlay loop muted playsInline
+                autoPlay loop muted playsInline preload="none"
                 className="h-20 w-auto rounded-xl"
                 poster={`${import.meta.env.BASE_URL}logo-pp.webp`}
               >
@@ -48,7 +50,7 @@ export function Footer() {
               <li><Link href="/education" className="text-white/80 hover:text-secondary transition-colors text-sm">Education Hub</Link></li>
               <li><Link href="/locations" className="text-white/80 hover:text-secondary transition-colors text-sm">Locations We Serve</Link></li>
               <li><Link href="/faq" className="text-white/80 hover:text-secondary transition-colors text-sm">FAQ</Link></li>
-              <li><Link href="/contact" className="text-white/80 hover:text-secondary transition-colors text-sm">Contact</Link></li>
+              <li><button onClick={openContactModal} className="text-white/80 hover:text-secondary transition-colors text-sm text-left">Contact</button></li>
             </ul>
           </div>
 

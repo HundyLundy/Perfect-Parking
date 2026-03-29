@@ -1,0 +1,127 @@
+I need you to make several improvements to this site. Execute all of them in one pass. Do not stop between tasks. Do not ask for confirmation between steps.
+TASK 1 — Contact Form Modal (wire all CTA buttons )
+Create a reusable ContactModal component and wire it to every "Get My Parking Analysis", "Get a Free Audit", and "Request Demo" button on the site.
+Modal Behavior
+Opens as a centered overlay with a dark semi-transparent backdrop
+Closes when clicking the backdrop or pressing the X button in the top-right corner
+Does NOT navigate to a new page
+Use a React context (ContactModalContext) so any component can trigger it
+Form Fields
+First Name (required)
+Last Name (required)
+Email (required)
+Phone Number (required)
+Property Address or City (required)
+Estimated Number of Parking Spaces (required, number input)
+Message / Tell us about your property (optional, textarea)
+Form Submission
+On submit, POST a JSON payload using fetch() to:
+https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/fyMY2vLUwscH0iJsDeER
+Payload shape:
+JSON
+{
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "phone": "",
+  "propertyAddress": "",
+  "parkingSpaces": "",
+  "message": "",
+  "division": "Perfect Parking",
+  "source": "perfect-parking-website"
+}
+On success: show green message inside modal: "Thanks! We'll be in touch within 1 business day."
+On error: show red message: "Something went wrong. Please email cooper@perfectparking.com directly."
+Do NOT auto-close on success — let the user close it
+Wiring
+Wire every button with text "Get My Parking Analysis", "Get a Free Audit", or "Request Demo" to open this modal. The "Contact" link in the footer nav should also open this modal instead of navigating anywhere.
+TASK 2 — Cross-Sell Section (above the footer, home page )
+Add a new full-width section directly ABOVE the footer on the home page. This section should use a dark charcoal background (#111827 or similar) that visually separates it from the rest of the page.
+Section Content
+Label (small caps, yellow/gold accent color):
+"Also a Property Owner?"
+Headline (large, white, bold):
+"Also spending $5,000/month on water? We handle that too."
+Subtext (medium, gray):
+"Perfect Water Valve helps commercial and industrial property owners reduce water costs by 15–40% with zero operational burden. Same proven operator model."
+Two buttons (side by side on desktop, stacked on mobile):
+Button 1 — ghost/outline style:
+Text: "Learn About Perfect Water Valve →"
+Action: window.open('https://perfectwatervalve.com', '_blank' )
+Button 2 — filled, yellow/gold accent color (match the site's primary CTA color):
+Text: "I Want the Combo — Parking + Water →"
+Action: Opens a SECOND modal (ComboModal — see below)
+ComboModal
+Same fields as the parking contact form. Different copy:
+Modal title: "Get the Combo Deal — Parking + Water"
+Modal subtitle: "Tell us about your property and we'll put together a combined analysis for both divisions."
+Webhook URL: https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/fyMY2vLUwscH0iJsDeER
+Payload: same fields, but "division": "Perfect Combo" and "source": "perfect-parking-crosssell"
+Success message: "Perfect. We'll reach out within 1 business day with a combined analysis."
+Design Rules for This Section
+Full-width, py-20 padding
+Do NOT put it inside the footer — it is a standalone section ABOVE the footer
+Two buttons on same row on desktop (gap-4 ), stacked on mobile
+No cards, no borders — clean and confident
+TASK 3 — SEO: Title Tag, Meta Description, and Canonical
+Update the <head> section of the site (in index.html or wherever the HTML head is managed) with the following:
+HTML
+<title>Perfect Parking | Automated Parking Revenue System for Property Owners</title>
+<meta name="description" content="Perfect Parking turns underused parking lots into consistent monthly revenue with zero operational burden. Turnkey setup, real-time reporting, and revenue-share model. Serving Texas and beyond." />
+<meta property="og:title" content="Perfect Parking | Automated Parking Revenue System for Property Owners" />
+<meta property="og:description" content="Turn your underused parking into consistent monthly revenue. Zero staff required. Zero upfront cost. Fully managed by Perfect Parking." />
+<meta property="og:url" content="https://perfectparking.com/" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://perfectparking.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Perfect Parking | Automated Parking Revenue System" />
+<meta name="twitter:description" content="Turn your parking lot into a revenue-generating asset. Zero operational burden. Fully managed." />
+TASK 4 — SEO: Schema Markup
+Add these two JSON-LD blocks inside <head>:
+HTML
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Perfect Parking",
+  "url": "https://perfectparking.com",
+  "telephone": "(361 ) 585-1111",
+  "email": "info@perfectparking.com",
+  "description": "Perfect Parking provides automated parking revenue management for commercial property owners. Turnkey setup, real-time reporting, revenue-share model, zero upfront cost.",
+  "areaServed": ["Texas", "United States"],
+  "serviceType": "Parking Revenue Management"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Automated Parking Revenue Management",
+  "provider": {"@type": "Organization", "name": "Perfect Parking"},
+  "description": "Perfect Parking manages your parking lot end-to-end: permit management, payment automation, enforcement integration, and real-time reporting.",
+  "areaServed": "United States"
+}
+</script>
+TASK 5 — SEO: Sitemap + Robots.txt
+Create public/sitemap.xml:
+XML
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://perfectparking.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://perfectparking.com/why-perfect-parking/</loc><priority>0.8</priority></url>
+  <url><loc>https://perfectparking.com/industries/</loc><priority>0.8</priority></url>
+  <url><loc>https://perfectparking.com/about/</loc><priority>0.7</priority></url>
+</urlset>
+Create public/robots.txt:
+Plain Text
+User-agent: *
+Allow: /
+Sitemap: https://perfectparking.com/sitemap.xml
+TASK 6 — H1 Audit + Lazy Load Images
+Confirm exactly ONE H1 tag on the homepage. All other headings must be H2 or H3.
+Add loading="lazy" to all <img> tags that are NOT the hero/above-fold image.
+Add preload="none" to all <video> tags.
+FINAL STEP — Republish
+After completing all tasks: checkpoint, republish, and confirm: (a ) modal opens on all CTA buttons, (b) cross-sell section visible above footer, (c) combo modal works with division: "Perfect Combo", (d) view-source shows new title tag, (e) sitemap.xml accessible.
+IMPORTANT RULES: Do NOT change any existing visual design, colors, fonts, or layout. Do NOT remove any existing sections. All webhook POSTs must use fetch() with Content-Type: application/json header.

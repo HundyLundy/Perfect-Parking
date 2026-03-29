@@ -16,6 +16,7 @@ import Contact from "@/pages/Contact";
 import LandingPage from "@/pages/LandingPage";
 import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
+import { ContactModalProvider } from "@/context/ContactModalContext";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +46,9 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <Router />
+            <ContactModalProvider>
+              <Router />
+            </ContactModalProvider>
           </WouterRouter>
           <Toaster />
         </TooltipProvider>
