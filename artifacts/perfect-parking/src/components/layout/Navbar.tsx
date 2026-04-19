@@ -41,12 +41,19 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 z-50">
-            <img 
-              src={`${import.meta.env.BASE_URL}logo-pp.webp`} 
-              alt="Perfect Parking Logo" 
-              className="h-10 w-auto object-contain"
-              loading="eager"
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="h-[120px] w-auto rounded-xl"
+              poster={`${import.meta.env.BASE_URL}logo-pp.webp`}
+            >
+              <source src={`${import.meta.env.BASE_URL}pp-logo-anim.mov`} type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}pp-logo-anim.mov`} type="video/quicktime" />
+              <img src={`${import.meta.env.BASE_URL}logo-pp.webp`} alt="Perfect Parking Logo" className="h-[120px] w-auto object-contain" />
+            </video>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
