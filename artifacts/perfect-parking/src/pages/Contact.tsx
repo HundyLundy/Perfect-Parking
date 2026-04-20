@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { SEO } from "@/components/SEO";
 import { Phone, Mail } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
@@ -22,8 +23,9 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "error">("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [, navigate] = useLocation();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,12 +64,11 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        setSubmitStatus("success");
-        form.reset();
         trackEvent("generate_lead", {
           event_category: "contact",
           event_label: values.propertyType,
         });
+        navigate("/thank-you");
       } else {
         setSubmitStatus("error");
       }
@@ -208,11 +209,6 @@ export default function Contact() {
                     {isSubmitting ? "Submitting..." : "Submit Audit Request"}
                   </button>
 
-                  {submitStatus === "success" && (
-                    <p className="text-center text-green-700 font-medium bg-green-50 border border-green-200 rounded-xl px-4 py-3 text-sm">
-                      Thanks! We'll be in touch within 24 hours.
-                    </p>
-                  )}
                   {submitStatus === "error" && (
                     <p className="text-center text-red-700 font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm">
                       Something went wrong. Please call us at (361) 585-1111.

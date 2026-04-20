@@ -14,6 +14,7 @@ import CaseStudies from "@/pages/CaseStudies";
 import Education from "@/pages/Education";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import ThankYou from "@/pages/ThankYou";
 import LandingPage from "@/pages/LandingPage";
 import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
@@ -42,6 +43,7 @@ function Router() {
         <Route path="/education" component={Education} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/thank-you" component={ThankYou} />
         <Route path="/faq" component={FAQ} />
         <Route path="/locations" component={Locations} />
         <Route path="/lp" component={LandingPage} />
