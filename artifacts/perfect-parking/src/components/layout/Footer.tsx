@@ -1,9 +1,11 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Mail, Phone } from "lucide-react";
 import { useContactModal } from "@/context/ContactModalContext";
+import { trackEvent } from "@/lib/analytics";
 
 export function Footer() {
   const { openContactModal } = useContactModal();
+  const [location] = useLocation();
   return (
     <footer className="bg-navy pt-20 pb-10 text-white" style={{ borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg, #0374a7, #3c6e7f, #1965b1) 1' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,7 +52,7 @@ export function Footer() {
               <li><Link href="/education" className="text-white/80 hover:text-secondary transition-colors text-sm">Education Hub</Link></li>
               <li><Link href="/locations" className="text-white/80 hover:text-secondary transition-colors text-sm">Locations We Serve</Link></li>
               <li><Link href="/faq" className="text-white/80 hover:text-secondary transition-colors text-sm">FAQ</Link></li>
-              <li><button onClick={openContactModal} className="text-white/80 hover:text-secondary transition-colors text-sm text-left">Contact</button></li>
+              <li><button onClick={() => { trackEvent("cta_click", { cta_label: "Contact", source_page: location || "/", cta_location: "footer_nav" }); openContactModal(); }} className="text-white/80 hover:text-secondary transition-colors text-sm text-left">Contact</button></li>
             </ul>
           </div>
 

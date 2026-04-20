@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "wouter";
+import { trackEvent } from "@/lib/analytics";
 
 const lpFormSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -13,6 +15,7 @@ const lpFormSchema = z.object({
 
 export default function LandingPage() {
   const { toast } = useToast();
+  const [location] = useLocation();
   const form = useForm<z.infer<typeof lpFormSchema>>({
     resolver: zodResolver(lpFormSchema),
     defaultValues: { email: "" },
@@ -65,7 +68,11 @@ export default function LandingPage() {
                     <FormMessage />
                   </FormItem>
                 )} />
-                <button type="submit" className="w-full h-14 bg-secondary text-secondary-foreground font-bold text-lg rounded-xl hover:bg-secondary/90 shadow-[0_4px_20px_rgba(222,198,0,0.4)] transition-all">
+                <button
+                  type="submit"
+                  onClick={() => trackEvent("cta_click", { cta_label: "Get Free Audit", source_page: location || "/lp", cta_location: "hero_form" })}
+                  className="w-full h-14 bg-secondary text-secondary-foreground font-bold text-lg rounded-xl hover:bg-secondary/90 shadow-[0_4px_20px_rgba(222,198,0,0.4)] transition-all"
+                >
                   Get Free Audit
                 </button>
               </form>

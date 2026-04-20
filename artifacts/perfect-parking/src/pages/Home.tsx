@@ -13,11 +13,17 @@ import {
 import { useLocation } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useContactModal } from "@/context/ContactModalContext";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Home() {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   const { openContactModal } = useContactModal();
   const [activeTab, setActiveTab] = useState<"dashboard" | "driver" | "reporting">("dashboard");
+
+  function handleCtaClick(label: string, ctaLocation: string) {
+    trackEvent("cta_click", { cta_label: label, source_page: location || "/", cta_location: ctaLocation });
+    openContactModal();
+  }
 
   const { count: locationsCount, ref: locationsRef } = useCountUp(50, 1600);
   const { count: revenueCount, ref: revenueRef } = useCountUp(1, 2000);
@@ -128,14 +134,17 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button
-                  onClick={openContactModal}
+                  onClick={() => handleCtaClick("Get My Parking Analysis", "hero")}
                   className="px-8 py-4 bg-secondary text-secondary-foreground text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-secondary/90 transition-all duration-200 flex items-center justify-center gap-2 group"
                 >
                   Get My Parking Analysis
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
-                  onClick={() => setLocation("/solutions")}
+                  onClick={() => {
+                    trackEvent("cta_click", { cta_label: "How It Works", source_page: location || "/", cta_location: "hero" });
+                    setLocation("/solutions");
+                  }}
                   className="px-8 py-4 bg-white/10 text-white text-lg font-semibold rounded-xl backdrop-blur-sm border border-white/30 hover:bg-white/20 transition-all duration-200"
                 >
                   How It Works
@@ -402,7 +411,7 @@ export default function Home() {
           {/* CTA */}
           <div className="text-center">
             <button
-              onClick={openContactModal}
+              onClick={() => handleCtaClick("Get My Parking Analysis", "platform_features")}
               className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2"
             >
               Get My Parking Analysis <ArrowRight className="w-5 h-5" />
@@ -523,7 +532,7 @@ export default function Home() {
               <span className="text-muted-foreground font-normal text-base">Analysis is free. No commitment.</span>
             </p>
             <button
-              onClick={openContactModal}
+              onClick={() => handleCtaClick("Get My Parking Analysis", "comparison_table")}
               className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md shrink-0 inline-flex items-center gap-2"
             >
               Get My Parking Analysis <ArrowRight className="w-5 h-5" />
@@ -570,7 +579,7 @@ export default function Home() {
               </ul>
             </div>
             <button
-              onClick={openContactModal}
+              onClick={() => handleCtaClick("Get My Parking Analysis", "owners_panel")}
               className="self-start px-8 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2 group"
             >
               Get My Parking Analysis
@@ -963,7 +972,7 @@ export default function Home() {
               <p className="text-muted-foreground text-sm mt-1">Contact us for a live walkthrough of the complete operating system.</p>
             </div>
             <button
-              onClick={openContactModal}
+              onClick={() => handleCtaClick("Request Demo", "platform_demo")}
               className="shrink-0 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md inline-flex items-center gap-2"
             >
               Request Demo <ArrowRight className="w-4 h-4" />
@@ -1107,7 +1116,7 @@ export default function Home() {
             </div>
 
             <button
-              onClick={openContactModal}
+              onClick={() => handleCtaClick("Get My Parking Analysis", "revenue_potential")}
               className="px-10 py-5 bg-secondary text-secondary-foreground text-xl font-bold rounded-xl shadow-[0_0_40px_rgba(222,198,0,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(222,198,0,0.5)] transition-all duration-200 inline-flex items-center gap-3"
             >
               Get My Parking Analysis <ArrowRight className="w-6 h-6" />
