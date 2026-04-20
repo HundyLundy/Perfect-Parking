@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { Phone, Mail } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -63,6 +64,10 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus("success");
         form.reset();
+        trackEvent("generate_lead", {
+          event_category: "contact",
+          event_label: values.propertyType,
+        });
       } else {
         setSubmitStatus("error");
       }

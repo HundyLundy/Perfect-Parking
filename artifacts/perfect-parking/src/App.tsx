@@ -1,9 +1,10 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { useEffect } from "react";
 
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
@@ -17,12 +18,22 @@ import LandingPage from "@/pages/LandingPage";
 import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
 import { ContactModalProvider } from "@/context/ContactModalContext";
+import { trackPageView } from "@/lib/analytics";
 
 const queryClient = new QueryClient();
+
+function PageViewTracker() {
+  const [location] = useLocation();
+  useEffect(() => {
+    trackPageView(location);
+  }, [location]);
+  return null;
+}
 
 function Router() {
   return (
     <Layout>
+      <PageViewTracker />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/solutions" component={Solutions} />
