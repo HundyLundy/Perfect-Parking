@@ -1,0 +1,153 @@
+You are updating the Perfect Parking website. The site is currently deployed
+at vatooriginals.com (staging) and will be moved to perfectparking.com.
+Before the domain cutover, we need to make the following changes. Do not
+change any existing design, colors, fonts, or layout. Only add/fix the items
+listed below.
+---
+TASK 1 — SEO META TAGS (All Pages)
+Add the following to the <head> of every page. Use the correct
+title/description per page:
+Homepage:
+- <title>Turn Your Parking Into Profit | Perfect Parking</title>
+- <meta name="description" content="Perfect Parking turns underused lots
+into passive monthly income. Zero upfront cost. Revenue share model. Serving
+Texas and beyond.">
+- <link rel="canonical" href="https://perfectparking.com/">
+FAQ page:
+- <title>Parking Management FAQ | Perfect Parking</title>
+- <meta name="description" content="Answers to the most common questions
+about Perfect Parking's revenue share program, setup process, and how
+property owners get paid.">
+- <link rel="canonical" href="https://perfectparking.com/faq">
+About page:
+- <title>About Us | Perfect Parking</title>
+- <meta name="description" content="Perfect Parking is a team of real estate
+and technology operators dedicated to unlocking hidden parking revenue for
+property owners across Texas.">
+- <link rel="canonical" href="https://perfectparking.com/about">
+Contact page:
+- <title>Get Your Free Parking Revenue Audit | Perfect Parking</title>
+- <meta name="description" content="Request a free parking revenue audit. In
+15 minutes we'll identify your exact revenue opportunity and build a custom
+monetization plan.">
+- <link rel="canonical" href="https://perfectparking.com/contact">
+---
+TASK 2 — OPEN GRAPH TAGS (All Pages)
+Add these Open Graph tags to the <head> of every page (update URL per page):
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Perfect Parking">
+<meta property="og:title" content="Turn Your Parking Into Profit | Perfect
+Parking">
+<meta property="og:description" content="Perfect Parking turns underused
+lots into passive monthly income. Zero upfront cost. Revenue share model.">
+<meta property="og:url" content="https://perfectparking.com/">
+<meta property="og:image" content="https://perfectparking.com/og-image.jpg">
+---
+TASK 3 — LOCAL BUSINESS SCHEMA (Homepage only)
+Add this JSON-LD schema block inside a <script type="application/ld+json">
+tag in the <head> of the homepage:
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "Perfect Parking",
+"url": "https://perfectparking.com",
+"telephone": "+13615851111",
+"email": "info@perfectparking.com",
+"description": "Perfect Parking provides turnkey parking revenue
+management for property owners. Zero upfront cost. Revenue share model.",
+"areaServed": "Texas",
+"priceRange": "Free to start",
+"sameAs": [
+"https://www.facebook.com/profile.php?id=100095425291971"
+]
+}
+---
+TASK 4 — 301 REDIRECT
+Add a redirect so that anyone visiting /why-perfect-parking/ is
+automatically sent to the homepage (/). This preserves SEO link equity from
+the old WordPress URL.
+---
+TASK 5 — ROBOTS.TXT
+Create a /public/robots.txt file with this content:
+User-agent: *
+Allow: /
+Sitemap: https://perfectparking.com/sitemap.xml
+---
+TASK 6 — SITEMAP.XML
+Create a /public/sitemap.xml file with this content:
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://perfectparking.com/</loc><priority>1.0</priority></url>
+<url><loc>https://perfectparking.com/faq</loc><priority>0.8</priority>
+</url>
+<url><loc>https://perfectparking.com/about</loc><priority>0.7</priority>
+</url>
+<url><loc>https://perfectparking.com/contact</loc><priority>0.9</priority>
+</url>
+<url><loc>https://perfectparking.com/solutions</loc>
+<priority>0.7</priority></url>
+<url><loc>https://perfectparking.com/industries</loc>
+<priority>0.7</priority></url>
+<url><loc>https://perfectparking.com/locations</loc>
+<priority>0.7</priority></url>
+</urlset>
+---
+TASK 7 — DRIVER FAQ SECTION
+Add a new section to the FAQ page called "Parker FAQ" (for drivers/parkers,
+not property owners). Place it BELOW the existing property owner FAQ
+sections. Use the same accordion/expand style as the existing FAQ items.
+Section title: "Parker FAQ — For Drivers & Parkers"
+Subtitle: "Quick answers for anyone parking at a Perfect Parking location."
+Add these questions and answers:
+Q: How do I pay for parking?
+A: Most Perfect Parking locations use scan-to-pay. Just scan the QR code
+posted in the lot and follow the prompts — no app required.
+Q: Do I need to download an app?
+A: No. Just scan the QR code or text the number on the sign. It takes you
+directly to a mobile payment page.
+Q: What if I can't scan the QR code?
+A: No problem — just text the number listed on the signs in the lot. We'll
+send you a link to start your session.
+Q: What do I need to display in my car?
+A: Nothing. Your license plate is your permit. Just make sure you entered it
+correctly when starting your session.
+Q: How do I get a receipt or proof of payment?
+A: A text confirmation is sent to the phone number you entered at checkout.
+Check your text messages. If you didn't receive it, make sure you entered
+the correct phone number — a typo at checkout is the most common reason it
+doesn't arrive.
+Q: I was charged incorrectly. How do I request a refund?
+A: Email us at Support@PerfectParking.com with your full name, phone number,
+email address, and the license plate associated with the parking session.
+Our team will review and resolve it quickly.
+Q: How can I purchase ongoing parking at the Laguna Madre Boat Ramp?
+A: Scan the QR code on the sign at the lot. You'll see options for weekly,
+monthly, and annual permits directly on the payment page.
+Q: I haven't received my verification code. What should I do?
+A: Check that the phone number shown on your screen is correct. If it is,
+you can resend the code after 60 seconds. If it's wrong, tap "Change Phone
+Number" and try again.
+---
+TASK 8 — CONTACT FORM (GHL Embed)
+On the Contact page, replace the placeholder form with a GHL embedded form.
+The placeholder currently says "GoHighLevel CRM form will be embedded here
+in production."
+Replace that placeholder with this GHL embed code:
+[HUNTER: Paste your GHL form embed code here before giving this prompt to
+Replit Agent. Get it from GHL → Sites → Forms → your audit request form →
+Embed]
+---
+TASK 9 — ABOUT PAGE CLEANUP
+On the About page, find the text "The co-founders of Perfect Parking —
+detailed bios coming soon." and the section "Full leadership bios and
+company story are coming soon."
+Replace both with:
+"Perfect Parking was founded by Hunter Lundquist and Cooper Lundquist — two
+operators with deep roots in Texas real estate and technology. After seeing
+property owners leave thousands of dollars per month on the table from
+underperforming parking assets, they built a fully automated revenue-share
+platform that does the work for you. No upfront cost. No operational burden.
+Just monthly income."
+---
+That's all 9 tasks. Do not change any existing design, layout, colors, or
+navigation. Only add the items listed above.

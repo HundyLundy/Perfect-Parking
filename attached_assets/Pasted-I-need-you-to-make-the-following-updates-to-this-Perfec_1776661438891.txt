@@ -1,0 +1,107 @@
+I need you to make the following updates to this Perfect Parking website. Do all of
+them in one pass.
+TASK 1 — SEO META TAGS
+In the <head> of every page, add or update the following meta tags:
+<title>Perfect Parking | Hassle-Free Parking Management</title>
+<meta name="description" content="Perfect Parking makes parking simple. Scan
+to pay, no app required. Serving property owners and drivers across Texas
+and beyond.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://perfectparking.com/">
+On the FAQ page, change the canonical to https://perfectparking.com/faq On the
+Contact page, change the canonical to https://perfectparking.com/contact
+TASK 2 — SCHEMA MARKUP
+Add this JSON-LD schema block inside the <head> of the homepage only:
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "Perfect Parking",
+"url": "https://perfectparking.com",
+"telephone": "+13615851111",
+"email": "support@perfectparking.com",
+"description": "Hassle-free parking management for property owners and
+drivers. Scan-to-pay technology, no app required.",
+"areaServed": "United States",
+"sameAs": []
+}
+</script>
+TASK 3 — SITEMAP
+Create a file at /public/sitemap.xml with this content:
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://perfectparking.com/</loc><priority>1.0</priority></url>
+<url><loc>https://perfectparking.com/faq</loc><priority>0.8</priority>
+</url>
+<url><loc>https://perfectparking.com/contact</loc><priority>0.7</priority>
+</url>
+</urlset>
+TASK 4 — ROBOTS.TXT
+Create a file at /public/robots.txt with this content:
+User-agent: *
+Allow: /
+Sitemap: https://perfectparking.com/sitemap.xml
+TASK 5 — DRIVER FAQ PAGE
+Add a new page at /faq (or update the existing FAQ page if one exists) with the
+following questions and answers. Match the existing site’s design and typography
+exactly:
+How do I pay for parking? Most Perfect Parking locations use scan-to-pay technology.
+Just scan the QR code posted in the lot or garage and follow the prompts.
+Do I have to download an app? Nope. Just scan the QR code or text the number on
+the sign — it takes you directly to the payment page. No app required.
+What do I need to display in my car? Nothing at all. Your license plate is your pass.
+Just make sure you entered it correctly when starting your session.
+How do I view parking rates? Rates are posted at each location and will appear once
+you scan the QR code to begin your session. Rates vary by day, time, and special
+events.
+I can’t get the QR code to scan — what now? No worries. Just text the number listed
+on the signs in the lot and we’ll send you a link to start your session.
+I don’t have a camera on my phone — how do I pay? Just text the number listed on
+the signs in the lot. We’ll send you a link to start your session.
+I was charged incorrectly. How do I request a refund? Email us at
+Support@PerfectParking.com with your full name, phone number, email address, and
+the license plate associated with the parking session. Our team will review and resolve
+it ASAP.
+I can’t find my receipt or proof of payment. Your confirmation was sent as a text to
+the phone number you entered at checkout. Check your text messages. If you didn’t
+receive it, you may have entered your phone number incorrectly — double-check
+which number you used when you parked.
+How can I purchase ongoing parking at the Laguna Madre Boat Ramp? Scan the QR
+code on the sign and you’ll be taken directly to the site where you can select weekly,
+monthly, or annual permit options.
+Can I reserve parking in advance? At select locations, yes. Search your city on the My
+Perfect Parking app (available on Apple and Google app stores) to see if advance
+reservations are available.
+TASK 6 — CONTACT FORM WEBHOOK
+On the Contact page, find the existing contact form. Wire it so that on submit it sends a
+POST request to this URL:
+https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhooktrigger/KkGW9R8Rqu2pZUvyYS6P
+Send the data as JSON with these fields:
+{
+"firstName": "<first name field value>",
+"lastName": "<last name field value>",
+"phone": "<phone field value>",
+"email": "<email field value>",
+"message": "<message or details field value>",
+"source": "Perfect Parking Website"
+}
+Use fetch() with Content-Type: application/json
+On success: show inline message — “Thanks! We’ll be in touch within 24 hours.”
+On error: show inline message — “Something went wrong. Please call us at (361)
+585-1111.”
+Do not redirect or reload the page on submit
+Do not change the form’s design or layout
+TASK 7 — FOOTER PHONE & EMAIL
+Make sure the footer (and any contact section) displays:
+Phone: (361) 585-1111
+Email: support@perfectparking.com
+If these are already correct, leave them as-is.
+TASK 8 — CROSS-SELL CTA
+At the bottom of the homepage, above the footer, add a small section with this text
+and link:
+Own commercial property? Perfect Synergy Solutions also helps property owners
+reduce water costs through smart valve technology. Learn about Perfect Water Valve
+→
+Style it to match the existing site’s secondary/muted section style. Keep it subtle —
+one line headline, one line body, one link.
+That’s all 8 tasks. Please make all changes and confirm when done.
