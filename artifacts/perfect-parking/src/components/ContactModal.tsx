@@ -218,8 +218,8 @@ export function ContactModal({ variant, onClose }: ContactModalProps) {
           {status === "error" && (
             <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium">
               Something went wrong. Please email{" "}
-              <a href="mailto:cooper@perfectparking.com" className="underline font-semibold">
-                cooper@perfectparking.com
+              <a href="mailto:support@perfectparking.com" className="underline font-semibold">
+                support@perfectparking.com
               </a>{" "}
               directly.
             </div>
