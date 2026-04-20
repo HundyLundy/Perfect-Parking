@@ -25,7 +25,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <SEO title="Stop Leaving Revenue on the Table | Perfect Parking" description="Generate passive income from your parking lot." />
+      <SEO />
 
       <header className="p-6 absolute top-0 w-full z-50">
         <img src={`${import.meta.env.BASE_URL}logo-pp.webp`} alt="Logo" className="h-8" />

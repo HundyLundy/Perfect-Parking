@@ -153,9 +153,10 @@ export default function FAQ() {
   return (
     <>
       <SEO
-        title="Parking Management FAQ"
-        description="Answers to the most common questions about parking revenue management, setup, enforcement, pricing, and how Perfect Parking works for hotels, HOAs, apartments, and commercial real estate."
+        title="Perfect Parking | Hassle-Free Parking Management"
+        description="We help hotels, hospitals, multifamily communities, HOAs, and commercial real estate owners generate consistent monthly revenue from underutilized parking. Zero upfront cost. Zero staff required."
         keywords="parking management FAQ, parking revenue share, how does parking management work, parking lot software, automated parking enforcement"
+        canonical="https://perfectparking.com/faq"
       />
       <Helmet>
         <script type="application/ld+json">
@@ -193,6 +194,62 @@ export default function FAQ() {
               </div>
             </div>
           ))}
+
+          <div className="mb-14">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-5 pb-3 border-b border-border">
+              For Drivers &amp; Parkers
+            </h2>
+            <div className="space-y-3">
+              <FaqItem
+                q="How do I pay for parking?"
+                a="Paying is simple — just scan the QR code posted in the lot or garage and follow the on-screen prompts to complete your session."
+              />
+              <FaqItem
+                q="Can I reserve parking in advance?"
+                a="At select Perfect Parking locations, advance reservations are available. Download the My Perfect Parking app from the Apple App Store or Google Play, search your city, and check whether your location offers advance booking."
+              />
+              <FaqItem
+                q="How does the payment process work?"
+                a="After scanning the QR code, you'll be prompted to enter your vehicle information and payment details. That information is securely stored so your next visit is even faster — no app needed, no hassle."
+              />
+              <FaqItem
+                q="Do I have to download an app?"
+                a="Nope. Just scan the QR code or text the number on the sign and you'll be taken directly to a mobile-friendly page to enter your vehicle and payment details. The whole process takes seconds."
+              />
+              <FaqItem
+                q="How do I view the parking rate for a location?"
+                a="Rates are displayed for each location once you scan the QR code to begin your session. Pricing may vary by day, time, and any special events at the location."
+              />
+              <FaqItem
+                q="I'm at a Perfect Parking lot and the QR code won't scan — what do I do?"
+                a="No worries! Just text the number listed on the signs in the lot. We'll send you a direct link to start your session right away."
+              />
+              <FaqItem
+                q="My phone doesn't have a camera — how else can I pay?"
+                a="No problem — text the number displayed on the signs in the lot and we'll send you a link to complete your session without needing to scan anything."
+              />
+              <FaqItem
+                q="What do I need to display in my car after paying?"
+                a="Nothing at all! Your license plate is your pass and your permit. Just make sure you entered it correctly when starting your session — you can update it anytime from within your account."
+              />
+              <FaqItem
+                q="I haven't received the verification code for my phone number — what should I do?"
+                a="Check that the phone number shown on screen is correct. If it is, you can request a new code after 60 seconds. If the number is wrong, tap 'Change Phone Number' and re-enter it."
+              />
+              <FaqItem
+                q="I think I was charged incorrectly — how do I request a refund?"
+                a="We're sorry something seems off. Reach out through the support section in the app or email us at support@perfectparking.com. Please include your full name, cell phone number, email address, and the license plate tied to the session, and our team will look into it and resolve it as quickly as possible."
+              />
+              <FaqItem
+                q="I'm interested in learning more about Perfect Parking — who do I contact?"
+                a="We'd love to connect! Share your name, cell number, and email address with us and someone from our team will follow up with you shortly. You can also reach us at support@perfectparking.com."
+              />
+              <FaqItem
+                q="How do I purchase an ongoing parking permit at the Laguna Madre Boat Ramp?"
+                a="Scan the QR code on the sign at the location. It will take you directly to a page where you can choose from weekly, monthly, or annual permit options."
+              />
+            </div>
+          </div>
         </div>
       </section>
 

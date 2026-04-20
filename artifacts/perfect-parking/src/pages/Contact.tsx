@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { Phone, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -7,7 +8,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+
+const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/KkGW9R8Rqu2pZUvyYS6P";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -19,7 +21,8 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-  const { toast } = useToast();
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,18 +36,50 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Audit Request Received!",
-      description: "We'll be in touch shortly to schedule your free audit.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    const nameParts = values.name.trim().split(" ");
+    const firstName = nameParts[0] || values.name;
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+
+    try {
+      const response = await fetch(GHL_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: values.email,
+          phone: values.phone,
+          message: values.message || "",
+          propertyType: values.propertyType,
+          spaces: values.spaces,
+          source: "Perfect Parking Website",
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        form.reset();
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <>
-      <SEO title="Contact Us | Perfect Parking" description="Get your free parking revenue audit today." />
+      <SEO
+        title="Perfect Parking | Hassle-Free Parking Management"
+        description="We help hotels, hospitals, multifamily communities, HOAs, and commercial real estate owners generate consistent monthly revenue from underutilized parking. Zero upfront cost. Zero staff required."
+        canonical="https://perfectparking.com/contact"
+      />
 
       <section className="bg-muted py-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,10 +125,6 @@ export default function Contact() {
             </div>
 
             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-border">
-              <div className="mb-8 p-4 bg-amber-50 text-amber-800 rounded-lg text-sm font-medium border border-amber-200">
-                Note: GoHighLevel CRM form will be embedded here in production. Placeholder form active for now.
-              </div>
-
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-2 gap-6">
@@ -167,10 +198,22 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full h-14 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 text-lg"
+                    disabled={isSubmitting}
+                    className="w-full h-14 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 text-lg disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Submit Audit Request
+                    {isSubmitting ? "Submitting..." : "Submit Audit Request"}
                   </button>
+
+                  {submitStatus === "success" && (
+                    <p className="text-center text-green-700 font-medium bg-green-50 border border-green-200 rounded-xl px-4 py-3 text-sm">
+                      Thanks! We'll be in touch within 24 hours.
+                    </p>
+                  )}
+                  {submitStatus === "error" && (
+                    <p className="text-center text-red-700 font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm">
+                      Something went wrong. Please call us at (361) 585-1111.
+                    </p>
+                  )}
                 </form>
               </Form>
             </div>

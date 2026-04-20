@@ -52,8 +52,6 @@ export default function Locations() {
   return (
     <>
       <SEO
-        title="Locations We Serve | Parking Management Texas"
-        description="Perfect Parking provides automated parking revenue management across Texas — Houston, San Antonio, Dallas, Austin, Fort Worth, El Paso, Corpus Christi, and dozens of growing Texas markets."
         keywords="parking management Texas, parking management San Antonio, parking management Corpus Christi, parking management Austin, parking management Houston, parking management Dallas, HOA parking Texas, hotel parking Texas"
       />
       <Helmet>

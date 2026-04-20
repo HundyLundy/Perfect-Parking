@@ -16,7 +16,7 @@ import { useContactModal } from "@/context/ContactModalContext";
 
 export default function Home() {
   const [, setLocation] = useLocation();
-  const { openContactModal, openComboModal } = useContactModal();
+  const { openContactModal } = useContactModal();
   const [activeTab, setActiveTab] = useState<"dashboard" | "driver" | "reporting">("dashboard");
 
   const { count: locationsCount, ref: locationsRef } = useCountUp(50, 1600);
@@ -59,9 +59,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Turn Your Parking Into Profit"
+        title="Perfect Parking | Hassle-Free Parking Management"
         description="We help hotels, hospitals, multifamily communities, HOAs, and commercial real estate owners generate consistent monthly revenue from underutilized parking. Zero upfront cost. Zero staff required."
         keywords="parking management company, parking revenue share, hotel parking management, HOA parking management, multifamily parking management, automated parking enforcement Texas, manage and monetize parking"
+        canonical="https://perfectparking.com/"
       />
       <Helmet>
         <script type="application/ld+json">
@@ -71,9 +72,9 @@ export default function Home() {
             "name": "Perfect Parking",
             "description": "Technology-enabled parking revenue platform. We help hotels, hospitals, multifamily communities, HOAs, and commercial real estate owners monetize underutilized parking into passive monthly income.",
             "slogan": "We Turn Parking Into Profits",
-            "url": "https://www.perfectparking.com",
+            "url": "https://perfectparking.com",
             "telephone": "(361) 585-1111",
-            "email": "info@perfectparking.com",
+            "email": "support@perfectparking.com",
             "areaServed": ["San Antonio, TX", "Austin, TX", "Houston, TX", "Corpus Christi, TX", "Dallas, TX", "Fort Worth, TX", "Texas"],
             "serviceType": "Parking Revenue Management",
             "priceRange": "Revenue Share — No Upfront Cost",
@@ -1116,31 +1117,20 @@ export default function Home() {
       </section>
 
       {/* CROSS-SELL: PERFECT WATER VALVE */}
-      <section className="py-20 bg-[#111827] text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-secondary text-xs font-bold uppercase tracking-widest mb-5">
-            Also a Property Owner?
+      <section className="py-12 bg-muted border-t border-border">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-lg font-bold text-foreground mb-2">Own commercial property?</h2>
+          <p className="text-muted-foreground text-sm mb-4">
+            Perfect Synergy Solutions also helps commercial property owners cut water costs through smart valve technology — reducing usage by 15–40% with no operational burden.
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-5 max-w-3xl">
-            Also spending $5,000/month on water?<br />We handle that too.
-          </h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-2xl">
-            Perfect Water Valve helps commercial and industrial property owners reduce water costs by 15–40% with zero operational burden. Same proven operator model.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() => window.open("https://perfectwatervalve.com", "_blank")}
-              className="px-7 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white/60 hover:bg-white/10 transition-all text-left sm:text-center"
-            >
-              Learn About Perfect Water Valve →
-            </button>
-            <button
-              onClick={openComboModal}
-              className="px-7 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-left sm:text-center"
-            >
-              I Want the Combo — Parking + Water →
-            </button>
-          </div>
+          <a
+            href="https://perfectwatervalve.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-semibold hover:underline text-sm"
+          >
+            Learn about Perfect Water Valve →
+          </a>
         </div>
       </section>
     </>

@@ -88,10 +88,7 @@ export default function Industries() {
 
   return (
     <>
-      <SEO
-        title="Industries We Serve | Perfect Parking"
-        description="Tailored parking monetization solutions for Hotels, Hospitals, Multifamily, HOAs, CRE, Universities, Truck Parking, and Airports."
-      />
+      <SEO />
 
       <section className="bg-brand-teal py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

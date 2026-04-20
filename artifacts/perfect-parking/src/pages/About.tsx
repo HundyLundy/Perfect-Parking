@@ -35,7 +35,7 @@ export default function About() {
 
   return (
     <>
-      <SEO title="About Us | Perfect Parking" description="Meet the founders of Perfect Parking — operators and problem-solvers building the modern parking revenue platform." />
+      <SEO />
 
       {/* HERO */}
       <section className="py-24 bg-muted text-center border-b border-border">

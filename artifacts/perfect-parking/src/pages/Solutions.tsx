@@ -8,10 +8,7 @@ export default function Solutions() {
 
   return (
     <>
-      <SEO 
-        title="Our Solutions | Perfect Parking" 
-        description="A fully automated, hardware-light parking management system that eliminates revenue leakage."
-      />
+      <SEO />
 
       <section className="bg-navy py-24 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

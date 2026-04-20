@@ -8,10 +8,7 @@ export default function CaseStudies() {
 
   return (
     <>
-      <SEO
-        title="Case Studies | Perfect Parking"
-        description="Read how we helped properties turn their empty spaces into $1,000+ monthly profit centers."
-      />
+      <SEO />
 
       {/* HERO */}
       <section className="bg-muted py-24 text-center border-b border-border">

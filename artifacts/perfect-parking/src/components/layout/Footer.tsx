@@ -64,11 +64,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
-                <a href="mailto:info@perfectparking.com" className="text-white/80 hover:text-secondary transition-colors text-sm">info@perfectparking.com</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-secondary shrink-0" />
-                <a href="mailto:cooper@perfectparking.com" className="text-white/80 hover:text-secondary transition-colors text-sm">cooper@perfectparking.com</a>
+                <a href="mailto:support@perfectparking.com" className="text-white/80 hover:text-secondary transition-colors text-sm">support@perfectparking.com</a>
               </li>
             </ul>
           </div>

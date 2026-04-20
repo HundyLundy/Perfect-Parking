@@ -20,8 +20,6 @@ export default function Education() {
   return (
     <>
       <SEO
-        title="The Complete Guide to Parking Monetization | Perfect Parking"
-        description="Learn how to turn your commercial parking lot into a passive revenue stream."
         keywords="parking management, parking revenue, monetize parking, parking solutions for hotels, hospital parking revenue"
       />
 
