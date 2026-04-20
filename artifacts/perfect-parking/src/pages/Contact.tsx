@@ -115,8 +115,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Email us</div>
-                    <a href="mailto:info@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectparking.com</a>
-                    <a href="mailto:cooper@perfectparking.com" className="font-semibold text-primary text-sm mt-1 block hover:text-primary/80 transition-colors">cooper@perfectparking.com</a>
+                    <a href="mailto:support@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">support@perfectparking.com</a>
                   </div>
                 </div>
               </div>
