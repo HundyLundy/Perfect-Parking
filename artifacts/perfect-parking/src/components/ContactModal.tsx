@@ -23,7 +23,7 @@ const INITIAL: FormData = {
   message: "",
 };
 
-const WEBHOOK = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/fyMY2vLUwscH0iJsDeER";
+const WEBHOOK = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/KkGW9R8Rqu2pZUvyYS6P";
 
 const CONFIG = {
   parking: {
@@ -31,7 +31,7 @@ const CONFIG = {
     subtitle: "Tell us about your property and we'll build a custom revenue projection — free, no commitment.",
     division: "Perfect Parking",
     source: "perfect-parking-website",
-    success: "Thanks! We'll be in touch within 1 business day.",
+    success: "Thanks! We'll be in touch within 1 business day with your free parking analysis.",
     cta: "Submit — Get My Free Analysis",
   },
   combo: {
@@ -217,11 +217,10 @@ export function ContactModal({ variant, onClose }: ContactModalProps) {
           )}
           {status === "error" && (
             <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium">
-              Something went wrong. Please email{" "}
+              Something went wrong. Please call us at (361) 533-2159 or email{" "}
               <a href="mailto:support@perfectparking.com" className="underline font-semibold">
                 support@perfectparking.com
-              </a>{" "}
-              directly.
+              </a>
             </div>
           )}
 
