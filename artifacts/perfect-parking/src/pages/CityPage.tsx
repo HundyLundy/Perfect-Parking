@@ -63,7 +63,7 @@ export default function CityPage() {
             <p className="text-secondary text-sm font-semibold uppercase tracking-widest mb-3">
               {city.region} · Texas
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-white">
               Parking Revenue Management<br />in {city.name}, TX
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl">
