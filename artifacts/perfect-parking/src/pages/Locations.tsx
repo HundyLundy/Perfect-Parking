@@ -76,6 +76,10 @@ export default function Locations() {
         keywords="parking management Texas, parking management San Antonio, parking management Corpus Christi, parking management Austin, parking management Houston, parking management Dallas, HOA parking Texas, hotel parking Texas"
       />
       <Helmet>
+        <title>Texas Parking Management Locations | Perfect Parking</title>
+        <meta name="description" content="Perfect Parking serves 400+ cities across Texas. Find your city and turn your parking lot into automated monthly revenue. Free analysis for property owners." />
+        <link rel="canonical" href="https://perfectparking.com/locations" />
+        <meta name="robots" content="index, follow" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

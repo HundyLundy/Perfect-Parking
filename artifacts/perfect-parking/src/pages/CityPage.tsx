@@ -47,12 +47,20 @@ export default function CityPage() {
   return (
     <>
       <Helmet>
-        <title>Parking Revenue Management in {city.name}, TX | Perfect Parking</title>
-        <meta
-          name="description"
-          content={`Perfect Parking helps ${city.name}, TX property owners earn $500–$3,000/month from underused parking. Zero operational burden. Free analysis.`}
-        />
+        <title>{city.name} Parking Management Services | Perfect Parking TX</title>
+        <meta name="description" content={`Perfect Parking provides fully automated parking revenue management in ${city.name}, TX. Turn your parking lot into $500–$3,000/month in passive income. Free analysis, zero upfront cost.`} />
         <link rel="canonical" href={`https://perfectparking.com/locations/${city.slug}`} />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${city.name} Parking Management | Perfect Parking`} />
+        <meta property="og:description" content={`Automated parking revenue for property owners in ${city.name}, TX. No staff, no upfront cost. Start earning in 30 days.`} />
+        <meta property="og:url" content={`https://perfectparking.com/locations/${city.slug}`} />
+        <meta property="og:site_name" content="Perfect Parking" />
+        <meta name="geo.region" content="US-TX" />
+        <meta name="geo.placename" content={`${city.name}, Texas`} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={`${city.name} Parking Management | Perfect Parking`} />
+        <meta name="twitter:description" content={`Automated parking revenue for property owners in ${city.name}, TX. Free analysis.`} />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

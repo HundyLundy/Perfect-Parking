@@ -1,0 +1,65 @@
+Task: Add SEO/GEO meta tags to all city pages + add 25 missing Coastal Bend cities
+Step 1: Install react-helmet-async if not already installed
+Run: pnpm add react-helmet-async
+Wrap the app root in App.tsx with <HelmetProvider> from react-helmet-async. If it's already installed and configured, skip this step.
+Step 2: Update CityPage.tsx with full SEO meta tags
+Import { Helmet } from react-helmet-async. Inside the CityPage component, add a <Helmet> block that dynamically renders the following for every city:
+TSX
+<Helmet>
+  <title>{city.name} Parking Management Services | Perfect Parking TX</title>
+  <meta name="description" content={`Perfect Parking provides fully automated parking revenue management in ${city.name}, TX. Turn your parking lot into $500–$3,000/month in passive income. Free analysis, zero upfront cost.`} />
+  <link rel="canonical" href={`https://perfectparking.com/locations/${city.slug}`} />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={`${city.name} Parking Management | Perfect Parking`} />
+  <meta property="og:description" content={`Automated parking revenue for property owners in ${city.name}, TX. No staff, no upfront cost. Start earning in 30 days.`} />
+  <meta property="og:url" content={`https://perfectparking.com/locations/${city.slug}`} />
+  <meta property="og:site_name" content="Perfect Parking" />
+  <meta name="geo.region" content="US-TX" />
+  <meta name="geo.placename" content={`${city.name}, Texas`} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={`${city.name} Parking Management | Perfect Parking`} />
+  <meta name="twitter:description" content={`Automated parking revenue for property owners in ${city.name}, TX. Free analysis.`} />
+</Helmet>
+Step 3: Update the /locations index page (Locations.tsx )
+Add a <Helmet> block to the Locations page:
+TSX
+<Helmet>
+  <title>Texas Parking Management Locations | Perfect Parking</title>
+  <meta name="description" content="Perfect Parking serves 400+ cities across Texas. Find your city and turn your parking lot into automated monthly revenue. Free analysis for property owners." />
+  <link rel="canonical" href="https://perfectparking.com/locations" />
+  <meta name="robots" content="index, follow" />
+</Helmet>
+Step 4: Add 25 missing Texas cities to texasCities.ts
+Add the following to the existing texasCities array with realistic population estimates:
+ts
+{ name: "Banquete", slug: "banquete", population: 738, region: "Coastal Bend" },
+{ name: "Driscoll", slug: "driscoll", population: 739, region: "Coastal Bend" },
+{ name: "Fulton", slug: "fulton", population: 1854, region: "Coastal Bend" },
+{ name: "Ganado", slug: "ganado", population: 1915, region: "Gulf Coast" },
+{ name: "George West", slug: "george-west", population: 2445, region: "South Texas" },
+{ name: "Goliad", slug: "goliad", population: 1908, region: "South Texas" },
+{ name: "Hallettsville", slug: "hallettsville", population: 2550, region: "South Texas" },
+{ name: "Hebbronville", slug: "hebbronville", population: 4558, region: "South Texas" },
+{ name: "Ingleside", slug: "ingleside", population: 9387, region: "Coastal Bend" },
+{ name: "Louise", slug: "louise", population: 985, region: "Gulf Coast" },
+{ name: "Mathis", slug: "mathis", population: 4942, region: "Coastal Bend" },
+{ name: "Odem", slug: "odem", population: 2389, region: "Coastal Bend" },
+{ name: "Orange Grove", slug: "orange-grove", population: 1318, region: "Coastal Bend" },
+{ name: "Palacios", slug: "palacios", population: 4718, region: "Gulf Coast" },
+{ name: "Pleasanton", slug: "pleasanton", population: 10139, region: "South Texas" },
+{ name: "Port Aransas", slug: "port-aransas", population: 3480, region: "Coastal Bend" },
+{ name: "Poteet", slug: "poteet", population: 3260, region: "South Texas" },
+{ name: "Refugio", slug: "refugio", population: 2828, region: "Coastal Bend" },
+{ name: "San Diego", slug: "san-diego", population: 4753, region: "South Texas" },
+{ name: "Sargent", slug: "sargent", population: 450, region: "Gulf Coast" },
+{ name: "Seadrift", slug: "seadrift", population: 1352, region: "Gulf Coast" },
+{ name: "Shiner", slug: "shiner", population: 2069, region: "South Texas" },
+{ name: "Taft", slug: "taft", population: 3048, region: "Coastal Bend" },
+{ name: "Three Rivers", slug: "three-rivers", population: 1848, region: "South Texas" },
+{ name: "Wharton", slug: "wharton", population: 8832, region: "Gulf Coast" },
+Step 5: Update sitemap.xml
+Add all 25 new city slugs to public/sitemap.xml at priority 0.7 with changefreq of monthly. The total URL count should now be 439.
+Step 6: Commit and push to GitHub main
+Use: git push https://$GITHUB_TOKEN@github.com/HundyLundy/Perfect-Parking.git main
+Commit message: "SEO meta tags on all city pages + 25 Coastal Bend cities added"
