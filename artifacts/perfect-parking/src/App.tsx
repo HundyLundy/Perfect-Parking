@@ -18,6 +18,7 @@ import ThankYou from "@/pages/ThankYou";
 import LandingPage from "@/pages/LandingPage";
 import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
+import CityPage from "@/pages/CityPage";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import { trackPageView } from "@/lib/analytics";
 
@@ -46,6 +47,7 @@ function Router() {
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/faq" component={FAQ} />
         <Route path="/locations" component={Locations} />
+        <Route path="/locations/:citySlug" component={CityPage} />
         <Route path="/lp" component={LandingPage} />
         <Route component={NotFound} />
       </Switch>

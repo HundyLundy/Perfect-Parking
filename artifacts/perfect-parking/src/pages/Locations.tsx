@@ -1,8 +1,11 @@
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
-import { MapPin, ArrowRight } from "lucide-react";
-import { useLocation } from "wouter";
+import { MapPin, ArrowRight, Search } from "lucide-react";
+import { Link } from "wouter";
+import { texasCities, regionOrder } from "@/data/texasCities";
+import { useContactModal } from "@/context/ContactModalContext";
 
 const majorMarkets = [
   { city: "Houston",       state: "TX", note: "Texas Medical Center · Hotels · CRE · Multifamily" },
@@ -47,7 +50,25 @@ const fadeIn = {
 };
 
 export default function Locations() {
-  const [, setLocation] = useLocation();
+  const { openContactModal } = useContactModal();
+  const [search, setSearch] = useState("");
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return texasCities;
+    return texasCities.filter((c) => c.name.toLowerCase().includes(q) || c.region.toLowerCase().includes(q));
+  }, [search]);
+
+  const groupedByRegion = useMemo(() => {
+    const groups: Record<string, typeof texasCities> = {};
+    filtered.forEach((c) => {
+      if (!groups[c.region]) groups[c.region] = [];
+      groups[c.region].push(c);
+    });
+    return regionOrder
+      .filter((r) => groups[r])
+      .map((r) => ({ region: r, cities: groups[r] }));
+  }, [filtered]);
 
   return (
     <>
@@ -169,6 +190,62 @@ export default function Locations() {
         </div>
       </section>
 
+      {/* ALL TEXAS CITIES — search + grouped by region */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-display font-bold text-foreground mb-3">
+              All Texas Cities We Serve
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              {texasCities.length} incorporated Texas cities — click any city for a dedicated parking revenue page.
+            </p>
+            <div className="relative max-w-md mx-auto">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by city or region…"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary bg-white"
+              />
+            </div>
+            {search && (
+              <p className="text-sm text-muted-foreground mt-2">
+                {filtered.length} result{filtered.length !== 1 ? "s" : ""} for "{search}"
+              </p>
+            )}
+          </div>
+
+          {groupedByRegion.length === 0 ? (
+            <p className="text-center text-muted-foreground py-12">No cities found matching "{search}"</p>
+          ) : (
+            <div className="space-y-10">
+              {groupedByRegion.map(({ region, cities }) => (
+                <div key={region}>
+                  <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    {region}
+                    <span className="text-sm font-normal text-muted-foreground">({cities.length})</span>
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {cities.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/locations/${c.slug}`}
+                        className="bg-white border border-border text-foreground/80 px-3 py-1.5 rounded-lg text-sm hover:bg-primary hover:text-white hover:border-primary transition-all font-medium"
+                      >
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
@@ -179,7 +256,7 @@ export default function Locations() {
             We evaluate new markets quickly. If your property has consistent parking demand, reach out and we'll run the numbers.
           </p>
           <button
-            onClick={() => setLocation("/contact")}
+            onClick={openContactModal}
             className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg"
           >
             Tell Us About Your Property <ArrowRight className="w-5 h-5" />

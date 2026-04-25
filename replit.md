@@ -94,3 +94,24 @@ Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHea
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
+
+### `artifacts/perfect-parking` (`@workspace/perfect-parking`)
+
+Marketing website for Perfect Parking — a Texas-based parking revenue management platform.
+
+- **Stack**: React + Vite + Tailwind CSS + wouter (routing) + framer-motion
+- **Brand**: Primary #1965b1, Navy #0f3d6e (bg-navy), Gold/secondary #dec600
+- **Contact**: (361) 585-1111 | support@perfectparking.com
+- **GHL Webhook**: `https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/KkGW9R8Rqu2pZUvyYS6P`
+- **GA4**: Hardcoded in `index.html` via gtag
+
+**City landing pages (SEO/programmatic)**:
+- Data file: `src/data/texasCities.ts` — 406 Texas cities with slug, population, region
+- Component: `src/pages/CityPage.tsx` — dynamic template driven by data (NOT individual files)
+- Route: `/locations/:citySlug` in `App.tsx`
+- Locations index: `src/pages/Locations.tsx` — includes searchable city grid grouped by region
+- Sitemap: `public/sitemap.xml` — 414 URLs (406 city pages + static pages)
+
+**Key pages**: `/` (home), `/locations`, `/locations/:citySlug`, `/faq`, `/contact`, `/solutions`, `/industries`, `/case-studies`, `/about`, `/lp` (landing), `/thank-you`
+
+**Deployment**: Static deploy on Vercel. `vite.config.ts` uses `PORT || 3000` and `BASE_PATH || "/"` fallbacks so Vercel builds work without env vars.
