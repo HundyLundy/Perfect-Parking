@@ -1,0 +1,120 @@
+Replit Agent Prompt — perfectwatervalve.com GSC Fixes
+
+
+
+
+We have three critical issues flagged by Google Search Console that are preventing pages from appearing in Google Search results. Please fix all three. Here is the exact diagnosis and the exact fix for each one.
+
+
+
+
+Issue 1: Duplicate FAQPage Structured Data
+
+What Google reported: "Duplicate field FAQPage" — critical issue preventing FAQ rich results from appearing in search.
+
+Root cause (confirmed): The sitemap contains 114 URLs using https://www.perfectwatervalve.com/... (with www ). However, the canonical domain is https://perfectwatervalve.com/ (non-www ). Every www URL redirects via HTTP 308 to the non-www version. Google is seeing the FAQPage JSON-LD schema block on both the www and non-www versions of the same page and flagging it as a duplicate.
+
+Fix: Update the sitemap so every URL uses the non-www canonical form. Change all occurrences of https://www.perfectwatervalve.com/ to https://perfectwatervalve.com/ in the sitemap generation logic (wherever siteUrl, baseUrl, or the sitemap builder is configured ). The canonical tags in the HTML already correctly point to non-www — the sitemap just needs to match.
+
+Example — change this:
+
+Plain Text
+
+
+https://www.perfectwatervalve.com/
+https://www.perfectwatervalve.com/results
+https://www.perfectwatervalve.com/savings
+
+
+
+To this:
+
+Plain Text
+
+
+https://perfectwatervalve.com/
+https://perfectwatervalve.com/results
+https://perfectwatervalve.com/savings
+
+
+
+
+
+
+Issue 2: Product Snippets — Missing Required Fields
+
+What Google reported: "Either 'offers', 'review', or 'aggregateRating' should be specified" — critical issue preventing Product rich results.
+
+Root cause (confirmed ): There is currently NO Product schema on the site at all. Google previously detected a Product schema block (likely from an earlier version of the site) and is now flagging that the required fields are missing or the block is gone entirely.
+
+Fix: Add a valid Product JSON-LD schema block to the Smart Valve™ product page (or the homepage if there is no dedicated product page). It must include at least one of: offers, review, or aggregateRating. Use aggregateRating since we have real case study data.
+
+Add this block to the <head> of the relevant page:
+
+JSON
+
+
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Smart Valve™ by Perfect Water Valve",
+  "description": "A passive, NSF-certified commercial device that eliminates air entrapment in municipal water supply lines, reducing metered water billing 15%–35% annually on average.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Perfect Water Valve"
+  },
+  "url": "https://perfectwatervalve.com/",
+  "image": "https://perfectwatervalve.com/og-image.png",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "0",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "description": "Contact for quote — pricing based on facility size and water usage"
+    },
+    "availability": "https://schema.org/InStock",
+    "url": "https://perfectwatervalve.com/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}
+
+
+
+
+Note on the aggregateRating values: Use whatever real review count and rating you have from verified sources (Google Business, case study clients, etc. ). If you don't have a verified review count yet, use the offers block alone without aggregateRating — that satisfies Google's requirement on its own.
+
+
+
+
+Issue 3: Pages with Redirect — Not Being Indexed (2 pages)
+
+What Google reported: "Page with redirect" — 2 pages in the sitemap are redirecting and therefore not being indexed.
+
+Root cause (confirmed): The sitemap lists all 114 URLs using https://www.perfectwatervalve.com/.... Every single one of those URLs returns an HTTP 308 redirect to https://perfectwatervalve.com/... (non-www ). Google's crawler follows the redirect but marks the www URL as "not indexed — page with redirect." The fix is the same as Issue 1 — correct the sitemap to use non-www URLs. Once the sitemap URLs match the canonical non-www destination, Google will no longer see them as redirected pages.
+
+This is the same root fix as Issue 1. Fixing the sitemap URL prefix resolves both Issue 1 and Issue 3 simultaneously.
+
+
+
+
+Summary of Changes Needed
+
+#
+File(s) to Edit
+Change
+1 & 3
+Sitemap generator / sitemap.xml config
+Change base URL from https://www.perfectwatervalve.com to https://perfectwatervalve.com
+2
+Product page or homepage <head>
+Add Product JSON-LD schema block with offers and/or aggregateRating
+
+
+
