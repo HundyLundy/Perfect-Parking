@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { Building, Hospital, CarFront, Users, Home as HomeIcon, GraduationCap, Truck, Plane, ArrowRight, LayoutGrid, ShoppingBag } from "lucide-react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 
 export default function Industries() {
   const [, setLocation] = useLocation();
@@ -123,6 +123,14 @@ export default function Industries() {
                     <ind.icon className="w-10 h-10" />
                   </div>
                   <h2 className="text-3xl font-display font-bold text-foreground mb-4">{ind.title}</h2>
+                  {ind.id === "hotels" && (
+                    <Link
+                      href="/industries/hotels"
+                      className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all mb-3"
+                    >
+                      How it works for hotels <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  )}
                   <button
                     onClick={() => setLocation("/contact")}
                     className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"

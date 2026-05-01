@@ -19,6 +19,7 @@ import LandingPage from "@/pages/LandingPage";
 import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
 import CityPage from "@/pages/CityPage";
+import HotelParking from "@/pages/industries/HotelParking";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import { trackPageView } from "@/lib/analytics";
 
@@ -48,6 +49,7 @@ function Router() {
         <Route path="/faq" component={FAQ} />
         <Route path="/locations" component={Locations} />
         <Route path="/locations/:citySlug" component={CityPage} />
+        <Route path="/industries/hotels" component={HotelParking} />
         <Route path="/lp" component={LandingPage} />
         <Route component={NotFound} />
       </Switch>
