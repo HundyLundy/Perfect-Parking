@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/hotel-sales-deck/"
+title = "Hotel Sales Deck"
+version = "1.0.0"
+id = "artifacts/hotel-sales-deck"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/hotel-sales-deck/" ]
+localPort = 22868
+
+[services.development]
+run = "pnpm --filter @workspace/hotel-sales-deck run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hotel-sales-deck", "run", "build" ]
+publicDir = "artifacts/hotel-sales-deck/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22868"
+BASE_PATH = "/hotel-sales-deck/"
