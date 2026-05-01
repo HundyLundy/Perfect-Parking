@@ -5,7 +5,6 @@ import { Target, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 export default function About() {
   const team = [
     { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png" },
-    { name: "Ray Euresti",      initials: "RE", photo: null },
     { name: "Laura Lundquist",  initials: "LL", photo: "team-laura.png" },
     { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter2.jpg" },
   ];
@@ -93,7 +92,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
             {team.map((member, i) => (
               <motion.div
                 key={member.name}

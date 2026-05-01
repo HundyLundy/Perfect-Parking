@@ -36,7 +36,7 @@ const faqs = [
       },
       {
         q: "What does Perfect Parking charge?",
-        a: "There are no upfront fees, no hardware costs, and no monthly minimums. We operate on a revenue share model — we only earn when you earn. The exact split is disclosed during your free audit and depends on your property type, volume, and services required."
+        a: "There are no upfront fees, no hardware costs, and no monthly minimums. We operate on a revenue share model — we only earn when you earn. The exact split is disclosed during your free analysis and depends on your property type, volume, and services required."
       },
       {
         q: "How and when do I get paid?",
@@ -94,8 +94,8 @@ const faqs = [
     category: "Getting Started",
     items: [
       {
-        q: "What does a free parking revenue audit include?",
-        a: "Our free audit includes a satellite-based review of your property, a revenue projection based on your space count and market rate, a customized monetization plan, and a 15-minute call to walk you through the numbers. There's no commitment required."
+        q: "What does a free parking revenue analysis include?",
+        a: "Our free analysis includes a satellite-based review of your property, a revenue projection based on your space count and market rate, a customized monetization plan, and a 15-minute call to walk you through the numbers. There's no commitment required."
       },
       {
         q: "Is there a contract or long-term commitment?",
@@ -103,7 +103,7 @@ const faqs = [
       },
       {
         q: "How do I get started?",
-        a: "Request your free revenue audit at perfectparking.com. We'll review your property, model your revenue potential, and schedule a quick call to share the numbers. If it makes sense for both parties, we move forward — on your timeline."
+        a: "Request your free revenue analysis at perfectparking.com. We'll review your property, model your revenue potential, and schedule a quick call to share the numbers. If it makes sense for both parties, we move forward — on your timeline."
       }
     ]
   }
@@ -261,7 +261,7 @@ export default function FAQ() {
             onClick={() => setLocation("/contact")}
             className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-secondary-foreground font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg"
           >
-            Request a Free Audit <ArrowRight className="w-5 h-5" />
+            Request a Free Analysis <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>

@@ -68,7 +68,7 @@ export default function CaseStudies() {
                 onClick={() => setLocation("/contact")}
                 className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg inline-flex items-center gap-2"
               >
-                Get Your Revenue Audit <ArrowRight className="w-5 h-5" />
+                Get Your Revenue Analysis <ArrowRight className="w-5 h-5" />
               </button>
             </motion.div>
           </div>
@@ -174,7 +174,7 @@ export default function CaseStudies() {
             onClick={() => setLocation("/contact")}
             className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg text-lg inline-flex items-center gap-2"
           >
-            Get a Free Revenue Audit <ArrowRight className="w-5 h-5" />
+            Get a Free Revenue Analysis <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>

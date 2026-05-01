@@ -730,75 +730,12 @@ export default function Home() {
                         <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
                         <span className="text-white/40 text-xs font-mono">owner.perfectparking.com / dashboard</span>
                       </div>
-                      <div className="bg-[#0f172a] p-5">
-                        {/* Header row */}
-                        <div className="flex items-start justify-between mb-5">
-                          <div>
-                            <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Revenue — June 2025</div>
-                            <div className="text-4xl font-display font-bold text-white">$2,847</div>
-                            <div className="flex items-center gap-1.5 mt-1">
-                              <TrendingUp className="w-3.5 h-3.5 text-green-400" />
-                              <span className="text-green-400 text-xs font-bold">+18%</span>
-                              <span className="text-white/30 text-xs">vs last month</span>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Net to Owner</div>
-                            <div className="text-2xl font-display font-bold text-secondary">$2,107</div>
-                          </div>
-                        </div>
-                        {/* Bar chart */}
-                        <div className="mb-5 bg-white/5 rounded-xl p-4">
-                          <div className="flex items-end gap-1.5 h-16 mb-2">
-                            {[55, 70, 48, 80, 65, 90, 75, 82, 68, 95, 71, 88].map((h, i) => (
-                              <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, backgroundColor: i === 10 ? '#dec600' : 'rgba(55,139,255,0.5)' }} />
-                            ))}
-                          </div>
-                          <div className="flex justify-between text-[10px] text-white/25 font-mono">
-                            <span>Jun 1</span><span>Jun 15</span><span>Jun 30</span>
-                          </div>
-                        </div>
-                        {/* Occupancy */}
-                        <div className="mb-4 bg-white/5 rounded-xl p-4">
-                          <div className="flex justify-between text-xs font-semibold mb-2">
-                            <span className="text-white/50">Lot Occupancy</span><span className="text-white">76%</span>
-                          </div>
-                          <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                            <div className="h-2 bg-primary rounded-full" style={{ width: "76%" }} />
-                          </div>
-                        </div>
-                        {/* Session list */}
-                        <div className="bg-white/5 rounded-xl overflow-hidden">
-                          <div className="px-4 py-2.5 border-b border-white/10 text-xs font-bold text-white/40 uppercase tracking-wider">Recent Sessions</div>
-                          {[
-                            { plate: "TX·4AFJ21", lot: "Lot 14A", amt: "$8.00", dur: "2h 14m" },
-                            { plate: "TX·8BXK09", lot: "Main St", amt: "$3.00", dur: "1h 00m" },
-                            { plate: "TX·2ZKL55", lot: "Lot 14A", amt: "$15.00", dur: "All Day" },
-                          ].map((s, i) => (
-                            <div key={i} className="flex items-center justify-between px-4 py-3 border-b border-white/5 last:border-0">
-                              <div className="font-mono text-xs text-white/60">{s.plate}</div>
-                              <div className="text-xs text-white/40">{s.lot}</div>
-                              <div className="text-xs text-white/40">{s.dur}</div>
-                              <div className="text-xs font-bold text-green-400">{s.amt}</div>
-                            </div>
-                          ))}
-                        </div>
-                        {/* Stat pills */}
-                        <div className="grid grid-cols-3 gap-3 mt-4">
-                          <div className="bg-white/5 rounded-xl p-3 text-center">
-                            <div className="text-lg font-bold text-white">47</div>
-                            <div className="text-[10px] text-white/40 uppercase tracking-wide">Sessions</div>
-                          </div>
-                          <div className="bg-red-900/30 rounded-xl p-3 text-center">
-                            <div className="text-lg font-bold text-red-400">3</div>
-                            <div className="text-[10px] text-white/40 uppercase tracking-wide">Violations</div>
-                          </div>
-                          <div className="bg-green-900/30 rounded-xl p-3 text-center">
-                            <div className="text-lg font-bold text-green-400">$0</div>
-                            <div className="text-[10px] text-white/40 uppercase tracking-wide">Staff Cost</div>
-                          </div>
-                        </div>
-                      </div>
+                      <img
+                        src={`${import.meta.env.BASE_URL}portal-dashboard.png`}
+                        alt="Perfect Parking Partner Portal dashboard showing Total Payment Due, Total Parkers, and Current Month Validations"
+                        className="w-full block"
+                        loading="lazy"
+                      />
                     </motion.div>
                   )}
 
@@ -1111,7 +1048,7 @@ export default function Home() {
             <div className="mb-12 mx-auto max-w-2xl border border-white/15 rounded-xl bg-white/5 px-6 py-4 text-left">
               <p className="text-white/50 text-xs leading-relaxed">
                 <span className="text-secondary/70 font-bold mr-1">†</span>
-                Figures reflect average monthly gross revenue paid to property owners from Perfect Parking's active U.S. partner portfolio (2023 – 2025). Results vary by market, utilization rate, pricing model, and seasonality. <span className="text-white/65">Verified example: Wimberley, TX — 50-space lot generating <strong className="text-white/80">$1,000/month profit</strong>, weekends only, zero staff.</span> Revenue share structure and property-specific projections provided at no cost during your free audit.
+                Figures reflect average monthly gross revenue paid to property owners from Perfect Parking's active U.S. partner portfolio (2023 – 2025). Results vary by market, utilization rate, pricing model, and seasonality. <span className="text-white/65">Verified example: Wimberley, TX — 50-space lot generating <strong className="text-white/80">$1,000/month profit</strong>, weekends only, zero staff.</span> Revenue share structure and property-specific projections provided at no cost during your free analysis.
               </p>
             </div>
 

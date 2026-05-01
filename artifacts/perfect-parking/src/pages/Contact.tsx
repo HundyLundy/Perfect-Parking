@@ -93,7 +93,7 @@ export default function Contact() {
 
             <div>
               <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-6">
-                Get Your Free Parking Revenue Audit.
+                Get Your Free Parking Revenue Analysis.
               </h1>
               <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
                 In 15 minutes, we'll identify your exact revenue opportunity and build a custom monetization plan for your property.
@@ -206,7 +206,7 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className="w-full h-14 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 text-lg disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? "Submitting..." : "Submit Audit Request"}
+                    {isSubmitting ? "Submitting..." : "Submit Analysis Request"}
                   </button>
 
                   {submitStatus === "error" && (

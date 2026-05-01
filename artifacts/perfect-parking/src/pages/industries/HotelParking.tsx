@@ -126,7 +126,7 @@ export default function HotelParking() {
               onClick={openContactModal}
               className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-lg"
             >
-              Get a Free Hotel Parking Audit <ArrowRight className="w-5 h-5" />
+              Get a Free Hotel Parking Analysis <ArrowRight className="w-5 h-5" />
             </button>
             <a
               href="#how-it-works"
@@ -427,13 +427,13 @@ export default function HotelParking() {
             Ready to Stop Giving Parking Away for Free?
           </h2>
           <p className="text-navy/70 text-lg mb-10">
-            We'll audit your hotel's parking situation and build a custom revenue projection — no commitment required.
+            We'll analyze your hotel's parking situation and build a custom revenue projection — no commitment required.
           </p>
           <button
             onClick={openContactModal}
             className="inline-flex items-center gap-2 px-10 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy/90 transition-all shadow-lg text-lg"
           >
-            Get My Free Hotel Parking Audit <ArrowRight className="w-5 h-5" />
+            Get My Free Hotel Parking Analysis <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
-import { Building, Hospital, CarFront, Users, Home as HomeIcon, GraduationCap, Truck, Plane, ArrowRight, LayoutGrid, ShoppingBag } from "lucide-react";
+import { Building, Hospital, CarFront, Users, Home as HomeIcon, GraduationCap, Truck, Plane, ArrowRight, LayoutGrid, ShoppingBag, Smartphone } from "lucide-react";
 import { useLocation, Link } from "wouter";
 
 export default function Industries() {
@@ -135,7 +135,7 @@ export default function Industries() {
                     onClick={() => setLocation("/contact")}
                     className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                   >
-                    Get a custom audit <ArrowRight className="w-4 h-4" />
+                    Get a custom analysis <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
 
@@ -176,6 +176,52 @@ export default function Industries() {
         </div>
       </section>
 
+      {/* DRIVER EXPERIENCE TEASER */}
+      <section className="py-20 bg-navy text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-secondary font-bold tracking-widest uppercase text-sm mb-4">The Driver Experience</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-snug">
+                Frictionless for drivers.<br />Profitable for you.
+              </h2>
+              <p className="text-white/70 text-lg leading-relaxed mb-8">
+                Your parkers get a seamless digital experience — scan, pay, and go in under 30 seconds. No app download, no cash, no confusion. When it's easy for them, they come back.
+              </p>
+              <Link
+                href="/how-it-works/parker"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg"
+              >
+                <Smartphone className="w-5 h-5" /> See the Full Driver Walkthrough
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex justify-center gap-6"
+            >
+              {[
+                { img: "app-find.png", alt: "Find parking on the map" },
+                { img: "app-session.png", alt: "Active parking session tracking" },
+                { img: "app-payments.png", alt: "Secure payment methods" },
+              ].map((screen, i) => (
+                <div key={i} className="relative" style={{ marginTop: i === 1 ? "2rem" : "0" }}>
+                  <div className="w-[110px] md:w-[130px] rounded-[2rem] border-[5px] border-white/20 bg-black shadow-2xl overflow-hidden">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-b-xl z-10" />
+                    <img src={`${import.meta.env.BASE_URL}${screen.img}`} alt={screen.alt} className="w-full h-auto block" loading="lazy" />
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA FOOTER — brand-teal to match hero */}
       <section className="bg-brand-teal py-20 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,7 +235,7 @@ export default function Industries() {
             onClick={() => setLocation("/contact")}
             className="px-10 py-4 bg-secondary text-secondary-foreground font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-lg inline-flex items-center gap-2"
           >
-            Get a Custom Audit for Your Property <ArrowRight className="w-5 h-5" />
+            Get a Custom Analysis for Your Property <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>

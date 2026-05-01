@@ -58,7 +58,7 @@ export default function LandingPage() {
 
           <div className="bg-white text-foreground p-8 md:p-10 rounded-3xl shadow-2xl">
             <h2 className="text-2xl font-bold mb-2">Find out how much you could earn.</h2>
-            <p className="text-muted-foreground mb-8">Enter your email to receive a free, no-obligation property audit.</p>
+            <p className="text-muted-foreground mb-8">Enter your email to receive a free, no-obligation property analysis.</p>
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -70,10 +70,10 @@ export default function LandingPage() {
                 )} />
                 <button
                   type="submit"
-                  onClick={() => trackEvent("cta_click", { cta_label: "Get Free Audit", source_page: location || "/lp", cta_location: "hero_form" })}
+                  onClick={() => trackEvent("cta_click", { cta_label: "Get Free Analysis", source_page: location || "/lp", cta_location: "hero_form" })}
                   className="w-full h-14 bg-secondary text-secondary-foreground font-bold text-lg rounded-xl hover:bg-secondary/90 shadow-[0_4px_20px_rgba(222,198,0,0.4)] transition-all"
                 >
-                  Get Free Audit
+                  Get Free Analysis
                 </button>
               </form>
             </Form>

@@ -7,7 +7,7 @@ export default function ThankYou() {
     <>
       <SEO
         title="Thank You | Perfect Parking"
-        description="Thank you for contacting Perfect Parking. We've received your audit request and will be in touch within 24 hours."
+        description="Thank you for contacting Perfect Parking. We've received your analysis request and will be in touch within 24 hours."
         canonical="https://perfectparking.com/thank-you"
         robots="noindex, nofollow"
       />

@@ -20,6 +20,7 @@ import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
 import CityPage from "@/pages/CityPage";
 import HotelParking from "@/pages/industries/HotelParking";
+import HowItWorksParker from "@/pages/HowItWorksParker";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import { trackPageView } from "@/lib/analytics";
 
@@ -50,6 +51,7 @@ function Router() {
         <Route path="/locations" component={Locations} />
         <Route path="/locations/:citySlug" component={CityPage} />
         <Route path="/industries/hotels" component={HotelParking} />
+        <Route path="/how-it-works/parker" component={HowItWorksParker} />
         <Route path="/lp" component={LandingPage} />
         <Route component={NotFound} />
       </Switch>
