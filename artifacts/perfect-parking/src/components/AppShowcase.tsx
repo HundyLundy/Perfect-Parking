@@ -10,14 +10,18 @@ const screens = [
     color: "text-secondary",
     headline: "Find a spot. Pay in seconds.",
     body: "Drivers scan a QR code, enter their plate, and pay via Apple Pay or credit card — no app download required.",
+    img: "app-find.png",
+    imgAlt: "Perfect Parking app showing map view with parking locations and Start Parking Session button",
   },
   {
-    id: "permits",
-    label: "Digital Permits",
-    icon: QrCode,
-    color: "text-green-400",
-    headline: "No more paper parking permits.",
-    body: "Issue digital permits to residents and guests instantly. Manage who belongs in your community — all from the dashboard.",
+    id: "session",
+    label: "Live Session",
+    icon: Bell,
+    color: "text-amber-400",
+    headline: "Real-time session tracking.",
+    body: "Parkers see their active session live — time elapsed, expiry, and options to extend or add a validation. Full transparency, zero confusion.",
+    img: "app-session.png",
+    imgAlt: "Perfect Parking app showing active parking session in progress with Extend, Stop, and Add Promotion buttons",
   },
   {
     id: "control",
@@ -25,7 +29,9 @@ const screens = [
     icon: ShieldCheck,
     color: "text-blue-400",
     headline: "Authorized people only.",
-    body: "You decide who parks in your lot. Enforce it automatically with LPR technology — no confrontations, no hassle.",
+    body: "You decide who parks in your lot. Enforce it automatically with LPR technology — no confrontations, no hassle. Guests tap to exit seamlessly.",
+    img: "app-gated.png",
+    imgAlt: "Perfect Parking app showing gated parking session with Tap to Exit and Add Validation buttons",
   },
   {
     id: "revenue",
@@ -34,14 +40,18 @@ const screens = [
     color: "text-secondary",
     headline: "Your lot. Your income stream.",
     body: "Track every transaction live. Receive direct deposits monthly. Our Revenue Share Program means we only win when you win.",
+    img: "app-history.png",
+    imgAlt: "Perfect Parking app showing past session detail with Payment Successful confirmation",
   },
   {
-    id: "alerts",
-    label: "Smart Alerts",
-    icon: Bell,
-    color: "text-amber-400",
-    headline: "Stay informed, hands-free.",
-    body: "Get instant notifications on occupancy changes, violations, and monthly summaries — all without lifting a finger.",
+    id: "extend",
+    label: "Flexible Pricing",
+    icon: QrCode,
+    color: "text-green-400",
+    headline: "Hourly, daily, or custom.",
+    body: "Parkers choose exactly how long they need — 2 hours, 6 hours, 24 hours, or a custom time. Pricing updates instantly. No guesswork.",
+    img: "app-extend.png",
+    imgAlt: "Perfect Parking app showing Extend Time screen with 2, 3, 6, and 24 hour pricing options",
   },
   {
     id: "billing",
@@ -49,8 +59,10 @@ const screens = [
     icon: CreditCard,
     color: "text-purple-400",
     headline: "Frictionless billing. Zero disputes.",
-    body: "Apple Pay, Google Pay, and credit card — all accepted. Receipts sent automatically. Chargebacks handled by us.",
-  }
+    body: "Credit card, debit, and digital wallets all accepted. Payment profiles let parkers sort sessions by business or personal — receipts sent automatically.",
+    img: "app-payments.png",
+    imgAlt: "Perfect Parking app showing Payments screen with saved Visa and Amex cards and option to add payment methods",
+  },
 ];
 
 export function AppShowcase() {
@@ -81,27 +93,35 @@ export function AppShowcase() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* App screenshot — image already contains the phone frame */}
+          {/* App screenshot with CSS phone frame */}
           <div className="flex justify-center">
             <div className="relative">
               {/* Ambient glow */}
               <div className="absolute inset-0 bg-primary/40 blur-[60px] rounded-full scale-90" />
               <div className="absolute inset-0 bg-secondary/10 blur-[80px] rounded-full scale-75" />
 
-              {/* The screenshot already has the phone frame baked in */}
-              <motion.div
-                key={active}
-                initial={{ opacity: 0.7, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                className="relative z-10"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}app-screenshot.png`}
-                  alt="Perfect Parking App"
-                  className="w-[300px] md:w-[340px] drop-shadow-2xl"
-                />
-              </motion.div>
+              {/* Phone frame */}
+              <div className="relative z-10 w-[260px] md:w-[290px]">
+                <div className="relative rounded-[2.8rem] border-[7px] border-white/20 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_30px_80px_rgba(0,0,0,0.6)] overflow-hidden">
+                  {/* Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-b-2xl z-20" />
+                  {/* Screen */}
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={screen.id}
+                      src={`${import.meta.env.BASE_URL}${screen.img}`}
+                      alt={screen.imgAlt}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.35 }}
+                      className="w-full h-auto block"
+                    />
+                  </AnimatePresence>
+                  {/* Home bar */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-white/30 rounded-full" />
+                </div>
+              </div>
 
               {/* Feature callout badge — bottom */}
               <AnimatePresence mode="wait">
