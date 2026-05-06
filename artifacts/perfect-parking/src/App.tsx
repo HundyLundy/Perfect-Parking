@@ -34,10 +34,27 @@ function PageViewTracker() {
   return null;
 }
 
+function GHLChatWidget() {
+  const [location] = useLocation();
+  useEffect(() => {
+    if (location === "/estimate") return;
+    const existing = document.querySelector('script[data-widget-id="69fbcfbecc730673a2a33e67"]');
+    if (existing) return;
+    const script = document.createElement("script");
+    script.src = "https://widgets.leadconnectorhq.com/loader.js";
+    script.setAttribute("data-resources-url", "https://widgets.leadconnectorhq.com/chat-widget/loader.js");
+    script.setAttribute("data-widget-id", "69fbcfbecc730673a2a33e67");
+    script.setAttribute("data-source", "WEB_USER");
+    document.body.appendChild(script);
+  }, [location]);
+  return null;
+}
+
 function Router() {
   return (
     <Layout>
       <PageViewTracker />
+      <GHLChatWidget />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/solutions" component={Solutions} />
