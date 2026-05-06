@@ -38,7 +38,7 @@ export default function CaseStudies() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">Small surface lot becomes a $1k/mo passive asset.</h2>
 
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                The owner of a 50-space lot in Wimberley was frustrated by tourists parking for free on weekends. They didn't want to hire attendants or install expensive gates. We deployed our digital signs and payment system in 48 hours — and now they receive a monthly direct deposit without touching a thing.
+                The owner of a 50-space lot in Wimberley was frustrated by weekend visitors to the town's local attractions taking up their valuable retail customer space. They didn't want to hire attendants or install expensive gates. We deployed our signs and payment system — and now they receive a monthly direct deposit averaging over $1,000 a month without touching a thing.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-10">

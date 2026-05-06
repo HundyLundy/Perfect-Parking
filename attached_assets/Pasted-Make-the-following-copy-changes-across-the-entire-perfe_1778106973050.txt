@@ -1,0 +1,65 @@
+Make the following copy changes across the entire perfectparking.com site. These are brand-level rules — apply them everywhere they appear, not just the homepage.
+
+---
+
+1. ANALYZE STEP (How It Works section, step 01):
+Change: "We map your property and model your exact revenue potential — free, no commitment."
+To: "We map your property and model your estimated revenue potential — free, no commitment."
+
+2. DEPLOY STEP (How It Works section, step 02):
+Change: "Hardware-light system installed at zero cost. Signage, software, config, enforcement setup — we handle everything. You sign off."
+To: "Signage, software, config, and enforcement setup — we handle everything. You sign off."
+(Remove "Hardware-light system installed at zero cost." entirely)
+
+3. UPFRONT CAPITAL ($0 card in "What This Means Financially" section):
+Change the subtext: "No upfront capital required — we invest in the infrastructure"
+To: "Most locations require $0 upfront capital — we invest in the infrastructure"
+
+4. REVENUE SHARE — ALIGNED INCENTIVES (Platform feature card):
+Change: "We earn when you earn. Zero management fee. Zero upfront cost. Your success is the only metric we track."
+To: "We earn when you earn. Zero upfront cost. Your success is the only metric we track."
+(Remove "Zero management fee." entirely)
+
+5. LIVE IN UNDER 30 DAYS (Platform feature card):
+Change: "Satellite mapping, digital signage, software config, enforcement setup — we handle everything. You sign off."
+To: "Satellite mapping, signage, software config, and enforcement setup — we handle everything. You sign off."
+(Remove the word "digital" before "signage")
+
+6. INSTANT DIGITAL PAYMENTS (Platform feature card title):
+Change title from: "Instant Digital Payments"
+To: "Instant Payments"
+(Remove the word "Digital" from the title only — leave the body copy as-is)
+
+7. AUTOMATED ENFORCEMENT (Platform feature card):
+Change title from: "Automated Enforcement"
+To: "Enforcement"
+Change body copy from: "Digital LPR, automated violation notices, and compliance tracking — no staff, no confrontations."
+To: "We handle all enforcement — notices, compliance, and follow-through. No staff required. No confrontations."
+
+8. BUILT TO SCALE (Platform feature card):
+Change: "Connect to your existing PMS and access control. Manage one lot or fifty from a single dashboard."
+To: "Manage one lot or fifty from a single dashboard."
+(Remove "Connect to your existing PMS and access control." entirely)
+
+9. ENFORCEMENT INTEGRATION (Technology section feature card):
+Change body copy from: "Automated violation detection and digital notices. No staff confrontations."
+To: "We manage enforcement at every location — notices, compliance, and follow-through handled for you."
+
+10. FULL PLATFORM DEMO (Technology section CTA bar):
+Remove the entire bar that says "Full platform demo available on request / Contact us for a live walkthrough of the complete operating system." and the "Request Demo" button entirely.
+
+11. WIMBERLEY CASE STUDY (Real Results / Case Study section):
+Replace the existing Wimberley case study body copy with:
+"The owner of a 50-space lot in Wimberley was frustrated by weekend visitors to the town's local attractions taking up their valuable retail customer space. They didn't want to hire attendants or install expensive gates. We deployed our signs and payment system — and now they receive a monthly direct deposit averaging over $1,000 a month without touching a thing."
+
+12. DESIGNED FOR DRIVERS section — two specific copy fixes:
+a. Where it says "No app. No confusion. No hassle." — change to "No App Required. No confusion. No hassle."
+b. In the bullet points, where it says "No account, no app download, no confusion" — change to "No account, no app download required, no confusion"
+
+13. GLOBAL RULE — "Analysis is free" line:
+Anywhere on the site that says "Analysis is free. No commitment." — change to "Estimate is free. No commitment."
+
+14. GLOBAL RULE — "Get My Parking Analysis" buttons:
+All buttons and CTAs that still say "Get My Parking Analysis" or "Get a Free Analysis" — change to "Get My Parking Estimate" and "Get a Free Estimate" respectively. (The previous session already did most of these — just catch any that were missed.)
+
+After all changes are made, save a checkpoint and push to GitHub.

@@ -54,12 +54,12 @@ export default function Home() {
   ];
 
   const whyFeatures = [
-    { icon: TrendingUp,   title: "Revenue Share — Aligned Incentives",  desc: "We earn when you earn. Zero management fee. Zero upfront cost. Your success is the only metric we track.", green: true },
-    { icon: Bell,         title: "Live in Under 30 Days",               desc: "Satellite mapping, digital signage, software config, enforcement setup — we handle everything. You sign off." },
-    { icon: QrCode,       title: "Instant Digital Payments",            desc: "QR scan or text-to-pay. Apple Pay, Google Pay, or card. Works on any phone. No app required." },
+    { icon: TrendingUp,   title: "Revenue Share — Aligned Incentives",  desc: "We earn when you earn. Zero upfront cost. Your success is the only metric we track.", green: true },
+    { icon: Bell,         title: "Live in Under 30 Days",               desc: "Satellite mapping, signage, software config, and enforcement setup — we handle everything. You sign off." },
+    { icon: QrCode,       title: "Instant Payments",                    desc: "QR scan or text-to-pay. Apple Pay, Google Pay, or card. Works on any phone. No app required." },
     { icon: BarChart3,    title: "Real-Time Revenue Dashboard",         desc: "Live occupancy, session activity, violation status, and revenue — visible from any device, any time.", teal: true },
-    { icon: ShieldCheck,  title: "Automated Enforcement",               desc: "Digital LPR, automated violation notices, and compliance tracking — no staff, no confrontations.", teal: true },
-    { icon: Globe,        title: "Built to Scale",                      desc: "Connect to your existing PMS and access control. Manage one lot or fifty from a single dashboard." },
+    { icon: ShieldCheck,  title: "Enforcement",                         desc: "We handle all enforcement — notices, compliance, and follow-through. No staff required. No confrontations.", teal: true },
+    { icon: Globe,        title: "Built to Scale",                      desc: "Manage one lot or fifty from a single dashboard." },
   ];
 
   return (
@@ -220,7 +220,7 @@ export default function Home() {
             {[
               { stat: "20–40%", label: "of parking revenue goes unrealized at a typical property", color: "text-secondary" },
               { stat: "30 Days", label: "Most locations start collecting revenue within 30 days of setup", color: "text-secondary" },
-              { stat: "$0", label: "No upfront capital required — we invest in the infrastructure", color: "text-secondary" },
+              { stat: "$0", label: "Most locations require $0 upfront capital — we invest in the infrastructure", color: "text-secondary" },
             ].map((item, i) => (
               <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.1 }}
                 className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center hover:bg-white/15 transition-all"
@@ -255,8 +255,8 @@ export default function Home() {
             <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-accent/30 z-0" />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { num: "01", icon: Search,      title: "Analyze",      desc: "We map your property and model your exact revenue potential — free, no commitment.", color: "bg-primary/10 text-primary" },
-                { num: "02", icon: Zap,         title: "Deploy",       desc: "Hardware-light system installed at zero cost. Signage, software, and enforcement — done.", color: "bg-brand-teal/10 text-brand-teal" },
+                { num: "01", icon: Search,      title: "Analyze",      desc: "We map your property and model your estimated revenue potential — free, no commitment.", color: "bg-primary/10 text-primary" },
+                { num: "02", icon: Zap,         title: "Deploy",       desc: "Signage, software, config, and enforcement setup — we handle everything. You sign off.", color: "bg-brand-teal/10 text-brand-teal" },
                 { num: "03", icon: CreditCard,  title: "Drivers Pay",  desc: "QR scan or text-to-pay. Apple Pay, Google Pay, or card. Automated 24/7 — no staff.", color: "bg-blue-50 text-brand-blue" },
                 { num: "04", icon: DollarSign,  title: "You Earn",     desc: "Monthly direct deposit with full transparent reporting. You do nothing.", color: "bg-accent/10 text-accent" },
               ].map((step, i) => (
@@ -316,7 +316,7 @@ export default function Home() {
                 Small Lot.<br />Big Impact.
               </h3>
               <p className="text-white/80 text-lg mb-8 leading-relaxed">
-                In Wimberley, TX, a small property owner with just 50 parking spaces partnered with us to monetize weekend traffic. With zero upfront cost and zero staff required, their lot became a passive income machine.
+                The owner of a 50-space lot in Wimberley was frustrated by weekend visitors to the town's local attractions taking up their valuable retail customer space. They didn't want to hire attendants or install expensive gates. We deployed our signs and payment system — and now they receive a monthly direct deposit averaging over $1,000 a month without touching a thing.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
@@ -603,14 +603,14 @@ export default function Home() {
                 Designed for<br /><span className="text-primary">Drivers.</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
-                Pay in seconds from your phone. No app. No confusion. No hassle.
+                Pay in seconds from your phone. No App Required. No confusion. No hassle.
               </p>
               <ul className="space-y-5">
                 {[
                   "Fast, simple mobile payment — scan & pay in seconds",
                   "Extend parking time remotely from your phone",
                   "Clear instructions posted at every location",
-                  "No account, no app download, no confusion",
+                  "No account, no app download required, no confusion",
                   "Secure payments — Apple Pay, Google Pay, or card",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -886,7 +886,7 @@ export default function Home() {
             {[
               { icon: KeyRound, title: "Permit Management", desc: "Digital resident, staff, and guest permits. No paper. No manual tracking.", badge: "Automated" },
               { icon: CreditCard, title: "Payment Automation", desc: "QR & text-to-pay. Apple Pay, Google Pay, or card. Every session captured automatically.", badge: "24/7" },
-              { icon: ShieldCheck, title: "Enforcement Integration", desc: "Automated violation detection and digital notices. No staff confrontations.", badge: "Passive" },
+              { icon: ShieldCheck, title: "Enforcement Integration", desc: "We manage enforcement at every location — notices, compliance, and follow-through handled for you.", badge: "Passive" },
               { icon: BarChart3, title: "Reporting Dashboard", desc: "Live revenue, occupancy, and session data. Exportable, visible from anywhere.", badge: "Real-Time" },
             ].map((item, i) => (
               <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.08 }}
@@ -902,18 +902,6 @@ export default function Home() {
                 <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
-          </div>
-          <div className="text-center bg-primary/5 border border-primary/15 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div>
-              <p className="text-primary font-bold text-base">Full platform demo available on request</p>
-              <p className="text-muted-foreground text-sm mt-1">Contact us for a live walkthrough of the complete operating system.</p>
-            </div>
-            <button
-              onClick={() => handleCtaClick("Request Demo", "platform_demo")}
-              className="shrink-0 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md inline-flex items-center gap-2"
-            >
-              Request Demo <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
         </div>
       </section>
