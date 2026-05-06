@@ -9,13 +9,13 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
-  const isLandingPage = location === "/lp";
+  const isStandalone = location === "/lp" || location === "/estimate";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [location]);
 
-  if (isLandingPage) {
+  if (isStandalone) {
     return (
       <div className="min-h-screen flex flex-col font-sans">
         <main className="flex-grow">{children}</main>

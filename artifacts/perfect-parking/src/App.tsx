@@ -20,6 +20,7 @@ import FAQ from "@/pages/FAQ";
 import Locations from "@/pages/Locations";
 import CityPage from "@/pages/CityPage";
 import HowItWorksParker from "@/pages/HowItWorksParker";
+import Estimate from "@/pages/Estimate";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import { trackPageView } from "@/lib/analytics";
 
@@ -51,6 +52,7 @@ function Router() {
         <Route path="/locations/:citySlug" component={CityPage} />
         <Route path="/how-it-works/parker" component={HowItWorksParker} />
         <Route path="/lp" component={LandingPage} />
+        <Route path="/estimate" component={Estimate} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
