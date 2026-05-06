@@ -1,12 +1,54 @@
+import { useState } from "react";
 import { useParams, Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-import { texasCities } from "@/data/texasCities";
-import { useContactModal } from "@/context/ContactModalContext";
+import citiesData from "@/data/cities_data.json";
+
+type CityData = {
+  slug: string;
+  city: string;
+  state: string;
+  tier: number;
+  county: string;
+  population_approx: number;
+  meta_title: string;
+  meta_description: string;
+  h1: string;
+  intro_sentence: string;
+  local_paragraph: string;
+  cta_text: string;
+  faq_q1: string;
+  faq_a1: string;
+  faq_q2: string;
+  faq_a2: string;
+  nearby_cities: string;
+};
+
+const allCities = citiesData as CityData[];
+
+function toSlug(name: string): string {
+  return name.trim().toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+}
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-gray-200 pb-4">
+      <button
+        className="w-full text-left flex justify-between items-center gap-4 py-2"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
+        <span className="text-lg font-semibold text-gray-900">{q}</span>
+        <span className="text-2xl text-gray-400 shrink-0 leading-none">{open ? "−" : "+"}</span>
+      </button>
+      {open && <p className="text-gray-700 mt-2 leading-relaxed">{a}</p>}
+    </div>
+  );
+}
 
 export default function CityPage() {
   const { citySlug } = useParams<{ citySlug: string }>();
-  const { openContactModal } = useContactModal();
-  const city = texasCities.find((c) => c.slug === citySlug);
+  const city = allCities.find((c) => c.slug === citySlug);
 
   if (!city) {
     return (
@@ -21,70 +63,93 @@ export default function CityPage() {
     );
   }
 
-  const popDisplay = city.population > 0 ? city.population.toLocaleString() : null;
+  const showLocalParagraph = (city.tier === 1 || city.tier === 2) && city.local_paragraph?.trim();
+  const showNearbyCities = (city.tier === 1 || city.tier === 2) && city.nearby_cities?.trim();
 
-  const schemaData = {
+  const nearbyCityList = showNearbyCities
+    ? city.nearby_cities.split(",").map((n) => ({ name: n.trim(), slug: toSlug(n) }))
+    : [];
+
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": `Perfect Parking — ${city.name}, TX`,
-    "description": `Automated parking revenue management for property owners in ${city.name}, Texas. Turn your underused parking into passive monthly income.`,
+    "name": `Perfect Parking — ${city.city}, TX`,
+    "description": city.meta_description,
     "url": `https://perfectparking.com/locations/${city.slug}`,
     "areaServed": {
       "@type": "City",
-      "name": city.name,
+      "name": city.city,
       "addressRegion": "TX",
-      "addressCountry": "US"
+      "addressCountry": "US",
     },
     "serviceType": "Parking Revenue Management",
     "telephone": "(361) 585-1111",
-    "email": "support@perfectparking.com"
+    "email": "support@perfectparking.com",
   };
 
-  const nearbyCities = texasCities
-    .filter((c) => c.region === city.region && c.slug !== city.slug)
-    .slice(0, 6);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": city.faq_q1,
+        "acceptedAnswer": { "@type": "Answer", "text": city.faq_a1 },
+      },
+      {
+        "@type": "Question",
+        "name": city.faq_q2,
+        "acceptedAnswer": { "@type": "Answer", "text": city.faq_a2 },
+      },
+    ],
+  };
 
   return (
     <>
       <Helmet>
-        <title>{city.name} Parking Management Services | Perfect Parking TX</title>
-        <meta name="description" content={`Perfect Parking provides fully automated parking revenue management in ${city.name}, TX. Turn your parking lot into $500–$3,000/month in passive income. Free analysis, zero upfront cost.`} />
+        <title>{city.meta_title}</title>
+        <meta name="description" content={city.meta_description} />
         <link rel="canonical" href={`https://perfectparking.com/locations/${city.slug}`} />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={`${city.name} Parking Management | Perfect Parking`} />
-        <meta property="og:description" content={`Automated parking revenue for property owners in ${city.name}, TX. No staff, no upfront cost. Start earning in 30 days.`} />
+        <meta property="og:title" content={city.meta_title} />
+        <meta property="og:description" content={city.meta_description} />
         <meta property="og:url" content={`https://perfectparking.com/locations/${city.slug}`} />
         <meta property="og:site_name" content="Perfect Parking" />
         <meta name="geo.region" content="US-TX" />
-        <meta name="geo.placename" content={`${city.name}, Texas`} />
+        <meta name="geo.placename" content={`${city.city}, Texas`} />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={`${city.name} Parking Management | Perfect Parking`} />
-        <meta name="twitter:description" content={`Automated parking revenue for property owners in ${city.name}, TX. Free analysis.`} />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <meta name="twitter:title" content={city.meta_title} />
+        <meta name="twitter:description" content={city.meta_description} />
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <main className="bg-white">
-        {/* Hero Section */}
+        {/* Hero */}
         <section className="bg-navy text-white py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <p className="text-secondary text-sm font-semibold uppercase tracking-widest mb-3">
-              {city.region} · Texas
+              {city.county} · Texas
             </p>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-white">
-              Parking Revenue Management<br />in {city.name}, TX
+              {city.h1}
             </h1>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-              Property owners in {city.name} are leaving $1,000–$4,000/month on the table.
-              Perfect Parking turns your underused lot into automated monthly income — zero staff, zero operational burden.
+            <p className="text-lg text-gray-300 mb-4 max-w-2xl">
+              {city.intro_sentence}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={openContactModal}
+            {showLocalParagraph && (
+              <p className="text-gray-400 mb-8 max-w-2xl leading-relaxed">
+                {city.local_paragraph}
+              </p>
+            )}
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <Link
+                href="/estimate"
                 className="bg-secondary text-navy font-bold px-8 py-4 rounded text-center hover:bg-yellow-300 transition"
               >
-                Get My Free {city.name} Parking Analysis →
-              </button>
+                {city.cta_text} →
+              </Link>
               <a
                 href="tel:3615851111"
                 className="border border-white text-white font-semibold px-8 py-4 rounded text-center hover:bg-white hover:text-navy transition"
@@ -113,16 +178,18 @@ export default function CityPage() {
           </div>
         </section>
 
-        {/* Body Content */}
+        {/* How it works body */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              How Perfect Parking Works in {city.name}
+              How Perfect Parking Works in {city.city}
             </h2>
             <p className="text-gray-700 text-lg mb-6">
-              Whether you own a commercial lot, multifamily complex, hotel, or mixed-use property in {city.name},
+              Whether you own a commercial lot, multifamily complex, hotel, or mixed-use property in {city.city},
               Perfect Parking handles everything — signage, enforcement, digital payments, and monthly direct deposits.
-              {popDisplay ? ` With a population of ${popDisplay}, ${city.name} has consistent parking demand that most property owners aren't monetizing.` : ""}
+              {city.population_approx > 0
+                ? ` With a population of ${city.population_approx.toLocaleString()}, ${city.city} has consistent parking demand that most property owners aren't monetizing.`
+                : ""}
             </p>
             <div className="grid md:grid-cols-2 gap-8 mt-10">
               <div>
@@ -137,7 +204,7 @@ export default function CityPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Properties We Serve in {city.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Properties We Serve in {city.city}</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>✓ Commercial real estate</li>
                   <li>✓ Multifamily & HOA communities</li>
@@ -151,71 +218,47 @@ export default function CityPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* FAQ */}
         <section className="bg-gray-50 py-16 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-10">
-              Frequently Asked Questions — {city.name} Parking Management
+              Frequently Asked Questions — {city.city} Parking Management
             </h2>
-            <div className="space-y-6">
-              {[
-                {
-                  q: `How much can I earn from parking in ${city.name}, TX?`,
-                  a: `Most property owners in ${city.name} earn between $500 and $3,000 per month depending on lot size, location, and demand. Perfect Parking offers a free analysis to give you an exact estimate for your property.`
-                },
-                {
-                  q: `How long does setup take in ${city.name}?`,
-                  a: `Most ${city.name} properties are fully operational within 30 days. We handle all signage, payment systems, and enforcement setup at no upfront cost to you.`
-                },
-                {
-                  q: `Do I need staff to manage parking in ${city.name}?`,
-                  a: `No. Perfect Parking is fully automated. Our platform handles payments, violations, and reporting — you receive a monthly direct deposit with zero operational involvement.`
-                },
-                {
-                  q: `What types of properties does Perfect Parking serve in ${city.name}?`,
-                  a: `We work with commercial real estate, multifamily communities, hotels, medical facilities, retail centers, and event venues throughout ${city.name} and the ${city.region} area.`
-                },
-                {
-                  q: `Is there a cost to get started in ${city.name}?`,
-                  a: `There is no upfront cost. Perfect Parking operates on a revenue-share model — we only earn when you earn. The free parking analysis is the first step.`
-                }
-              ].map((item, i) => (
-                <div key={i} className="border-b border-gray-200 pb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.q}</h3>
-                  <p className="text-gray-700">{item.a}</p>
-                </div>
-              ))}
+            <div className="space-y-2">
+              <FaqItem q={city.faq_q1} a={city.faq_a1} />
+              <FaqItem q={city.faq_q2} a={city.faq_a2} />
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-navy text-white py-16 px-6">
+        {/* CTA */}
+        <section className="py-16 px-6" style={{ background: "#00305b" }}>
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Ready to Monetize Your {city.name} Parking?
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Ready to turn your {city.city} parking lot into monthly revenue?
             </h2>
             <p className="text-gray-300 mb-8">
               Free analysis. No commitment. We'll tell you exactly how much your lot is worth.
             </p>
-            <button
-              onClick={openContactModal}
-              className="bg-secondary text-navy font-bold px-10 py-4 rounded text-lg hover:bg-yellow-300 transition"
+            <Link
+              href="/estimate"
+              className="inline-block font-bold px-10 py-4 rounded text-lg hover:opacity-90 transition"
+              style={{ background: "#DEC600", color: "#00305b" }}
             >
-              Get My Free {city.name} Analysis →
-            </button>
+              {city.cta_text} →
+            </Link>
           </div>
         </section>
 
-        {/* Nearby Cities */}
-        {nearbyCities.length > 0 && (
+        {/* Nearby Cities — tier 1 & 2 only */}
+        {nearbyCityList.length > 0 && (
           <section className="py-12 px-6 bg-white">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-xl font-bold text-gray-800 mb-6">
-                Also Serving the {city.region} Area
+                Nearby Cities We Serve
               </h2>
               <div className="flex flex-wrap gap-3">
-                {nearbyCities.map((c) => (
+                {nearbyCityList.map((c) => (
                   <Link
                     key={c.slug}
                     href={`/locations/${c.slug}`}
