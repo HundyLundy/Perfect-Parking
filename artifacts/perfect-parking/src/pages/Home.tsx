@@ -134,10 +134,10 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button
-                  onClick={() => handleCtaClick("Get My Parking Analysis", "hero")}
+                  onClick={() => handleCtaClick("Get My Parking Estimate", "hero")}
                   className="px-8 py-4 bg-secondary text-secondary-foreground text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-secondary/90 transition-all duration-200 flex items-center justify-center gap-2 group"
                 >
-                  Get My Parking Analysis
+                  Get My Parking Estimate
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
@@ -411,10 +411,10 @@ export default function Home() {
           {/* CTA */}
           <div className="text-center">
             <button
-              onClick={() => handleCtaClick("Get My Parking Analysis", "platform_features")}
+              onClick={() => handleCtaClick("Get My Parking Estimate", "platform_features")}
               className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2"
             >
-              Get My Parking Analysis <ArrowRight className="w-5 h-5" />
+              Get My Parking Estimate <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -529,13 +529,13 @@ export default function Home() {
           <div className="mt-10 bg-primary/5 border border-primary/15 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
             <p className="text-foreground font-semibold text-lg leading-snug max-w-lg">
               Ready to see how much your lot is worth?<br />
-              <span className="text-muted-foreground font-normal text-base">Analysis is free. No commitment.</span>
+              <span className="text-muted-foreground font-normal text-base">Estimate is free. No commitment.</span>
             </p>
             <button
-              onClick={() => handleCtaClick("Get My Parking Analysis", "comparison_table")}
+              onClick={() => handleCtaClick("Get My Parking Estimate", "comparison_table")}
               className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md shrink-0 inline-flex items-center gap-2"
             >
-              Get My Parking Analysis <ArrowRight className="w-5 h-5" />
+              Get My Parking Estimate <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -579,10 +579,10 @@ export default function Home() {
               </ul>
             </div>
             <button
-              onClick={() => handleCtaClick("Get My Parking Analysis", "owners_panel")}
+              onClick={() => handleCtaClick("Get My Parking Estimate", "owners_panel")}
               className="self-start px-8 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2 group"
             >
-              Get My Parking Analysis
+              Get My Parking Estimate
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
@@ -1053,10 +1053,10 @@ export default function Home() {
             </div>
 
             <button
-              onClick={() => handleCtaClick("Get My Parking Analysis", "revenue_potential")}
+              onClick={() => handleCtaClick("Get My Parking Estimate", "revenue_potential")}
               className="px-10 py-5 bg-secondary text-secondary-foreground text-xl font-bold rounded-xl shadow-[0_0_40px_rgba(222,198,0,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(222,198,0,0.5)] transition-all duration-200 inline-flex items-center gap-3"
             >
-              Get My Parking Analysis <ArrowRight className="w-6 h-6" />
+              Get My Parking Estimate <ArrowRight className="w-6 h-6" />
             </button>
           </motion.div>
         </div>

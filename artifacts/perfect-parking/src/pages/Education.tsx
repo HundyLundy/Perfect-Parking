@@ -144,12 +144,12 @@ export default function Education() {
       <section className="py-20 bg-muted border-t border-border text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-display font-bold text-foreground mb-4">Ready to find out what your parking is worth?</h2>
-          <p className="text-muted-foreground text-lg mb-8">Book a free 15-minute analysis and we'll show you the numbers.</p>
+          <p className="text-muted-foreground text-lg mb-8">Book a free 15-minute estimate and we'll show you the numbers.</p>
           <button
             onClick={() => setLocation("/contact")}
             className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg text-lg inline-flex items-center gap-2"
           >
-            Book a Free Analysis <BookOpen className="w-5 h-5" />
+            Book a Free Estimate <BookOpen className="w-5 h-5" />
           </button>
         </div>
       </section>

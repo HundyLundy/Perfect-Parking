@@ -27,12 +27,12 @@ const WEBHOOK = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN
 
 const CONFIG = {
   parking: {
-    title: "Get Your Free Parking Analysis",
+    title: "Get Your Free Parking Estimate",
     subtitle: "Tell us about your property and we'll build a custom revenue projection — free, no commitment.",
     division: "Perfect Parking",
     source: "perfect-parking-website",
-    success: "Thanks! We'll be in touch within 1 business day with your free parking analysis.",
-    cta: "Submit — Get My Free Analysis",
+    success: "Thanks! We'll be in touch within 1 business day with your free parking estimate.",
+    cta: "Submit — Get My Free Estimate",
   },
   combo: {
     title: "Get the Combo Deal — Parking + Water",
@@ -40,7 +40,7 @@ const CONFIG = {
     division: "Perfect Combo",
     source: "perfect-parking-crosssell",
     success: "Perfect. We'll reach out within 1 business day with a combined analysis.",
-    cta: "Submit — Get Combined Analysis",
+    cta: "Submit — Get Combined Estimate",
   },
 };
 

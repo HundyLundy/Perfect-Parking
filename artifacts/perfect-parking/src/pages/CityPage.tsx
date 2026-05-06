@@ -237,8 +237,8 @@ export default function CityPage() {
             <h2 className="text-3xl font-bold text-white mb-4">
               Ready to turn your {city.city} parking lot into monthly revenue?
             </h2>
-            <p className="text-gray-300 mb-8">
-              Free analysis. No commitment. We'll tell you exactly how much your lot is worth.
+            <p className="text-white mb-8">
+              Free estimate. No commitment. We'll tell you exactly how much your lot is worth.
             </p>
             <Link
               href="/estimate"

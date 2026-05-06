@@ -70,10 +70,10 @@ export default function LandingPage() {
                 )} />
                 <button
                   type="submit"
-                  onClick={() => trackEvent("cta_click", { cta_label: "Get Free Analysis", source_page: location || "/lp", cta_location: "hero_form" })}
+                  onClick={() => trackEvent("cta_click", { cta_label: "Get Free Estimate", source_page: location || "/lp", cta_location: "hero_form" })}
                   className="w-full h-14 bg-secondary text-secondary-foreground font-bold text-lg rounded-xl hover:bg-secondary/90 shadow-[0_4px_20px_rgba(222,198,0,0.4)] transition-all"
                 >
-                  Get Free Analysis
+                  Get Free Estimate
                 </button>
               </form>
             </Form>

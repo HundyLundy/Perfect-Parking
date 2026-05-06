@@ -127,7 +127,7 @@ export default function Industries() {
                     onClick={() => setLocation("/contact")}
                     className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                   >
-                    Get a custom analysis <ArrowRight className="w-4 h-4" />
+                    Get a custom estimate <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
 
@@ -227,7 +227,7 @@ export default function Industries() {
             onClick={() => setLocation("/contact")}
             className="px-10 py-4 bg-secondary text-secondary-foreground font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-lg inline-flex items-center gap-2"
           >
-            Get a Custom Analysis for Your Property <ArrowRight className="w-5 h-5" />
+            Get a Custom Estimate for Your Property <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>

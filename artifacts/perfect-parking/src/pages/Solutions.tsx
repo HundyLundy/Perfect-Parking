@@ -185,7 +185,7 @@ export default function Solutions() {
                 onClick={() => setLocation("/contact")}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg"
               >
-                Get a Free Analysis <ArrowRight className="w-5 h-5" />
+                Get a Free Estimate <ArrowRight className="w-5 h-5" />
               </button>
             </motion.div>
 

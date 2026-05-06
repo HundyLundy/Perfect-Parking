@@ -169,7 +169,7 @@ export default function HowItWorksParker() {
             onClick={() => setLocation("/contact")}
             className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-lg"
           >
-            Get a Free Analysis <ArrowRight className="w-5 h-5" />
+            Get a Free Estimate <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
