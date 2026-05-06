@@ -1,0 +1,31 @@
+I'm going to give you a JSON file called cities_data.json. It contains unique SEO content for all 431 Texas city pages on this site. Your job is to:
+
+1. Add cities_data.json to the project (I'll paste the content below or upload it)
+2. Update the city page template so it reads from cities_data.json by matching the URL slug
+3. For each city page, render the following unique content from the JSON:
+   - <title> tag: use meta_title field
+   - <meta name="description">: use meta_description field
+   - Main H1 heading: use h1 field
+   - First paragraph under the H1: use intro_sentence field
+   - If local_paragraph is not empty, render it as a second paragraph below the intro
+   - FAQ section at the bottom of the page (above the footer): render faq_q1/faq_a1 and faq_q2/faq_a2 as an accordion or simple Q&A block
+   - FAQ schema markup: add JSON-LD structured data for each FAQ pair so Google can read it
+   - CTA button: use cta_text field, link to /estimate
+   - If nearby_cities is not empty, render a "Nearby Cities We Serve" section with links to those city pages
+
+4. The JSON has a "tier" field (1, 2, or 3). Use it for conditional rendering:
+   - Tier 1: Show intro_sentence + local_paragraph + FAQ + nearby cities + CTA
+   - Tier 2: Show intro_sentence + local_paragraph + FAQ + nearby cities (if present) + CTA
+   - Tier 3: Show intro_sentence + FAQ + CTA (no local_paragraph, no nearby cities)
+
+5. Every city page must have a CTA section linking to /estimate. Use this exact CTA block:
+   - Heading: "Ready to turn your [city] parking lot into monthly revenue?"
+   - Button: use the cta_text field from the JSON, links to /estimate
+   - Style: gold #DEC600 background button, navy #00305b text
+
+6. Do NOT change the existing layout, nav, footer, or any other pages. Only update the city page template and add the JSON data file.
+
+7. The slug matching logic: the URL path for each city page is /cities/[slug] or /parking/[slug] — match the slug from the URL to the "slug" field in cities_data.json.
+
+Here is the cities_data.json content:
+[PASTE JSON CONTENT HERE]
