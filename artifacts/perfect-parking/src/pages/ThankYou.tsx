@@ -56,11 +56,11 @@ export default function ThankYou() {
             </a>
             <span className="hidden sm:block text-border">|</span>
             <a
-              href="mailto:support@perfectparking.com"
+              href="mailto:info@perfectparking.com"
               className="flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
             >
               <Mail className="w-4 h-4" />
-              support@perfectparking.com
+              info@perfectparking.com
             </a>
           </div>
 

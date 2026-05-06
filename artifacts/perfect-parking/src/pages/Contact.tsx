@@ -116,7 +116,22 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Email us</div>
-                    <a href="mailto:support@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">support@perfectparking.com</a>
+                    <a href="mailto:info@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectparking.com</a>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-border">
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">Cooper Lundquist — Direct</p>
+                  <div className="flex items-center gap-4 mb-2">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
+                      <Phone className="w-6 h-6" />
+                    </div>
+                    <a href="tel:+13615332159" className="font-bold text-foreground hover:text-primary transition-colors">(361) 533-2159</a>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <a href="mailto:cooper@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">cooper@perfectparking.com</a>
                   </div>
                 </div>
               </div>

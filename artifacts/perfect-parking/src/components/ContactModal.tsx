@@ -218,8 +218,8 @@ export function ContactModal({ variant, onClose }: ContactModalProps) {
           {status === "error" && (
             <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium">
               Something went wrong. Please call us at (361) 533-2159 or email{" "}
-              <a href="mailto:support@perfectparking.com" className="underline font-semibold">
-                support@perfectparking.com
+              <a href="mailto:info@perfectparking.com" className="underline font-semibold">
+                info@perfectparking.com
               </a>
             </div>
           )}

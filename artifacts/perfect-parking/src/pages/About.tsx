@@ -4,9 +4,9 @@ import { Target, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function About() {
   const team = [
-    { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png" },
-    { name: "Laura Lundquist",  initials: "LL", photo: "team-laura.png" },
-    { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter2.jpg" },
+    { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png", phone: "(361) 533-2159", phoneHref: "tel:+13615332159", email: "cooper@perfectparking.com" },
+    { name: "Laura Lundquist",  initials: "LL", photo: "team-laura.png",  phone: null, phoneHref: null, email: null },
+    { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter2.jpg", phone: null, phoneHref: null, email: null },
   ];
 
   const values = [
@@ -113,7 +113,13 @@ export default function About() {
                     {member.initials}
                   </div>
                 )}
-                <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                <h3 className="text-lg font-bold text-white mb-2">{member.name}</h3>
+                {member.phone && (
+                  <a href={member.phoneHref!} className="text-secondary hover:text-secondary/80 text-sm block transition-colors">{member.phone}</a>
+                )}
+                {member.email && (
+                  <a href={`mailto:${member.email}`} className="text-white/60 hover:text-secondary text-xs block mt-1 transition-colors">{member.email}</a>
+                )}
               </motion.div>
             ))}
           </div>

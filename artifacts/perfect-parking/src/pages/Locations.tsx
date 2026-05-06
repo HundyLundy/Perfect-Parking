@@ -87,7 +87,7 @@ export default function Locations() {
             "name": "Perfect Parking",
             "url": "https://www.perfectparking.com",
             "telephone": "(361) 585-1111",
-            "email": "support@perfectparking.com",
+            "email": "info@perfectparking.com",
             "areaServed": [
               ...majorMarkets.map((m) => ({ "@type": "City", "name": m.city + ", TX" })),
               ...texasMarkets.map((m) => ({ "@type": "City", "name": m.city + ", TX" })),
