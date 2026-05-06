@@ -13,7 +13,9 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-const WEBHOOK = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/KkGW9R8Rqu2pZUvyYS6P";
+const GHL_CONTACTS_URL = "https://services.leadconnectorhq.com/contacts/";
+const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/KkGW9R8Rqu2pZUvyYS6P";
+const GHL_TOKEN = "pit-1bce996a-1890-4120-8fe3-efa0c65ea572";
 
 export default function Estimate() {
   const [submitted, setSubmitted] = useState(false);
@@ -28,7 +30,27 @@ export default function Estimate() {
     setLoading(true);
     setError(false);
     try {
-      const res = await fetch(WEBHOOK, {
+      const contactRes = await fetch(GHL_CONTACTS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${GHL_TOKEN}`,
+          "Version": "2021-07-28",
+        },
+        body: JSON.stringify({
+          locationId: "ZF2Qjd4J1GmT9w5XbinN",
+          firstName: values.name,
+          phone: values.phone,
+          tags: ["paid-ad-estimate"],
+          customFields: [
+            { key: "address", field_value: values.address },
+            { key: "parking_spaces", field_value: String(values.spaces) },
+          ],
+        }),
+      });
+      if (!contactRes.ok) throw new Error("Contact creation failed");
+
+      fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -38,8 +60,8 @@ export default function Estimate() {
           phone: values.phone,
           source: "paid-ad-estimate",
         }),
-      });
-      if (!res.ok) throw new Error("Bad response");
+      }).catch(() => {});
+
       setSubmitted(true);
     } catch {
       setError(true);
