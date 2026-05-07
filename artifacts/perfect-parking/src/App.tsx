@@ -39,15 +39,13 @@ const EXCLUDED_PATHS = ["/estimate", "/contact"];
 function GHLChatWidget() {
   const [location] = useLocation();
   useEffect(() => {
-    if (EXCLUDED_PATHS.some(path => location.startsWith(path))) return;
-    const existing = document.querySelector('script[data-widget-id="69fbcfbecc730673a2a33e67"]');
-    if (existing) return;
-    const script = document.createElement("script");
-    script.src = "https://widgets.leadconnectorhq.com/loader.js";
-    script.setAttribute("data-resources-url", "https://widgets.leadconnectorhq.com/chat-widget/loader.js");
-    script.setAttribute("data-widget-id", "69fbcfbecc730673a2a33e67");
-    script.setAttribute("data-source", "WEB_USER");
-    document.body.appendChild(script);
+    const excluded = EXCLUDED_PATHS.some(path => location.startsWith(path));
+    const widget = document.querySelector("chat-widget, [data-widget-id='69fbcfbecc730673a2a33e67'], #chat-widget-container, .chat-widget-container") as HTMLElement | null;
+    if (excluded) {
+      if (widget) widget.style.display = "none";
+    } else {
+      if (widget) widget.style.display = "";
+    }
   }, [location]);
   return null;
 }
