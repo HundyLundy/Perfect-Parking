@@ -34,10 +34,12 @@ function PageViewTracker() {
   return null;
 }
 
+const EXCLUDED_PATHS = ["/estimate", "/contact"];
+
 function GHLChatWidget() {
   const [location] = useLocation();
   useEffect(() => {
-    if (location === "/estimate") return;
+    if (EXCLUDED_PATHS.some(path => location.startsWith(path))) return;
     const existing = document.querySelector('script[data-widget-id="69fbcfbecc730673a2a33e67"]');
     if (existing) return;
     const script = document.createElement("script");
