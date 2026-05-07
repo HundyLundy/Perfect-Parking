@@ -4,7 +4,7 @@ import { Target, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function About() {
   const team = [
-    { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png", phone: "(361) 533-2159", phoneHref: "tel:+13615332159", email: "cooper@perfectparking.com" },
+    { name: "Cooper Lundquist", initials: "CL", photo: "team-cooper.png", phone: "(361) 585-1111", phoneHref: "tel:+13615851111", email: "cooper@perfectparking.com" },
     { name: "Laura Lundquist",  initials: "LL", photo: "team-laura.png",  phone: null, phoneHref: null, email: null },
     { name: "Hunter Lundquist", initials: "HL", photo: "team-hunter2.jpg", phone: null, phoneHref: null, email: null },
   ];

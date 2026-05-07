@@ -72,7 +72,7 @@ export function Footer() {
                 <div className="w-5 h-5 shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Cooper Lundquist</p>
-                  <a href="tel:+13615332159" className="text-white/80 hover:text-secondary transition-colors text-sm block">Ph: (361) 533-2159</a>
+                  <a href="tel:+13615851111" className="text-white/80 hover:text-secondary transition-colors text-sm block">Ph: (361) 585-1111</a>
                   <a href="mailto:cooper@perfectparking.com" className="text-white/80 hover:text-secondary transition-colors text-sm block">cooper@perfectparking.com</a>
                 </div>
               </li>
