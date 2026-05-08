@@ -238,11 +238,11 @@ export default function FAQ() {
               />
               <FaqItem
                 q="I think I was charged incorrectly — how do I request a refund?"
-                a="We're sorry something seems off. Reach out through the support section in the app or email us at info@perfectparking.com. Please include your full name, cell phone number, email address, and the license plate tied to the session, and our team will look into it and resolve it as quickly as possible."
+                a="We're sorry something seems off. Reach out through the support section in the app or email our Parker Support team at support@perfectparking.com. Please include your full name, cell phone number, email address, and the license plate tied to the session, and our team will look into it and resolve it as quickly as possible."
               />
               <FaqItem
                 q="I'm interested in learning more about Perfect Parking — who do I contact?"
-                a="We'd love to connect! Share your name, cell number, and email address with us and someone from our team will follow up with you shortly. You can also reach us at info@perfectparking.com."
+                a="We'd love to connect! Share your name, cell number, and email address with us and someone from our team will follow up with you shortly. You can also reach us at info@perfectsynergysolutions.com."
               />
               <FaqItem
                 q="How do I purchase an ongoing parking permit at the Laguna Madre Boat Ramp?"

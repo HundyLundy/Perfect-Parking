@@ -116,7 +116,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Email us</div>
-                    <a href="mailto:info@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectparking.com</a>
+                    <a href="mailto:info@perfectsynergysolutions.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectsynergysolutions.com</a>
                   </div>
                 </div>
                 <div className="pt-4 border-t border-border">
@@ -131,7 +131,7 @@ export default function Contact() {
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
                       <Mail className="w-6 h-6" />
                     </div>
-                    <a href="mailto:cooper@perfectparking.com" className="font-bold text-foreground hover:text-primary transition-colors">cooper@perfectparking.com</a>
+                    <a href="mailto:cooper@perfectsynergysolutions.com" className="font-bold text-foreground hover:text-primary transition-colors">cooper@perfectsynergysolutions.com</a>
                   </div>
                 </div>
               </div>

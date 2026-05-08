@@ -80,7 +80,7 @@ export default function Home() {
             "slogan": "We Turn Parking Into Profits",
             "url": "https://perfectparking.com",
             "telephone": "(361) 585-1111",
-            "email": "info@perfectparking.com",
+            "email": "info@perfectsynergysolutions.com",
             "areaServed": ["San Antonio, TX", "Austin, TX", "Houston, TX", "Corpus Christi, TX", "Dallas, TX", "Fort Worth, TX", "Texas"],
             "serviceType": "Parking Revenue Management",
             "priceRange": "Revenue Share — No Upfront Cost",

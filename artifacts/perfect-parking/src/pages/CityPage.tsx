@@ -84,7 +84,7 @@ export default function CityPage() {
     },
     "serviceType": "Parking Revenue Management",
     "telephone": "(361) 585-1111",
-    "email": "info@perfectparking.com",
+    "email": "info@perfectsynergysolutions.com",
   };
 
   const faqSchema = {
