@@ -10,9 +10,9 @@ const exploreColumns = [
     links: [
       { name: "How It Works", href: "/solutions" },
       { name: "Industries We Serve", href: "/industries" },
+      { name: "Marinas & Boat Ramps", href: "/industries/marinas", sub: true },
       { name: "Case Studies", href: "/case-studies" },
       { name: "Education Hub", href: "/education" },
-      { name: "Marinas", href: "/industries/marinas" },
     ],
   },
   {
@@ -146,22 +146,22 @@ export function Navbar() {
                           </p>
                           <ul className="space-y-2.5">
                             {col.links.map((link) => (
-                              <li key={link.name}>
+                              <li key={link.name} className={link.sub ? "pl-3" : ""}>
                                 {link.href.startsWith("mailto:") ? (
                                   <a
                                     href={link.href}
                                     onClick={() => setDropdownOpen(false)}
-                                    className="text-white/75 text-[14px] hover:text-white transition-all block py-0.5 pl-0 hover:pl-2 border-l-2 border-transparent hover:border-secondary"
+                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary ${link.sub ? "text-white/50 text-[12px] hover:text-white/80 pl-2 hover:pl-3" : "text-white/75 text-[14px] hover:text-white pl-0 hover:pl-2"}`}
                                   >
-                                    {link.name}
+                                    {link.sub ? `↳ ${link.name}` : link.name}
                                   </a>
                                 ) : (
                                   <Link
                                     href={link.href}
                                     onClick={() => setDropdownOpen(false)}
-                                    className="text-white/75 text-[14px] hover:text-white transition-all block py-0.5 pl-0 hover:pl-2 border-l-2 border-transparent hover:border-secondary"
+                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary ${link.sub ? "text-white/50 text-[12px] hover:text-white/80 pl-2 hover:pl-3" : "text-white/75 text-[14px] hover:text-white pl-0 hover:pl-2"}`}
                                   >
-                                    {link.name}
+                                    {link.sub ? `↳ ${link.name}` : link.name}
                                   </Link>
                                 )}
                               </li>
@@ -257,20 +257,20 @@ export function Navbar() {
                     </p>
                     <ul className="space-y-4">
                       {col.links.map((link) => (
-                        <li key={link.name}>
+                        <li key={link.name} className={link.sub ? "pl-4" : ""}>
                           {link.href.startsWith("mailto:") ? (
                             <a
                               href={link.href}
-                              className="text-white/80 text-lg hover:text-white transition-colors block"
+                              className={link.sub ? "text-white/50 text-base hover:text-white/80 transition-colors block" : "text-white/80 text-lg hover:text-white transition-colors block"}
                             >
                               {link.name}
                             </a>
                           ) : (
                             <Link
                               href={link.href}
-                              className="text-white/80 text-lg hover:text-white transition-colors block"
+                              className={link.sub ? "text-white/50 text-base hover:text-white/80 transition-colors block" : "text-white/80 text-lg hover:text-white transition-colors block"}
                             >
-                              {link.name}
+                              {link.sub ? `↳ ${link.name}` : link.name}
                             </Link>
                           )}
                         </li>

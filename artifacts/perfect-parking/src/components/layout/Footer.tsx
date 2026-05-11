@@ -40,6 +40,7 @@ export function Footer() {
               <li><Link href="/industries" className="text-white/80 hover:text-secondary transition-colors text-sm">Hotel Parking</Link></li>
               <li><Link href="/industries" className="text-white/80 hover:text-secondary transition-colors text-sm">Multifamily & HOA</Link></li>
               <li><Link href="/industries" className="text-white/80 hover:text-secondary transition-colors text-sm">Hospitals & CRE</Link></li>
+              <li><Link href="/industries/marinas" className="text-white/80 hover:text-secondary transition-colors text-sm">Marinas & Boat Ramps</Link></li>
             </ul>
           </div>
 
