@@ -9,7 +9,11 @@ const exploreColumns = [
     label: "Solutions",
     links: [
       { name: "How It Works", href: "/solutions" },
+      { name: "Parker Experience", href: "/how-it-works/parker", sub: true },
       { name: "Industries We Serve", href: "/industries" },
+      { name: "Hotels & Resorts", href: "/industries/hotels", sub: true },
+      { name: "Multifamily & HOA", href: "/industries/multifamily", sub: true },
+      { name: "Hospitals & CRE", href: "/industries/hospitals", sub: true },
       { name: "Marinas & Boat Ramps", href: "/industries/marinas", sub: true },
       { name: "Case Studies", href: "/case-studies" },
       { name: "Education Hub", href: "/education" },
@@ -132,7 +136,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
                     style={{ background: "#00305b" }}
                   >
                     <div className="grid grid-cols-3 p-8 gap-2">
@@ -144,24 +148,24 @@ export function Navbar() {
                           >
                             {col.label}
                           </p>
-                          <ul className="space-y-2.5">
+                          <ul className="space-y-1.5">
                             {col.links.map((link) => (
-                              <li key={link.name} className={link.sub ? "pl-3" : ""}>
+                              <li key={link.name}>
                                 {link.href.startsWith("mailto:") ? (
                                   <a
                                     href={link.href}
                                     onClick={() => setDropdownOpen(false)}
-                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary ${link.sub ? "text-white/50 text-[12px] hover:text-white/80 pl-2 hover:pl-3" : "text-white/75 text-[14px] hover:text-white pl-0 hover:pl-2"}`}
+                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white/60 text-[12px] pl-3 hover:pl-4" : "text-white/75 text-[14px] pl-0 hover:pl-2"}`}
                                   >
-                                    {link.sub ? `↳ ${link.name}` : link.name}
+                                    {link.name}
                                   </a>
                                 ) : (
                                   <Link
                                     href={link.href}
                                     onClick={() => setDropdownOpen(false)}
-                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary ${link.sub ? "text-white/50 text-[12px] hover:text-white/80 pl-2 hover:pl-3" : "text-white/75 text-[14px] hover:text-white pl-0 hover:pl-2"}`}
+                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white/60 text-[12px] pl-3 hover:pl-4" : "text-white/75 text-[14px] pl-0 hover:pl-2"}`}
                                   >
-                                    {link.sub ? `↳ ${link.name}` : link.name}
+                                    {link.name}
                                   </Link>
                                 )}
                               </li>
@@ -255,22 +259,22 @@ export function Navbar() {
                     >
                       {col.label}
                     </p>
-                    <ul className="space-y-4">
+                    <ul className="space-y-3">
                       {col.links.map((link) => (
-                        <li key={link.name} className={link.sub ? "pl-4" : ""}>
+                        <li key={link.name}>
                           {link.href.startsWith("mailto:") ? (
                             <a
                               href={link.href}
-                              className={link.sub ? "text-white/50 text-base hover:text-white/80 transition-colors block" : "text-white/80 text-lg hover:text-white transition-colors block"}
+                              className={link.sub ? "text-white/60 text-base hover:text-white transition-colors block pl-4" : "text-white/80 text-lg hover:text-white transition-colors block"}
                             >
                               {link.name}
                             </a>
                           ) : (
                             <Link
                               href={link.href}
-                              className={link.sub ? "text-white/50 text-base hover:text-white/80 transition-colors block" : "text-white/80 text-lg hover:text-white transition-colors block"}
+                              className={link.sub ? "text-white/60 text-base hover:text-white transition-colors block pl-4" : "text-white/80 text-lg hover:text-white transition-colors block"}
                             >
-                              {link.sub ? `↳ ${link.name}` : link.name}
+                              {link.name}
                             </Link>
                           )}
                         </li>
