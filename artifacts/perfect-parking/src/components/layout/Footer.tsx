@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-navy pt-20 pb-10 text-white" style={{ borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg, #0374a7, #3c6e7f, #1965b1) 1' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
 
           {/* Brand column */}
           <div className="lg:col-span-1">
@@ -53,6 +53,14 @@ export function Footer() {
               <li><Link href="/locations" className="text-white/80 hover:text-secondary transition-colors text-sm">Locations We Serve</Link></li>
               <li><Link href="/faq" className="text-white/80 hover:text-secondary transition-colors text-sm">FAQ</Link></li>
               <li><button onClick={() => { trackEvent("cta_click", { cta_label: "Contact", source_page: location || "/", cta_location: "footer_nav" }); openContactModal(); }} className="text-white/80 hover:text-secondary transition-colors text-sm text-left">Contact</button></li>
+            </ul>
+          </div>
+
+          {/* Parking Help */}
+          <div>
+            <h4 className="font-display font-bold text-base text-white mb-6 pb-2 border-b border-white/20">Parking Help</h4>
+            <ul className="space-y-3">
+              <li><Link href="/parkers" className="text-white/80 hover:text-secondary transition-colors text-sm">Parking Help</Link></li>
             </ul>
           </div>
 

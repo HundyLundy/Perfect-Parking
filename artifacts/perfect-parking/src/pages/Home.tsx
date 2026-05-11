@@ -961,6 +961,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PARKER SUPPORT */}
+      <section className="py-16" style={{ background: "#F5F7FA" }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-10 border border-gray-200 flex flex-col">
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#DEC600" }}>Parking Help</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-snug">Need help with your parking session?</h3>
+              <p className="text-gray-600 mb-8 flex-1">Get answers fast — no phone call needed.</p>
+              <a
+                href="/parkers"
+                className="self-start px-6 py-3 rounded-xl font-bold border-2 transition-all hover:bg-primary/5"
+                style={{ borderColor: "#1965B1", color: "#1965B1" }}
+              >
+                Get Parking Help
+              </a>
+            </div>
+            <div className="bg-white rounded-2xl p-10 border border-gray-200 flex flex-col">
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#DEC600" }}>Property Owners</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-snug">Own a parking lot?</h3>
+              <p className="text-gray-600 mb-8 flex-1">Find out how much your lot could earn — free, no commitment.</p>
+              <a
+                href="/estimate"
+                className="self-start px-6 py-3 rounded-xl font-bold transition-all hover:opacity-90"
+                style={{ background: "#DEC600", color: "#00305b" }}
+              >
+                Get My Free Estimate
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* MILITARY PARTNER SECTION */}
       <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0">

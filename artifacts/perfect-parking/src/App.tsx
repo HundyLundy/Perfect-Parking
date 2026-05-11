@@ -21,6 +21,7 @@ import Locations from "@/pages/Locations";
 import CityPage from "@/pages/CityPage";
 import HowItWorksParker from "@/pages/HowItWorksParker";
 import Estimate from "@/pages/Estimate";
+import Parkers from "@/pages/Parkers";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import { trackPageView } from "@/lib/analytics";
 
@@ -50,6 +51,14 @@ function GHLChatWidget() {
   return null;
 }
 
+function CityRedirectTx({ params }: { params: { citySlug: string } }) {
+  const [, setLoc] = useLocation();
+  useEffect(() => {
+    setLoc(`/locations/${params.citySlug.replace(/-tx$/, "")}`);
+  }, [params.citySlug]);
+  return null;
+}
+
 function Router() {
   return (
     <Layout>
@@ -66,10 +75,12 @@ function Router() {
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/faq" component={FAQ} />
         <Route path="/locations" component={Locations} />
+        <Route path="/locations/:citySlug-tx" component={CityRedirectTx} />
         <Route path="/locations/:citySlug" component={CityPage} />
         <Route path="/how-it-works/parker" component={HowItWorksParker} />
         <Route path="/lp" component={LandingPage} />
         <Route path="/estimate" component={Estimate} />
+        <Route path="/parkers" component={Parkers} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

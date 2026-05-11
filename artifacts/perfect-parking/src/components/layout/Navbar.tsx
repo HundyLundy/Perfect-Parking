@@ -31,6 +31,7 @@ export function Navbar() {
     { name: "Locations", href: "/locations" },
     { name: "FAQ", href: "/faq" },
     { name: "About", href: "/about" },
+    { name: "Parking Help", href: "/parkers" },
   ];
 
   return (
