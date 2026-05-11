@@ -12,6 +12,7 @@ const exploreColumns = [
       { name: "Industries We Serve", href: "/industries" },
       { name: "Case Studies", href: "/case-studies" },
       { name: "Education Hub", href: "/education" },
+      { name: "Marinas", href: "/industries/marinas" },
     ],
   },
   {
@@ -20,7 +21,6 @@ const exploreColumns = [
       { name: "About Us", href: "/about" },
       { name: "FAQ", href: "/faq" },
       { name: "Locations", href: "/locations" },
-      { name: "Marinas", href: "/industries/marinas" },
     ],
   },
   {
@@ -33,10 +33,18 @@ const exploreColumns = [
   },
 ];
 
+const PILL_DESKTOP =
+  "inline-flex items-center gap-1.5 rounded-full px-[18px] py-[6px] text-[0.85rem] font-semibold transition-all whitespace-nowrap hover:text-white";
+const PILL_DESKTOP_STYLE: React.CSSProperties = {
+  border: "1.5px solid #00305b",
+  color: "#00305b",
+};
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [pillHover, setPillHover] = useState<string | null>(null);
   const [location] = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -61,6 +69,12 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownOpen]);
 
+  const getPillStyle = (id: string): React.CSSProperties => ({
+    ...PILL_DESKTOP_STYLE,
+    backgroundColor: pillHover === id ? "#00305b" : "transparent",
+    color: pillHover === id ? "#ffffff" : "#00305b",
+  });
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -68,7 +82,7 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 z-50 shrink-0">
@@ -84,27 +98,30 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-3">
+            {/* Parking Help — navy outline pill */}
             <Link
               href="/parkers"
-              className={`text-sm font-semibold transition-colors hover:text-primary ${
-                location === "/parkers" ? "text-primary" : "text-foreground/80"
-              }`}
+              className={PILL_DESKTOP}
+              style={getPillStyle("parking-help")}
+              onMouseEnter={() => setPillHover("parking-help")}
+              onMouseLeave={() => setPillHover(null)}
             >
               Parking Help
             </Link>
 
-            {/* Explore dropdown */}
+            {/* Parking Lot Owners dropdown — navy outline pill */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`flex items-center gap-1.5 text-sm font-semibold transition-colors hover:text-primary ${
-                  dropdownOpen ? "text-primary" : "text-foreground/80"
-                }`}
+                onMouseEnter={() => setPillHover("owners")}
+                onMouseLeave={() => setPillHover(null)}
+                className={PILL_DESKTOP}
+                style={getPillStyle("owners")}
               >
-                Explore
+                Parking Lot Owners
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
 
@@ -212,12 +229,22 @@ export function Navbar() {
           >
             <div className="flex flex-col min-h-full pt-32 pb-12 px-8">
 
-              <Link
-                href="/parkers"
-                className="text-white text-xl font-bold py-4 border-b border-white/10 block"
-              >
-                Parking Help
-              </Link>
+              {/* Parking Help pill — white outline on navy bg */}
+              <div className="flex gap-3 mb-6">
+                <Link
+                  href="/parkers"
+                  className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-all"
+                  style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
+                >
+                  Parking Help
+                </Link>
+                <span
+                  className="inline-flex items-center gap-1 rounded-full px-5 py-2 text-sm font-semibold"
+                  style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
+                >
+                  Parking Lot Owners <ChevronDown className="w-3.5 h-3.5" />
+                </span>
+              </div>
 
               <div className="py-8 border-b border-white/10 space-y-8">
                 {exploreColumns.map((col) => (

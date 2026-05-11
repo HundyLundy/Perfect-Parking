@@ -351,9 +351,6 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <div>
-              <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 text-secondary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
-                <Building className="w-3.5 h-3.5" /> Property Owners
-              </div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6">
                 Built for<br /><span className="text-secondary">Owners.</span>
               </h2>
@@ -399,9 +396,6 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div>
-              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
-                <Smartphone className="w-3.5 h-3.5" /> Drivers
-              </div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground leading-tight mb-6">
                 Designed for<br /><span className="text-primary">Drivers.</span>
               </h2>
