@@ -205,41 +205,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT THIS MEANS FINANCIALLY */}
-      <section className="py-20 bg-navy text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-              What This Means Financially
-            </h2>
-            <p className="text-white/60 text-lg max-w-xl mx-auto">
-              Most property owners don't realize how much their parking is underperforming.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              { stat: "20–40%", label: "of parking revenue goes unrealized at a typical property", color: "text-secondary" },
-              { stat: "30 Days", label: "Most locations start collecting revenue within 30 days of setup", color: "text-secondary" },
-              { stat: "$0", label: "Most locations require $0 upfront capital — we invest in the infrastructure", color: "text-secondary" },
-            ].map((item, i) => (
-              <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.1 }}
-                className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center hover:bg-white/15 transition-all"
-              >
-                <div className={`text-4xl md:text-5xl font-display font-bold mb-4 ${item.color}`}>{item.stat}</div>
-                <p className="text-white/75 leading-snug">{item.label}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center bg-secondary/15 border border-secondary/30 rounded-2xl px-8 py-7">
-            <p className="text-secondary font-display font-bold text-xl md:text-2xl leading-snug mb-2">
-              "Your parking should be producing income every day."
-            </p>
-            <p className="text-white/70 text-base">
-              Most properties are leaving money on the table. Let's find out how much yours is worth.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* HOW IT WORKS */}
       <section className="py-24 bg-white">
@@ -341,6 +306,9 @@ export default function Home() {
               <button onClick={() => setLocation("/case-studies")} className="text-secondary font-bold flex items-center gap-2 hover:gap-3 transition-all">
                 Read full case study <ArrowRight className="w-5 h-5" />
               </button>
+              <button onClick={() => setLocation("/case-studies")} className="mt-4 text-white/50 text-sm font-medium flex items-center gap-1.5 hover:text-white/80 transition-colors">
+                See all case studies <ArrowRight className="w-4 h-4" />
+              </button>
             </motion.div>
 
             <motion.div
@@ -366,177 +334,6 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* THE PLATFORM */}
-      <section className="py-24 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">The Platform</h2>
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Built to run without you.
-            </h3>
-            <p className="text-muted-foreground text-lg">
-              Maximum revenue. Zero overhead. Every feature automates a task your staff used to handle manually.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-            {whyFeatures.map((feature, i) => (
-              <motion.div
-                key={i}
-                className={`p-7 rounded-2xl shadow-sm border transition-all duration-200 hover:shadow-lg hover:-translate-y-1 ${
-                  feature.green ? "bg-accent/5 border-accent/25 hover:border-accent/50"
-                  : feature.teal ? "bg-brand-teal/5 border-brand-teal/20 hover:border-brand-teal/40"
-                  : "bg-white border-border hover:border-primary/20"
-                }`}
-                {...fadeIn}
-                transition={{ delay: (i % 6) * 0.07 }}
-              >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
-                  feature.green ? "bg-accent/15 text-accent"
-                  : feature.teal ? "bg-brand-teal/15 text-brand-teal"
-                  : "bg-primary/10 text-primary"
-                }`}>
-                  <feature.icon className="w-6 h-6" />
-                </div>
-                <h4 className={`text-lg font-bold mb-2 ${feature.green ? "text-accent" : feature.teal ? "text-brand-teal" : "text-foreground"}`}>{feature.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center">
-            <button
-              onClick={() => handleCtaClick("Get My Parking Estimate", "platform_features")}
-              className="px-10 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:-translate-y-1 inline-flex items-center gap-2"
-            >
-              Get My Parking Estimate <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY OWNERS SWITCH */}
-      <section className="py-20 bg-muted border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <motion.div {...fadeIn}>
-              <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Why Owners Switch</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-5 leading-tight">
-                Why Owners Switch<br />to Perfect Parking
-              </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Turn parking into a revenue-generating asset — without adding work, staff, or complexity to your operations.
-              </p>
-            </motion.div>
-            <motion.ul {...fadeIn} transition={{ delay: 0.1 }} className="space-y-5">
-              {[
-                "Underperforming lots become predictable revenue streams",
-                "No staffing, no training, no operational burden",
-                "Real-time reporting and full transparency",
-                "Faster setup than traditional operators",
-                "Designed for property owners, not parking companies",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-border hover:border-primary/25 hover:shadow-sm transition-all">
-                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span className="text-foreground font-medium leading-snug">{item}</span>
-                </li>
-              ))}
-            </motion.ul>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY US VS OTHERS */}
-      <section className="py-24 bg-white border-y border-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Why Perfect Parking</h2>
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Not all parking management is equal.
-            </h3>
-            <p className="text-muted-foreground text-lg">We're the only platform that combines full automation, revenue-share alignment, and zero upfront cost.</p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-4 pr-6 text-muted-foreground font-semibold w-48"></th>
-                  <th className="py-4 px-4 text-center">
-                    <div className="inline-flex flex-col items-center gap-1">
-                      <div className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full">Perfect Parking</div>
-                    </div>
-                  </th>
-                  <th className="py-4 px-4 text-center text-muted-foreground font-semibold">Traditional Meters</th>
-                  <th className="py-4 px-4 text-center text-muted-foreground font-semibold">Human Attendants</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { label: "Upfront Cost",        pp: "$0",         meters: "$10K+",    humans: "$0" },
-                  { label: "Staff Required",       pp: "None",       meters: "None",     humans: "1–3 per lot" },
-                  { label: "Revenue to Owner",     pp: "You keep it",meters: "City fee", humans: "Shared 3+ ways" },
-                  { label: "Setup Time",           pp: "< 30 days",  meters: "Months",   humans: "Weeks" },
-                  { label: "Digital Payments",     pp: true,         meters: false,      humans: "Sometimes" },
-                  { label: "Real-Time Reporting",  pp: true,         meters: false,      humans: false },
-                  { label: "24/7 Enforcement",     pp: true,         meters: false,      humans: false },
-                ].map((row, i) => (
-                  <motion.tr
-                    key={i}
-                    className="border-b border-border/60 last:border-0"
-                    {...fadeIn}
-                    transition={{ delay: i * 0.04 }}
-                  >
-                    <td className="py-4 pr-6 font-semibold text-foreground">{row.label}</td>
-                    <td className="py-4 px-4 text-center bg-primary/5">
-                      {row.pp === true ? (
-                        <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
-                      ) : row.pp === false ? (
-                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
-                      ) : (
-                        <span className="font-bold text-primary">{row.pp}</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-4 text-center">
-                      {row.meters === true ? (
-                        <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
-                      ) : row.meters === false ? (
-                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
-                      ) : (
-                        <span className="text-muted-foreground">{row.meters}</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-4 text-center">
-                      {row.humans === true ? (
-                        <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
-                      ) : row.humans === false ? (
-                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
-                      ) : (
-                        <span className="text-muted-foreground">{row.humans}</span>
-                      )}
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-10 bg-primary/5 border border-primary/15 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p className="text-foreground font-semibold text-lg leading-snug max-w-lg">
-              Ready to see how much your lot is worth?<br />
-              <span className="text-muted-foreground font-normal text-base">Estimate is free. No commitment.</span>
-            </p>
-            <button
-              onClick={() => handleCtaClick("Get My Parking Estimate", "comparison_table")}
-              className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-md shrink-0 inline-flex items-center gap-2"
-            >
-              Get My Parking Estimate <ArrowRight className="w-5 h-5" />
-            </button>
           </div>
         </div>
       </section>
@@ -584,6 +381,12 @@ export default function Home() {
             >
               Get My Parking Estimate
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button
+              onClick={() => setLocation("/industries")}
+              className="mt-4 text-white/50 text-sm font-medium flex items-center gap-1.5 hover:text-white/80 transition-colors"
+            >
+              Explore industries and case studies <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
 
@@ -635,401 +438,14 @@ export default function Home() {
                 <div className="font-display font-bold text-primary text-lg">14 sec</div>
               </div>
             </div>
+            <button
+              onClick={() => setLocation("/parkers")}
+              className="mt-6 text-primary/60 text-sm font-medium flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
+              Get parking help <ArrowRight className="w-4 h-4" />
+            </button>
           </motion.div>
 
-        </div>
-      </section>
-
-      {/* PLATFORM PREVIEW */}
-      <section className="py-24 bg-[#0a1628] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-secondary font-bold tracking-widest uppercase text-sm mb-3">Platform Preview</h2>
-            <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">See How It Works</h3>
-            <p className="text-white/60 text-lg">One platform built for property owners. Zero complexity. Total visibility.</p>
-          </div>
-
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {([
-              { id: "dashboard", label: "Owner Dashboard", icon: BarChart3 },
-              { id: "driver",    label: "Driver Experience", icon: Smartphone },
-              { id: "reporting", label: "Reporting",         icon: TrendingUp },
-            ] as const).map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => setActiveTab(id)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${
-                  activeTab === id
-                    ? "bg-secondary text-navy shadow-lg"
-                    : "bg-white/8 text-white/60 hover:bg-white/12 hover:text-white border border-white/10"
-                }`}
-              >
-                <Icon className="w-4 h-4" /> {label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
-            {/* Left panel — copy */}
-            <div className="lg:col-span-2 pt-4">
-              {activeTab === "dashboard" && (
-                <motion.div key="d-copy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <h4 className="text-2xl font-display font-bold text-white mb-4 leading-snug">Your revenue, always visible.</h4>
-                  <p className="text-white/60 leading-relaxed mb-8">Log in anytime to see live revenue, occupancy rates, session activity, and violation status. We send a monthly summary and direct deposit automatically.</p>
-                  <ul className="space-y-4">
-                    {["Real-time revenue & occupancy", "Every session tracked with time & plate", "Automated violation notices", "Monthly direct deposit with full audit trail"].map((l) => (
-                      <li key={l} className="flex gap-3 items-start">
-                        <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                        <span className="text-white/80 text-sm">{l}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-              {activeTab === "driver" && (
-                <motion.div key="dr-copy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <h4 className="text-2xl font-display font-bold text-white mb-4 leading-snug">Frictionless for drivers. Profitable for you.</h4>
-                  <p className="text-white/60 leading-relaxed mb-8">Drivers scan a QR code or text a shortcode to pay in seconds. No app download. No meter hunting. Apple Pay, Google Pay, or any card accepted.</p>
-                  <ul className="space-y-4">
-                    {["Scan QR or text to pay instantly", "Apple Pay & Google Pay — one tap", "Instant digital receipt by text or email", "No app required — works on any phone"].map((l) => (
-                      <li key={l} className="flex gap-3 items-start">
-                        <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                        <span className="text-white/80 text-sm">{l}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-              {activeTab === "reporting" && (
-                <motion.div key="r-copy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <h4 className="text-2xl font-display font-bold text-white mb-4 leading-snug">Complete reporting. Zero accounting work.</h4>
-                  <p className="text-white/60 leading-relaxed mb-8">Every session, payment, and violation is logged and exportable. Month-end summaries automatically prepared. Export to CSV in one click.</p>
-                  <ul className="space-y-4">
-                    {["Revenue by day, week, and month", "Per-space and per-lot breakdown", "Violation and compliance tracking", "One-click CSV export for your records"].map((l) => (
-                      <li key={l} className="flex gap-3 items-start">
-                        <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                        <span className="text-white/80 text-sm">{l}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Right panel — mock UI */}
-            <div className="lg:col-span-3">
-              <div className="relative">
-                <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full pointer-events-none" />
-                <div className="relative rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)] border border-white/10">
-
-                  {/* OWNER DASHBOARD */}
-                  {activeTab === "dashboard" && (
-                    <motion.div key="d-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                      <div className="bg-[#111827] px-5 py-3 flex items-center gap-3 border-b border-white/10">
-                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
-                        <span className="text-white/40 text-xs font-mono">owner.perfectparking.com / dashboard</span>
-                      </div>
-                      <img
-                        src={`${import.meta.env.BASE_URL}portal-dashboard.png`}
-                        alt="Perfect Parking Partner Portal dashboard showing Total Payment Due, Total Parkers, and Current Month Validations"
-                        className="w-full block"
-                        loading="lazy"
-                      />
-                    </motion.div>
-                  )}
-
-                  {/* DRIVER EXPERIENCE */}
-                  {activeTab === "driver" && (
-                    <motion.div key="dr-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                      <div className="bg-primary px-5 py-3 flex items-center gap-3 border-b border-white/10">
-                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
-                        <span className="text-white/50 text-xs font-mono">pay.perfectparking.com / lot-14a</span>
-                      </div>
-                      <div className="bg-white p-6">
-                        {/* Lot header */}
-                        <div className="flex items-center gap-3 mb-5 pb-5 border-b border-gray-100">
-                          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shrink-0">
-                            <MapPin className="w-5 h-5 text-white" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-foreground text-base leading-tight">Lot 14A — Main Street</div>
-                            <div className="text-muted-foreground text-sm">$3.00 / hour · Open 24 hrs</div>
-                          </div>
-                          <div className="ml-auto flex items-center gap-1.5 bg-green-50 text-green-600 px-2.5 py-1 rounded-full text-xs font-bold border border-green-100">
-                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> Open
-                          </div>
-                        </div>
-                        {/* QR */}
-                        <div className="flex justify-center mb-5">
-                          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 inline-flex flex-col items-center gap-2">
-                            <QrCode className="w-20 h-20 text-foreground" />
-                            <div className="text-xs text-muted-foreground font-medium">Scan to pay</div>
-                          </div>
-                        </div>
-                        {/* Duration */}
-                        <div className="bg-gray-50 rounded-xl p-4 mb-4">
-                          <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Select Duration</div>
-                          <div className="grid grid-cols-4 gap-2 mb-4">
-                            {[{l:"1 hr",v:3},{l:"2 hrs",v:6},{l:"4 hrs",v:12},{l:"All Day",v:20}].map((d, i) => (
-                              <button key={d.l} className={`py-2.5 rounded-xl text-xs font-bold border transition-all ${i === 1 ? "bg-primary text-white border-primary shadow-sm" : "border-gray-200 text-muted-foreground bg-white"}`}>{d.l}</button>
-                            ))}
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-muted-foreground text-sm font-medium">Total due</span>
-                            <span className="text-2xl font-display font-bold text-foreground">$6.00</span>
-                          </div>
-                        </div>
-                        {/* Pay buttons */}
-                        <div className="space-y-2.5">
-                          <button className="w-full py-3.5 bg-black text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-sm">
-                            <span className="text-base"> </span>Apple Pay
-                          </button>
-                          <button className="w-full py-3.5 bg-white border border-gray-200 text-foreground rounded-xl font-bold text-sm flex items-center justify-center gap-2">
-                            <CreditCard className="w-4 h-4 text-muted-foreground" /> Pay with Card
-                          </button>
-                        </div>
-                        <p className="text-center text-xs text-muted-foreground mt-3">No account needed · Receipt sent by text</p>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* REPORTING */}
-                  {activeTab === "reporting" && (
-                    <motion.div key="r-ui" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                      <div className="bg-[#111827] px-5 py-3 flex items-center gap-3 border-b border-white/10">
-                        <div className="flex gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80"/><div className="w-2.5 h-2.5 rounded-full bg-green-400/80"/></div>
-                        <span className="text-white/40 text-xs font-mono">owner.perfectparking.com / reports</span>
-                      </div>
-                      <div className="bg-[#0f172a] p-5">
-                        {/* Report header */}
-                        <div className="flex items-center justify-between mb-5">
-                          <div>
-                            <div className="text-white font-bold text-base">Revenue Report</div>
-                            <div className="text-white/40 text-xs mt-0.5">All Locations</div>
-                          </div>
-                          <div className="flex gap-2">
-                            <button className="flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-2 rounded-lg border border-white/10 font-medium">
-                              June 2025 <ChevronDown className="w-3 h-3" />
-                            </button>
-                            <button className="flex items-center gap-1.5 text-xs text-secondary bg-secondary/10 px-3 py-2 rounded-lg border border-secondary/20 font-bold">
-                              <Download className="w-3 h-3" /> Export
-                            </button>
-                          </div>
-                        </div>
-                        {/* KPI row */}
-                        <div className="grid grid-cols-3 gap-3 mb-5">
-                          <div className="bg-white/5 rounded-xl p-3.5">
-                            <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Total Revenue</div>
-                            <div className="text-xl font-display font-bold text-white">$2,847</div>
-                          </div>
-                          <div className="bg-white/5 rounded-xl p-3.5">
-                            <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Avg Ticket</div>
-                            <div className="text-xl font-display font-bold text-white">$6.20</div>
-                          </div>
-                          <div className="bg-white/5 rounded-xl p-3.5">
-                            <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Sessions</div>
-                            <div className="text-xl font-display font-bold text-white">459</div>
-                          </div>
-                        </div>
-                        {/* Bar chart */}
-                        <div className="bg-white/5 rounded-xl p-4 mb-4">
-                          <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">Revenue by Day</div>
-                          <div className="flex items-end gap-1 h-16">
-                            {[40,55,35,70,60,85,72,50,65,90,78,45,80,68,55,75,88,65,70,45,82,60,50,72,65,88,75,92,65,80].map((h, i) => (
-                              <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, backgroundColor: h > 85 ? '#dec600' : 'rgba(55,139,255,0.45)' }} />
-                            ))}
-                          </div>
-                        </div>
-                        {/* Peak hours */}
-                        <div className="bg-white/5 rounded-xl p-4">
-                          <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">Peak Activity Hours</div>
-                          <div className="space-y-2.5">
-                            <div>
-                              <div className="flex justify-between text-xs mb-1"><span className="text-white/60">10 AM – 2 PM</span><span className="text-secondary font-bold">38%</span></div>
-                              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden"><div className="h-2 bg-secondary rounded-full" style={{ width: "78%" }} /></div>
-                            </div>
-                            <div>
-                              <div className="flex justify-between text-xs mb-1"><span className="text-white/60">5 PM – 8 PM</span><span className="text-primary font-bold">27%</span></div>
-                              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden"><div className="h-2 bg-primary rounded-full" style={{ width: "55%" }} /></div>
-                            </div>
-                            <div>
-                              <div className="flex justify-between text-xs mb-1"><span className="text-white/60">8 PM – 12 AM</span><span className="text-white/50 font-bold">18%</span></div>
-                              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden"><div className="h-2 bg-white/30 rounded-full" style={{ width: "36%" }} /></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BUILT ON A REAL OPERATING SYSTEM */}
-      <section className="py-24 bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Technology</h2>
-            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Built on a Real Operating System
-            </h3>
-            <p className="text-muted-foreground text-lg">
-              Not just an app. A full infrastructure layer for automated parking revenue management with zero operational burden.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            {[
-              { icon: KeyRound, title: "Permit Management", desc: "Digital resident, staff, and guest permits. No paper. No manual tracking.", badge: "Automated" },
-              { icon: CreditCard, title: "Payment Automation", desc: "QR & text-to-pay. Apple Pay, Google Pay, or card. Every session captured automatically.", badge: "24/7" },
-              { icon: ShieldCheck, title: "Enforcement Integration", desc: "We manage enforcement at every location — notices, compliance, and follow-through handled for you.", badge: "Passive" },
-              { icon: BarChart3, title: "Reporting Dashboard", desc: "Live revenue, occupancy, and session data. Exportable, visible from anywhere.", badge: "Real-Time" },
-            ].map((item, i) => (
-              <motion.div key={i} {...fadeIn} transition={{ delay: i * 0.08 }}
-                className="relative p-8 rounded-2xl bg-muted border border-border hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all text-center group"
-              >
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">{item.badge}</span>
-                </div>
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-5 mt-3 group-hover:bg-primary group-hover:text-white transition-all">
-                  <item.icon className="w-7 h-7" />
-                </div>
-                <h4 className="font-bold text-foreground mb-2">{item.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* APP SHOWCASE */}
-      <AppShowcase />
-
-      {/* INDUSTRIES */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Industries We Serve</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground">Tailored solutions for complex properties.</h3>
-            </div>
-            <button onClick={() => setLocation("/industries")} className="text-primary font-bold hover:text-navy transition-colors flex items-center gap-2 shrink-0">
-              View all industries <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-            {featuredIndustries.map((ind, i) => (
-              <motion.div key={i} className="group cursor-pointer" onClick={() => setLocation("/industries")} {...fadeIn}>
-                <div className="bg-muted rounded-2xl p-10 h-full border border-border group-hover:border-primary/30 group-hover:bg-primary/5 transition-all">
-                  <ind.icon className="w-12 h-12 text-primary mb-6" />
-                  <h4 className="text-2xl font-bold text-foreground mb-4">{ind.title}</h4>
-                  <p className="text-muted-foreground mb-8">{ind.desc}</p>
-                  <div className="text-primary font-semibold flex items-center gap-2">
-                    Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="border-t border-border pt-10">
-            <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">All property types we serve</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-              {additionalIndustries.map((ind, i) => (
-                <motion.button
-                  key={i}
-                  onClick={() => setLocation("/industries")}
-                  className="flex flex-col items-start gap-3 p-5 rounded-2xl border border-border bg-muted hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-1 hover:shadow-md transition-all text-left group"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ind.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-tight">{ind.label}</span>
-                </motion.button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PARKER SUPPORT */}
-      <section className="py-16" style={{ background: "#F5F7FA" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-10 border border-gray-200 flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#DEC600" }}>Parking Help</p>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-snug">Need help with your parking session?</h3>
-              <p className="text-gray-600 mb-8 flex-1">Get answers fast — no phone call needed.</p>
-              <a
-                href="/parkers"
-                className="self-start px-6 py-3 rounded-xl font-bold border-2 transition-all hover:bg-primary/5"
-                style={{ borderColor: "#1965B1", color: "#1965B1" }}
-              >
-                Get Parking Help
-              </a>
-            </div>
-            <div className="bg-white rounded-2xl p-10 border border-gray-200 flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#DEC600" }}>Property Owners</p>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-snug">Own a parking lot?</h3>
-              <p className="text-gray-600 mb-8 flex-1">Find out how much your lot could earn — free, no commitment.</p>
-              <a
-                href="/estimate"
-                className="self-start px-6 py-3 rounded-xl font-bold transition-all hover:opacity-90"
-                style={{ background: "#DEC600", color: "#00305b" }}
-              >
-                Get My Free Estimate
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MILITARY PARTNER SECTION */}
-      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/98 to-navy/60" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeIn}>
-              <div className="inline-flex items-center gap-2 bg-red-900/30 border border-red-700/40 text-red-300 px-4 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-wide">
-                ★ Partnership Announcement
-              </div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
-                Every parking spot supports our nation's heroes.
-              </h2>
-              <p className="text-white/80 text-lg leading-relaxed mb-6">
-                We are proud to partner with the <strong className="text-white">Military Warriors Support Foundation</strong> — the organization that serves combat-wounded veterans and Gold Star spouses.
-              </p>
-              <blockquote className="border-l-4 border-secondary pl-6 italic text-white/70 leading-relaxed mb-8">
-                "Now, every time you park at a Perfect Parking lot, you're not just finding a spot — you're actively supporting combat-wounded veterans and Gold Star spouses. Together, we're turning everyday moments into meaningful change."
-              </blockquote>
-              <p className="text-secondary font-bold text-sm uppercase tracking-wider">— Military Warriors Support Foundation</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex justify-center"
-            >
-              <img
-                src={`${import.meta.env.BASE_URL}military-partner.png`}
-                alt="Military Warriors Support Foundation Partnership with Perfect Parking"
-                loading="lazy"
-                className="rounded-2xl shadow-2xl max-w-full w-full border-2 border-white/10"
-              />
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -1079,6 +495,46 @@ export default function Home() {
               Get My Parking Estimate <ArrowRight className="w-6 h-6" />
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* MILITARY PARTNER SECTION */}
+      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/98 to-navy/60" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div {...fadeIn}>
+              <div className="inline-flex items-center gap-2 bg-red-900/30 border border-red-700/40 text-red-300 px-4 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-wide">
+                ★ Partnership Announcement
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
+                Every parking spot supports our nation's heroes.
+              </h2>
+              <p className="text-white/80 text-lg leading-relaxed mb-6">
+                We are proud to partner with the <strong className="text-white">Military Warriors Support Foundation</strong> — the organization that serves combat-wounded veterans and Gold Star spouses.
+              </p>
+              <blockquote className="border-l-4 border-secondary pl-6 italic text-white/70 leading-relaxed mb-8">
+                "Now, every time you park at a Perfect Parking lot, you're not just finding a spot — you're actively supporting combat-wounded veterans and Gold Star spouses. Together, we're turning everyday moments into meaningful change."
+              </blockquote>
+              <p className="text-secondary font-bold text-sm uppercase tracking-wider">— Military Warriors Support Foundation</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex justify-center"
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}military-partner.png`}
+                alt="Military Warriors Support Foundation Partnership with Perfect Parking"
+                loading="lazy"
+                className="rounded-2xl shadow-2xl max-w-full w-full border-2 border-white/10"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 

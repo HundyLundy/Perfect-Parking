@@ -61,6 +61,8 @@ export function Footer() {
             <h4 className="font-display font-bold text-base text-white mb-6 pb-2 border-b border-white/20">Parking Help</h4>
             <ul className="space-y-3">
               <li><Link href="/parkers" className="text-white/80 hover:text-secondary transition-colors text-sm">Parking Help</Link></li>
+              <li><Link href="/faq" className="text-white/80 hover:text-secondary transition-colors text-sm">FAQ</Link></li>
+              <li><a href="mailto:support@perfectparking.com" className="text-white/80 hover:text-secondary transition-colors text-sm">Contact Support</a></li>
             </ul>
           </div>
 

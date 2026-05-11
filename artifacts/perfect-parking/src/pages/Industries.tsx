@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
-import { Building, Hospital, CarFront, Users, Home as HomeIcon, GraduationCap, Truck, Plane, ArrowRight, LayoutGrid, ShoppingBag, Smartphone } from "lucide-react";
+import { Building, Hospital, CarFront, Users, Home as HomeIcon, GraduationCap, Truck, Plane, Anchor, ArrowRight, LayoutGrid, ShoppingBag, Smartphone } from "lucide-react";
 import { useLocation, Link } from "wouter";
 
 export default function Industries() {
@@ -78,6 +78,15 @@ export default function Industries() {
       opportunity: "Modernize with QR and mobile pay technology, real-time availability signage, and digital enforcement.",
       outcome: "Higher revenue capture, cashless operations, and a frictionless traveler experience.",
       color: "bg-sky-50 border-sky-100 text-sky-900"
+    },
+    {
+      id: "marinas",
+      title: "Marinas & Boat Ramps",
+      icon: Anchor,
+      problem: "Seasonal and weekend traffic at marinas creates consistent, predictable parking demand that most operators fail to capture with outdated or nonexistent payment systems.",
+      opportunity: "Perfect Parking handles payment collection, enforcement, and reporting — so you earn from every launch, every weekend, without adding staff.",
+      outcome: "Consistent seasonal revenue, zero staffing overhead, and full visibility into every parking session at your marina or boat ramp.",
+      color: "bg-cyan-50 border-cyan-100 text-cyan-900"
     }
   ];
 
