@@ -154,27 +154,32 @@ export function Navbar() {
                             {col.label}
                           </p>
                           <ul className="space-y-1.5">
-                            {col.links.map((link) => (
-                              <li key={link.name}>
-                                {link.href.startsWith("mailto:") ? (
-                                  <a
-                                    href={link.href}
-                                    onClick={() => setDropdownOpen(false)}
-                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white text-[12px] pl-3 hover:pl-4" : "text-[#e8eff7] text-[14px] pl-0 hover:pl-2"}`}
-                                  >
-                                    {link.name}
-                                  </a>
-                                ) : (
-                                  <Link
-                                    href={link.href}
-                                    onClick={() => setDropdownOpen(false)}
-                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white text-[12px] pl-3 hover:pl-4" : "text-[#e8eff7] text-[14px] pl-0 hover:pl-2"}`}
-                                  >
-                                    {link.name}
-                                  </Link>
-                                )}
-                              </li>
-                            ))}
+                            {col.links.map((link) => {
+                              const baseClass = `transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary`;
+                              const cls = link.sub
+                                ? `${baseClass} text-[12px] pl-3 hover:pl-4`
+                                : `${baseClass} text-[14px] pl-0 hover:pl-2`;
+                              const linkStyle: React.CSSProperties = link.sub
+                                ? { color: "rgba(255,255,255,0.65)", fontWeight: 400 }
+                                : { color: "#e8eff7", fontWeight: 700 };
+                              const hoverProps = {
+                                onMouseEnter: (e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.color = "#ffffff"; },
+                                onMouseLeave: (e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.color = linkStyle.color as string; },
+                              };
+                              return (
+                                <li key={link.name}>
+                                  {link.href.startsWith("mailto:") ? (
+                                    <a href={link.href} onClick={() => setDropdownOpen(false)} className={cls} style={linkStyle} {...hoverProps}>
+                                      {link.name}
+                                    </a>
+                                  ) : (
+                                    <Link href={link.href} onClick={() => setDropdownOpen(false)} className={cls} style={linkStyle} {...hoverProps}>
+                                      {link.name}
+                                    </Link>
+                                  )}
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       ))}
@@ -265,25 +270,27 @@ export function Navbar() {
                       {col.label}
                     </p>
                     <ul className="space-y-3">
-                      {col.links.map((link) => (
-                        <li key={link.name}>
-                          {link.href.startsWith("mailto:") ? (
-                            <a
-                              href={link.href}
-                              className={link.sub ? "text-white text-base hover:text-white transition-colors block pl-4" : "text-[#e8eff7] text-lg hover:text-white transition-colors block"}
-                            >
-                              {link.name}
-                            </a>
-                          ) : (
-                            <Link
-                              href={link.href}
-                              className={link.sub ? "text-white text-base hover:text-white transition-colors block pl-4" : "text-[#e8eff7] text-lg hover:text-white transition-colors block"}
-                            >
-                              {link.name}
-                            </Link>
-                          )}
-                        </li>
-                      ))}
+                      {col.links.map((link) => {
+                        const mobileStyle: React.CSSProperties = link.sub
+                          ? { color: "rgba(255,255,255,0.65)", fontWeight: 400 }
+                          : { color: "#e8eff7", fontWeight: 700 };
+                        const cls = link.sub
+                          ? "text-base transition-colors block pl-4"
+                          : "text-lg transition-colors block";
+                        return (
+                          <li key={link.name}>
+                            {link.href.startsWith("mailto:") ? (
+                              <a href={link.href} className={cls} style={mobileStyle}>
+                                {link.name}
+                              </a>
+                            ) : (
+                              <Link href={link.href} className={cls} style={mobileStyle}>
+                                {link.name}
+                              </Link>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 ))}
