@@ -160,7 +160,7 @@ export function Navbar() {
                                   <a
                                     href={link.href}
                                     onClick={() => setDropdownOpen(false)}
-                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white/60 text-[12px] pl-3 hover:pl-4" : "text-white/75 text-[14px] pl-0 hover:pl-2"}`}
+                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white text-[12px] pl-3 hover:pl-4" : "text-[#e8eff7] text-[14px] pl-0 hover:pl-2"}`}
                                   >
                                     {link.name}
                                   </a>
@@ -168,7 +168,7 @@ export function Navbar() {
                                   <Link
                                     href={link.href}
                                     onClick={() => setDropdownOpen(false)}
-                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white/60 text-[12px] pl-3 hover:pl-4" : "text-white/75 text-[14px] pl-0 hover:pl-2"}`}
+                                    className={`transition-all block py-0.5 border-l-2 border-transparent hover:border-secondary hover:text-white ${link.sub ? "text-white text-[12px] pl-3 hover:pl-4" : "text-[#e8eff7] text-[14px] pl-0 hover:pl-2"}`}
                                   >
                                     {link.name}
                                   </Link>
@@ -270,14 +270,14 @@ export function Navbar() {
                           {link.href.startsWith("mailto:") ? (
                             <a
                               href={link.href}
-                              className={link.sub ? "text-white/60 text-base hover:text-white transition-colors block pl-4" : "text-white/80 text-lg hover:text-white transition-colors block"}
+                              className={link.sub ? "text-white text-base hover:text-white transition-colors block pl-4" : "text-[#e8eff7] text-lg hover:text-white transition-colors block"}
                             >
                               {link.name}
                             </a>
                           ) : (
                             <Link
                               href={link.href}
-                              className={link.sub ? "text-white/60 text-base hover:text-white transition-colors block pl-4" : "text-white/80 text-lg hover:text-white transition-colors block"}
+                              className={link.sub ? "text-white text-base hover:text-white transition-colors block pl-4" : "text-[#e8eff7] text-lg hover:text-white transition-colors block"}
                             >
                               {link.name}
                             </Link>
