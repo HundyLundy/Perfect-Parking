@@ -115,3 +115,14 @@ Marketing website for Perfect Parking — a Texas-based parking revenue manageme
 **Key pages**: `/` (home), `/locations`, `/locations/:citySlug`, `/faq`, `/contact`, `/solutions`, `/industries`, `/case-studies`, `/about`, `/lp` (landing), `/thank-you`
 
 **Deployment**: Static deploy on Vercel. `vite.config.ts` uses `PORT || 3000` and `BASE_PATH || "/"` fallbacks so Vercel builds work without env vars.
+
+## Perfect Parking — Design Rules
+
+**Text color on dark backgrounds (ENFORCED)**
+- Never use black or default `text-foreground` on dark backgrounds (`bg-navy`, `bg-brand-teal`, `style background #00305b`, or any other dark surface).
+- Always add `text-white` explicitly to every heading (`h1`, `h2`, `h3`) and body text element on dark backgrounds. Do NOT rely on CSS inheritance — Tailwind base styles can override inherited color on heading elements.
+- Allowed text color combinations:
+  - Dark navy / teal background → `text-white` or `text-white/70` (muted body) or `text-secondary` (gold accents)
+  - White or `#E8EFF7` (light blue) background → `text-foreground` / `text-navy` / `#00305b`
+  - Gold `#DEC600` background → `#00305b` dark navy text only
+- Black text is only permitted on white or light blue (`#E8EFF7`) backgrounds.

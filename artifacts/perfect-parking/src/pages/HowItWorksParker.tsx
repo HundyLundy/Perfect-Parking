@@ -74,7 +74,7 @@ export default function HowItWorksParker() {
       <section className="bg-navy py-24 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <p className="text-secondary font-bold tracking-widest uppercase text-sm mb-4">For Drivers</p>
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-white">
             Park in seconds.<br />No app required.
           </h1>
           <p className="text-xl text-white/70 leading-relaxed max-w-xl mx-auto">
@@ -159,7 +159,7 @@ export default function HowItWorksParker() {
       {/* CTA */}
       <section className="py-20 bg-navy text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
             Own a parking lot?
           </h2>
           <p className="text-white/70 text-lg mb-10">
