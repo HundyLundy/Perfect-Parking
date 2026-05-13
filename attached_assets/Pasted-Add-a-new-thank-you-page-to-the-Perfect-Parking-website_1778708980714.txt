@@ -1,0 +1,173 @@
+Add a new /thank-you page to the Perfect Parking website. This page should appear after a user successfully submits the contact/estimate form at /contact. The form's submit handler should redirect to /thank-you upon successful submission.
+
+Page Requirements
+
+Route: /thank-you
+
+Page Title: "You're In — Perfect Parking"
+
+Design: Match the existing site exactly — same nav, same footer, same color scheme (navy #1B2B4B, gold/yellow #F5C518, white #FFFFFF). No new fonts or styles.
+
+
+
+
+Page Content (copy exactly)
+
+Hero Section — centered, navy background:
+
+Headline (large, white):
+
+
+You're on our radar.
+
+Subheadline (gold):
+
+
+We'll be in touch within 24 hours.
+
+Body text (white, smaller):
+
+
+Cooper and the Perfect Parking team will review your property, run the numbers on your revenue potential, and reach out to schedule a quick call. No pressure, no commitment — just real numbers.
+
+
+
+
+"What Happens Next" Section — white background, 3 steps horizontal layout:
+
+Step 1 — Icon: magnifying glass or satellite
+
+
+We review your property
+We pull up your lot via satellite map and assess size, location, and traffic patterns.
+
+Step 2 — Icon: chart/graph
+
+
+We run your revenue projection
+Based on comparable lots in your market, we calculate your realistic monthly earning potential.
+
+Step 3 — Icon: phone/calendar
+
+
+We schedule a quick call
+Cooper will reach out within 24 hours to walk you through the numbers. 15 minutes, no sales pressure.
+
+
+
+
+CTA Section — navy background:
+
+Headline (white):
+
+
+While you wait — see what other property owners are earning.
+
+Button (gold, links to /case-studies):
+
+
+View Case Studies
+
+Secondary link (white, smaller, links to /):
+
+
+← Back to Home
+
+
+
+
+Form Redirect Logic
+
+In the existing contact form component at /contact, update the form submission handler so that on a successful API response, it calls:
+
+JavaScript
+
+
+window.location.href = '/thank-you';
+
+
+
+or if using React Router / Wouter:
+
+JavaScript
+
+
+router.push('/thank-you');
+
+
+
+This replaces any existing success toast or inline message. The redirect should only fire on confirmed success — not on error.
+
+
+
+
+Google Ads Conversion Tracking
+
+In the <head> section of the thank-you page, add this placeholder comment so we can insert the Google Ads conversion snippet later:
+
+HTML
+
+
+<!-- GOOGLE ADS CONVERSION TRACKING — INSERT SNIPPET HERE -->
+
+
+
+
+
+
+Notes
+
+•
+Keep the existing nav and footer identical to all other pages
+
+•
+The page should be mobile-responsive — stack the 3 steps vertically on mobile
+
+•
+No new dependencies needed
+
+•
+Do not change anything on the /contact page except the form submit redirect
+
+
+
+
+FOR GOOGLE ADS — CONVERSION TRACKING SETUP
+
+Once the thank-you page is live, go back to Google Ads and:
+
+1.
+On the "Choose your goal" screen → select "Submit lead form"
+
+2.
+On the tracking method screen → select "Enter the URL someone reaches after they successfully fill out a form"
+
+3.
+Enter: https://perfectparking.com/thank-you
+
+4.
+Match type: "URL contains" → enter /thank-you
+
+5.
+Conversion name: PP Lead Form Submission
+
+6.
+Value: Leave blank (or enter $50 as a placeholder lead value — helps Google optimize )
+
+7.
+Count: "One" (count one conversion per form submission, not per visit)
+
+8.
+Click-through conversion window: 30 days
+
+9.
+View-through conversion window: 1 day
+
+10.
+Attribution model: Data-driven (if available) or Last click
+
+11.
+Save and continue
+
+Google will verify the tag is firing within 24–48 hours of the first form submission that lands on the thank-you page.
+

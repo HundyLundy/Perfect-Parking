@@ -1,77 +1,94 @@
-import { Link } from "wouter";
 import { SEO } from "@/components/SEO";
-import { CheckCircle, ArrowRight, Phone, Mail } from "lucide-react";
+import { Search, BarChart2, Phone, ArrowRight, ArrowLeft } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function ThankYou() {
+  const [, navigate] = useLocation();
+
   return (
     <>
       <SEO
-        title="Thank You | Perfect Parking"
-        description="Thank you for contacting Perfect Parking. We've received your analysis request and will be in touch within 24 hours."
+        title="You're In — Perfect Parking"
+        description="Thanks for reaching out. The Perfect Parking team will review your property and be in touch within 24 hours."
         canonical="https://perfectparking.com/thank-you"
-        robots="noindex, nofollow"
       />
 
-      <section className="bg-muted min-h-[80vh] flex items-center py-24 border-b border-border">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-          <div className="flex justify-center mb-8">
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-              <CheckCircle className="w-10 h-10 text-primary" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-            We've Got Your Request!
+      {/* HERO */}
+      <section className="bg-navy py-28 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-secondary font-bold tracking-widest uppercase text-sm mb-5">Form Received</p>
+          <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-5 leading-tight">
+            You're on our radar.
           </h1>
-          <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl mx-auto">
-            Thanks for reaching out. Our team will review your property and get back to you within 24 hours with a custom revenue projection.
+          <p className="text-xl font-bold text-secondary mb-6">
+            We'll be in touch within 24 hours.
           </p>
+          <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto">
+            Cooper and the Perfect Parking team will review your property, run the numbers on your revenue potential, and reach out to schedule a quick call. No pressure, no commitment — just real numbers.
+          </p>
+        </div>
+      </section>
 
-          <div className="bg-white rounded-2xl shadow-sm border border-border p-8 mb-10 text-left max-w-lg mx-auto">
-            <h2 className="font-bold text-lg text-foreground border-b border-border pb-4 mb-6">What happens next</h2>
-            <ol className="space-y-4">
-              <li className="flex items-start gap-4">
-                <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
-                <p className="text-muted-foreground">We review your property via satellite map and run comparable lot analysis.</p>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-                <p className="text-muted-foreground">We project your monthly revenue potential based on real market data.</p>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
-                <p className="text-muted-foreground">We schedule a quick 15-minute call to walk you through the numbers — no obligation.</p>
-              </li>
-            </ol>
+      {/* WHAT HAPPENS NEXT */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-center text-foreground mb-14">
+            What Happens Next
+          </h2>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                Icon: Search,
+                step: "01",
+                title: "We review your property",
+                body: "We pull up your lot via satellite map and assess size, location, and traffic patterns.",
+              },
+              {
+                Icon: BarChart2,
+                step: "02",
+                title: "We run your revenue projection",
+                body: "Based on comparable lots in your market, we calculate your realistic monthly earning potential.",
+              },
+              {
+                Icon: Phone,
+                step: "03",
+                title: "We schedule a quick call",
+                body: "Cooper will reach out within 24 hours to walk you through the numbers. 15 minutes, no sales pressure.",
+              },
+            ].map(({ Icon, step, title, body }) => (
+              <div key={step} className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon className="w-8 h-8 text-primary" />
+                </div>
+                <span className="text-4xl font-display font-bold text-primary/15 mb-2 leading-none">{step}</span>
+                <h3 className="text-lg font-display font-bold text-foreground mb-3">{title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{body}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-            <a
-              href="tel:+13615851111"
-              className="flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              (361) 585-1111
-            </a>
-            <span className="hidden sm:block text-border">|</span>
-            <a
-              href="mailto:info@perfectsynergysolutions.com"
-              className="flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
-              <Mail className="w-4 h-4" />
-              info@perfectsynergysolutions.com
-            </a>
-          </div>
-
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+      {/* CTA */}
+      <section className="py-20 bg-navy text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-10">
+            While you wait — see what other property owners are earning.
+          </h2>
+          <button
+            onClick={() => navigate("/case-studies")}
+            className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-navy font-bold rounded-xl hover:bg-secondary/90 transition-all shadow-lg text-lg mb-6"
           >
-            Back to Home
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-
+            View Case Studies <ArrowRight className="w-5 h-5" />
+          </button>
+          <div>
+            <button
+              onClick={() => navigate("/")}
+              className="inline-flex items-center gap-1 text-white/60 hover:text-white text-sm transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" /> Back to Home
+            </button>
+          </div>
         </div>
       </section>
     </>
