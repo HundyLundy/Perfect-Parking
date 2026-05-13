@@ -1,0 +1,113 @@
+What to build
+
+Add a prominent refund/billing support callout box to the Parkers page. Place it above the video and above the FAQ section, directly below the hero banner.
+
+
+
+
+Brand colors (Perfect Parking — use these exactly)
+
+•
+Primary blue: #1965B1
+
+•
+Light blue / off-white: #E8EFF7
+
+•
+Gold accent: #DEC600
+
+•
+Dark navy (borders/text): #00305b
+
+•
+Fonts: Headings: Oswald Regular | Body: Open Sans Regular
+
+
+
+
+Callout box design spec
+
+Visual style:
+
+•
+Background: #E8EFF7 (PP light blue)
+
+•
+Left border: 4px solid #1965B1 (PP primary blue)
+
+•
+Top label / badge: small gold pill badge (#DEC600 background, #00305b dark text) with text: "Refund or Billing Issue?"
+
+•
+Body text in #00305b (dark navy) using Open Sans
+
+•
+Email address support@perfectparking.com displayed in bold #1965B1 and styled as a mailto: link — when tapped on mobile it opens the native email app with the address pre-filled
+
+•
+The 6-item required fields list displayed as a clean bulleted list, not a wall of text
+
+•
+Fully responsive — must look clean on a phone screen
+
+Content — render exactly this inside the box:
+
+
+
+
+Refund or Billing Issue?
+
+Email our support team: support@perfectparking.com
+
+To get a faster response, include all of the following in your email:
+
+• Your name
+• Your phone number
+• Your license plate number
+• The parking location (lot name or address)
+• The start or end date and time of your parking session
+• Your parking session ID (sent to you in your confirmation text)
+
+Missing any of these will delay our response — we'll need to follow up to collect the missing info before we can help.
+
+
+
+
+Placement:
+
+•
+Insert this callout box AFTER the hero section (the blue "Need Help With Your Parking Session?" banner) and BEFORE the video embed
+
+•
+It should be the first content element a user sees when they scroll past the headline
+
+
+
+
+Existing page cleanup
+
+The page currently has a small line of text directly below the video that says:
+"Questions? Email us at support@perfectparking.com"
+
+Remove that line. The new callout box above the video replaces it. The "Still need help? Email Support" button at the bottom of the page can stay — it serves as a secondary CTA for users who scroll through the full FAQ.
+
+
+
+
+Do not change
+
+•
+The hero section (blue banner with headline and subtext)
+
+•
+The video embed
+
+•
+The FAQ accordion
+
+•
+The "Still need help?" section at the bottom
+
+•
+Navigation, footer, or any other page elements
+

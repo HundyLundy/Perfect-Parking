@@ -145,8 +145,67 @@ export default function Parkers() {
         </div>
       </section>
 
+      {/* REFUND / BILLING CALLOUT */}
+      <section className="py-10 bg-white">
+        <div className="max-w-3xl mx-auto px-4">
+          <div
+            style={{
+              background: "#E8EFF7",
+              borderLeft: "4px solid #1965B1",
+              borderRadius: "8px",
+              padding: "28px 28px 24px",
+            }}
+          >
+            {/* Gold badge */}
+            <span
+              style={{
+                background: "#DEC600",
+                color: "#00305b",
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                borderRadius: "9999px",
+                padding: "4px 12px",
+                display: "inline-block",
+                marginBottom: "14px",
+              }}
+            >
+              Refund or Billing Issue?
+            </span>
+
+            <p style={{ color: "#00305b", fontSize: "1rem", marginBottom: "10px" }}>
+              Email our support team:{" "}
+              <a
+                href="mailto:support@perfectparking.com"
+                style={{ color: "#1965B1", fontWeight: 700, textDecoration: "none" }}
+              >
+                support@perfectparking.com
+              </a>
+            </p>
+
+            <p style={{ color: "#00305b", fontSize: "0.95rem", marginBottom: "10px" }}>
+              To get a faster response, include all of the following in your email:
+            </p>
+
+            <ul style={{ color: "#00305b", fontSize: "0.95rem", paddingLeft: "1.25rem", marginBottom: "14px", lineHeight: "1.9" }}>
+              <li>Your name</li>
+              <li>Your phone number</li>
+              <li>Your license plate number</li>
+              <li>The parking location (lot name or address)</li>
+              <li>The start or end date and time of your parking session</li>
+              <li>Your parking session ID (sent to you in your confirmation text)</li>
+            </ul>
+
+            <p style={{ color: "#00305b", fontSize: "0.875rem", opacity: 0.75 }}>
+              Missing any of these will delay our response — we'll need to follow up to collect the missing info before we can help.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* VIDEO */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" style={{ paddingTop: "8px" }}>
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
             How to Park with Perfect Parking
@@ -159,12 +218,6 @@ export default function Parkers() {
             <source src={`${import.meta.env.BASE_URL}HowtoparkwithPerfectParking_Ungated.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p className="text-gray-500 mt-6 text-base">
-            Questions? Email us at{" "}
-            <a href="mailto:support@perfectparking.com" className="text-blue-600 hover:underline font-medium">
-              support@perfectparking.com
-            </a>
-          </p>
         </div>
       </section>
 
