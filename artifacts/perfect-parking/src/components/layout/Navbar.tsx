@@ -35,9 +35,9 @@ const exploreColumns = [
   {
     label: "Get Started",
     links: [
-      { name: "Partner With Us", href: "/estimate" },
+      { name: "Partner With Us", href: "/contact" },
       { name: "Parking Help", href: "/parkers" },
-      { name: "Contact Us", href: "mailto:info@perfectparking.com" },
+      { name: "Contact Us", href: "/contact" },
     ],
   },
 ];
@@ -116,10 +116,10 @@ export function Navbar() {
               onMouseEnter={() => setPillHover("parking-help")}
               onMouseLeave={() => setPillHover(null)}
             >
-              Parking Help
+              Click Here for Parking Help
             </Link>
 
-            {/* Parking Lot Owners dropdown — navy outline pill */}
+            {/* More Info for Lot Owners dropdown — navy outline pill */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -128,7 +128,7 @@ export function Navbar() {
                 className={PILL_DESKTOP}
                 style={getPillStyle("owners")}
               >
-                Parking Lot Owners
+                More Info for Lot Owners
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                 />
@@ -188,6 +188,17 @@ export function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Would Perfect Parking Work for You? — navy outline pill */}
+            <Link
+              href="/contact"
+              className={PILL_DESKTOP}
+              style={getPillStyle("works-for-you")}
+              onMouseEnter={() => setPillHover("works-for-you")}
+              onMouseLeave={() => setPillHover(null)}
+            >
+              Would Perfect Parking Work for You?
+            </Link>
           </nav>
 
           {/* Spacer */}
@@ -202,7 +213,7 @@ export function Navbar() {
               (361) 585-1111
             </a>
             <Link
-              href="/estimate"
+              href="/contact"
               onClick={() =>
                 trackEvent("cta_click", {
                   cta_label: "Partner With Us",
@@ -243,21 +254,28 @@ export function Navbar() {
           >
             <div className="flex flex-col min-h-full pt-32 pb-12 px-8">
 
-              {/* Parking Help pill — white outline on navy bg */}
-              <div className="flex gap-3 mb-6">
+              {/* Pills — white outline on navy bg */}
+              <div className="flex flex-wrap gap-3 mb-6">
                 <Link
                   href="/parkers"
                   className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-all"
                   style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
                 >
-                  Parking Help
+                  Click Here for Parking Help
                 </Link>
                 <span
                   className="inline-flex items-center gap-1 rounded-full px-5 py-2 text-sm font-semibold"
                   style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
                 >
-                  Parking Lot Owners <ChevronDown className="w-3.5 h-3.5" />
+                  More Info for Lot Owners <ChevronDown className="w-3.5 h-3.5" />
                 </span>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-all"
+                  style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
+                >
+                  Would Perfect Parking Work for You?
+                </Link>
               </div>
 
               <div className="py-8 border-b border-white/10 space-y-8">
@@ -304,7 +322,7 @@ export function Navbar() {
                   (361) 585-1111
                 </a>
                 <Link
-                  href="/estimate"
+                  href="/contact"
                   className="block w-full text-center py-4 rounded-xl font-bold text-lg"
                   style={{ background: "#DEC600", color: "#00305b" }}
                 >
