@@ -24,7 +24,7 @@ export default function ThankYou() {
             We'll be in touch within 24 hours.
           </p>
           <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto">
-            Cooper and the Perfect Parking team will review your property, run the numbers on your revenue potential, and reach out to schedule a quick call. No pressure, no commitment — just real numbers.
+            The Perfect Parking team will review your property, run the numbers on your revenue potential, and reach out to schedule a quick call. No pressure, no commitment — just real numbers.
           </p>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function ThankYou() {
                 Icon: Phone,
                 step: "03",
                 title: "We schedule a quick call",
-                body: "Cooper will reach out within 24 hours to walk you through the numbers. 15 minutes, no sales pressure.",
+                body: "Our team will reach out within 24 hours to walk you through the numbers. 15 minutes, no sales pressure.",
               },
             ].map(({ Icon, step, title, body }) => (
               <div key={step} className="flex flex-col items-center text-center">

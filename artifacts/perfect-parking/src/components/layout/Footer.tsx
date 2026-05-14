@@ -79,14 +79,6 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
                 <a href="mailto:info@perfectsynergysolutions.com" className="text-white/80 hover:text-secondary transition-colors text-sm">info@perfectsynergysolutions.com</a>
               </li>
-              <li className="flex items-start gap-3 pt-2 border-t border-white/15">
-                <div className="w-5 h-5 shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Cooper Lundquist</p>
-                  <a href="tel:+13615851111" className="text-white/80 hover:text-secondary transition-colors text-sm block">Ph: (361) 585-1111</a>
-                  <a href="mailto:cooper@perfectsynergysolutions.com" className="text-white/80 hover:text-secondary transition-colors text-sm block">cooper@perfectsynergysolutions.com</a>
-                </div>
-              </li>
             </ul>
           </div>
         </div>

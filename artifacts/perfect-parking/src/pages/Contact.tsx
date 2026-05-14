@@ -119,21 +119,6 @@ export default function Contact() {
                     <a href="mailto:info@perfectsynergysolutions.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectsynergysolutions.com</a>
                   </div>
                 </div>
-                <div className="pt-4 border-t border-border">
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">Cooper Lundquist — Direct</p>
-                  <div className="flex items-center gap-4 mb-2">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                      <Phone className="w-6 h-6" />
-                    </div>
-                    <a href="tel:+13615851111" className="font-bold text-foreground hover:text-primary transition-colors">(361) 585-1111</a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                      <Mail className="w-6 h-6" />
-                    </div>
-                    <a href="mailto:cooper@perfectsynergysolutions.com" className="font-bold text-foreground hover:text-primary transition-colors">cooper@perfectsynergysolutions.com</a>
-                  </div>
-                </div>
               </div>
 
               <div className="text-sm text-muted-foreground bg-primary/5 p-4 rounded-lg border border-primary/20">
