@@ -47,7 +47,8 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function CityPage() {
-  const { citySlug } = useParams<{ citySlug: string }>();
+  const { citySlug: rawSlug } = useParams<{ citySlug: string }>();
+  const citySlug = rawSlug?.replace(/-tx$/i, "");
   const city = allCities.find((c) => c.slug === citySlug);
 
   if (!city) {
