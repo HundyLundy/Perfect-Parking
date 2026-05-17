@@ -11,7 +11,9 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
+const GHL_CONTACTS_URL = "https://services.leadconnectorhq.com/contacts/";
 const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/ZF2Qjd4J1GmT9w5XbinN/webhook-trigger/KkGW9R8Rqu2pZUvyYS6P";
+const GHL_TOKEN = "pit-1bce996a-1890-4120-8fe3-efa0c65ea572";
 
 const TOPICS = [
   "Becoming a partner",
@@ -63,7 +65,34 @@ export default function Contact() {
     const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
 
     try {
-      const response = await fetch(GHL_WEBHOOK_URL, {
+      // Step 1: Create/update contact record in GHL — same pattern as /estimate
+      const contactRes = await fetch(GHL_CONTACTS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${GHL_TOKEN}`,
+          "Version": "2021-07-28",
+        },
+        body: JSON.stringify({
+          locationId: "ZF2Qjd4J1GmT9w5XbinN",
+          firstName,
+          lastName,
+          phone: values.phone,
+          email: values.email,
+          customFields: [
+            { key: "property_addresses", field_value: values.propertyAddresses || "" },
+            { key: "property_type",      field_value: values.propertyType || "" },
+            { key: "parking_spaces",     field_value: values.spaces || "" },
+            { key: "topics_to_discuss",  field_value: (values.topicsToDiscuss || []).join(", ") },
+            { key: "followup_preference",field_value: values.followupPreference || "" },
+            { key: "message",            field_value: values.message || "" },
+          ],
+        }),
+      });
+      if (!contactRes.ok) throw new Error("Contact creation failed");
+
+      // Step 2: Fire webhook (non-blocking, fire-and-forget)
+      fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -71,25 +100,21 @@ export default function Contact() {
           lastName,
           email: values.email,
           phone: values.phone,
-          property_addresses: values.propertyAddresses || "",
-          propertyType: values.propertyType || "",
-          spaces: values.spaces || "",
-          topics_to_discuss: (values.topicsToDiscuss || []).join(", "),
+          property_addresses:  values.propertyAddresses || "",
+          property_type:       values.propertyType || "",
+          parking_spaces:      values.spaces || "",
+          topics_to_discuss:   (values.topicsToDiscuss || []).join(", "),
           followup_preference: values.followupPreference || "",
-          message: values.message || "",
-          source: "Perfect Parking Website",
+          message:             values.message || "",
+          source: "Perfect Parking Website - Contact Form",
         }),
-      });
+      }).catch(() => {});
 
-      if (response.ok) {
-        trackEvent("generate_lead", {
-          event_category: "contact",
-          event_label: values.propertyType || "general",
-        });
-        navigate("/thank-you");
-      } else {
-        setSubmitStatus("error");
-      }
+      trackEvent("generate_lead", {
+        event_category: "contact",
+        event_label: values.propertyType || "general",
+      });
+      navigate("/thank-you");
     } catch {
       setSubmitStatus("error");
     } finally {
