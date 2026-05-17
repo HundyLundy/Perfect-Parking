@@ -159,12 +159,6 @@ export default function Contact() {
                 ))}
               </ul>
 
-              <div className="text-sm text-muted-foreground bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <strong className="text-foreground">What happens after you submit?</strong><br />
-                1. We review your property via satellite map.<br />
-                2. We assess whether it's a strong fit for our platform.<br />
-                3. We reach out within 24 hours with a straight answer and, if it's a fit, your revenue numbers.
-              </div>
             </div>
 
             {/* Right column — form */}
@@ -221,7 +215,7 @@ export default function Contact() {
                               <SelectValue placeholder="Select type" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
+                          <SelectContent className="bg-white border border-border shadow-lg">
                             <SelectItem value="hotel">Hotel / Resort</SelectItem>
                             <SelectItem value="hospital">Hospital / Medical</SelectItem>
                             <SelectItem value="cre">Commercial Real Estate</SelectItem>
