@@ -140,7 +140,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Email us</div>
-                    <a href="mailto:info@perfectsynergysolutions.com" className="font-bold text-foreground hover:text-primary transition-colors">info@perfectsynergysolutions.com</a>
+                    <a href="mailto:info@perfectsynergysolutions.com" className="font-bold text-foreground hover:text-primary transition-colors break-all">info@perfectsynergysolutions.com</a>
                   </div>
                 </div>
               </div>
@@ -162,14 +162,14 @@ export default function Contact() {
             </div>
 
             {/* Right column — form */}
-            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-border">
+            <div className="bg-white p-5 sm:p-8 md:p-10 rounded-3xl shadow-xl border border-border">
               <h2 className="text-2xl font-display font-bold text-foreground mb-2">Send us a message</h2>
               <p className="text-muted-foreground text-sm mb-8">Share as much or as little as you want. Only your contact info is required.</p>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
                   {/* Required: Full Name + Phone */}
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <FormField control={form.control} name="name" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Full Name <span className="text-red-500">*</span></FormLabel>
@@ -205,7 +205,7 @@ export default function Contact() {
                   )} />
 
                   {/* Optional: Property Type + Spaces */}
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <FormField control={form.control} name="propertyType" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Property Type <span className="text-gray-400 font-normal text-sm">(Optional)</span></FormLabel>
