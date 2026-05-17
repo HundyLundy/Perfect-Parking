@@ -1,0 +1,278 @@
+PROMPT START
+
+I need you to make the following changes to the Perfect Parking website. There are two separate tasks. Complete both fully before stopping.
+
+
+
+
+TASK 1 — Add "Speak to Our Team →" Soft CTA Button on 5 Pages
+
+On each of the five pages listed below, add a soft CTA button with the following specs. The button should be added near the bottom of the main content area, above the footer, as a standalone centered section.
+
+Button specs:
+
+•
+Label: Speak to Our Team →
+
+•
+Background color: #E8EFF7
+
+•
+Text color: #0A2342
+
+•
+Border: 1px solid #C5D5E8
+
+•
+Border radius: match the existing button style on the site
+
+•
+On click: navigates to /contact
+
+•
+Below the button, add a single line of small subtext: "No commitment. We'll give you a straight answer either way."
+
+•
+Subtext color: #6B7280 (gray)
+
+Add this button to these 5 pages:
+
+1.
+Homepage (/) — add below the hero section pillboxes, before the first content section
+
+2.
+How It Works page (/how-it-works) — add at the very bottom of the page content, above the footer
+
+3.
+FAQ page (/faq) — add at the very bottom of the page content, after the last FAQ item, above the footer
+
+4.
+Case Studies page (/case-studies) — add below the last case study block, above the footer
+
+5.
+About page (/about) — add near the bottom of the page content, above the footer
+
+Do not change any other content on these pages. Do not remove or modify any existing CTAs or buttons.
+
+
+
+
+TASK 2 — Redesign the /contact Page
+
+The current /contact page needs to be restructured. Keep the same URL (/contact), the same GHL webhook, and the same /thank-you redirect. Only the page layout, copy, and form fields are changing.
+
+New Page Structure
+
+Page title tag (SEO): Talk to Our Team | Perfect Parking
+
+Above-the-fold left column — new headline and subhead:
+
+Replace the current headline "Would Perfect Parking work for your property?" with:
+
+
+Let's Talk Parking
+
+Replace the current subhead with:
+
+
+Whether you have a quick question, want to explore a partnership, or just aren't sure if this is the right fit — we're here. No pitch, no pressure.
+
+Keep the existing bullet list of property types (Hotels, hospitals, multifamily, etc.) as-is. Keep the "Zero upfront cost" and "You stay hands-off" bullets as-is.
+
+
+
+
+New "Reach Us Directly" Block
+
+Keep the existing "Prefer to reach us directly?" block with the phone number and email. Move it above the form, so it appears before the form section. This gives people an immediate out if they just want a number to call.
+
+Update the label above this block from "Prefer to reach us directly?" to:
+
+
+Just want to reach us?
+We respond within 24 hours — usually faster.
+
+
+
+
+New Form Section Header
+
+Replace the current form section header "Tell us about your property" and subhead "We'll review it and get back to you within 24 hours." with:
+
+
+Send us a message
+Share as much or as little as you want. Only your contact info is required.
+
+
+
+
+Updated Form Fields
+
+Keep the existing form fields in this order, with these changes:
+
+Required fields (mark each with a red asterisk * next to the label):
+
+1.
+Full Name * — placeholder: John Smith
+
+2.
+Phone Number * — placeholder: (555) 123-4567
+
+3.
+Email * — placeholder: john@company.com
+
+Optional fields (label each with "(Optional)" in gray text after the label name):
+
+1.
+Property Address(es) (Optional)
+
+•
+Field type: text input
+
+•
+Placeholder: e.g. 123 Main St, Austin TX — list multiple if needed
+
+•
+Name attribute: property_addresses
+
+
+
+2.
+Property Type (Optional) — keep the existing dropdown, just update label to show "(Optional)"
+
+3.
+Est. Parking Spaces (Optional) — keep existing text input, update label to show "(Optional)", update placeholder to: e.g. 75 — rough estimate is fine
+
+4.
+What would you like to talk about? (Optional)
+
+•
+Field type: checkbox group (multiple selections allowed)
+
+•
+Name attribute: topics_to_discuss
+
+•
+Options:
+
+•
+Becoming a partner
+
+•
+How the program works
+
+•
+Revenue potential for my property
+
+•
+Something else
+
+
+
+•
+Display as a 2x2 grid of checkboxes on desktop, stacked on mobile
+
+
+
+5.
+How would you prefer we follow up? (Optional)
+
+•
+Field type: radio buttons (single selection)
+
+•
+Name attribute: followup_preference
+
+•
+Options:
+
+•
+Call me back
+
+•
+Email me back
+
+•
+Either works
+
+
+
+•
+Display inline (horizontal) on desktop, stacked on mobile
+
+
+
+6.
+Anything else you want us to know? (Optional)
+
+•
+Field type: textarea
+
+•
+Placeholder: Questions, context, or anything on your mind — totally optional
+
+•
+Name attribute: message
+
+•
+This replaces the current "Any questions or context?" field
+
+
+
+
+
+
+Updated Submit Button
+
+Replace the current submit button label "See If It's a Fit →" with:
+
+
+Send Message →
+
+Keep the same button color and style as the existing button.
+
+
+
+
+Note Below Submit Button
+
+Add a small line of text directly below the submit button:
+
+
+* Required. Everything else is optional — share as much or as little as you'd like.
+
+Text color: #6B7280 (gray), font size: small (12–13px)
+
+
+
+
+"What happens after you submit?" Block
+
+Keep the existing 3-step block at the bottom of the left column as-is. No changes needed.
+
+
+
+
+Webhook & Redirect
+
+Do not change the webhook URL. Do not change the /thank-you redirect. All new form fields must be included in the webhook POST payload using their name attributes as defined above.
+
+
+
+
+END OF PROMPT
+
+After completing both tasks, confirm:
+
+1.
+The "Speak to Our Team →" button appears on all 5 pages and links to /contact
+
+2.
+The /contact page has the new headline, restructured form, and all new optional fields
+
+3.
+The webhook and /thank-you redirect are unchanged
+
+4.
+All new form fields are included in the webhook payload
+

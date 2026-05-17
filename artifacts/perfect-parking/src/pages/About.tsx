@@ -143,7 +143,7 @@ export default function About() {
       </section>
 
       {/* CORE VALUES */}
-      <section className="py-24 bg-navy text-white">
+      <section className="py-24 bg-navy text-white" id="core-values">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold uppercase tracking-widest text-secondary mb-3">What drives us</h2>
@@ -169,6 +169,22 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* SOFT CTA */}
+      <section className="py-10 bg-white text-center">
+        <div className="max-w-sm mx-auto px-4">
+          <a
+            href="/contact"
+            className="inline-block px-8 py-4 font-semibold rounded-xl text-base transition-colors hover:opacity-90"
+            style={{ background: "#E8EFF7", color: "#0A2342", border: "1px solid #C5D5E8" }}
+          >
+            Speak to Our Team →
+          </a>
+          <p className="mt-3 text-sm" style={{ color: "#6B7280" }}>
+            No commitment. We'll give you a straight answer either way.
+          </p>
         </div>
       </section>
     </>
