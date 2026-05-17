@@ -64,8 +64,25 @@ export default function Contact() {
     const firstName = nameParts[0] || values.name;
     const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
 
+    const contactPayload = {
+      locationId: "ZF2Qjd4J1GmT9w5XbinN",
+      firstName,
+      lastName,
+      phone: values.phone,
+      email: values.email,
+      customFields: [
+        { key: "property_addresses", field_value: values.propertyAddresses || "" },
+        { key: "property_type",      field_value: values.propertyType || "" },
+        { key: "parking_spaces",     field_value: values.spaces || "" },
+        { key: "topics_to_discuss",  field_value: (values.topicsToDiscuss || []).join(", ") },
+        { key: "followup_preference",field_value: values.followupPreference || "" },
+        { key: "message",            field_value: values.message || "" },
+      ],
+    };
+
+    console.log("[Contact] Submitting payload:", JSON.stringify(contactPayload, null, 2));
+
     try {
-      // Step 1: Create/update contact record in GHL — same pattern as /estimate
       const contactRes = await fetch(GHL_CONTACTS_URL, {
         method: "POST",
         headers: {
@@ -73,25 +90,16 @@ export default function Contact() {
           "Authorization": `Bearer ${GHL_TOKEN}`,
           "Version": "2021-07-28",
         },
-        body: JSON.stringify({
-          locationId: "ZF2Qjd4J1GmT9w5XbinN",
-          firstName,
-          lastName,
-          phone: values.phone,
-          email: values.email,
-          customFields: [
-            { key: "property_addresses", field_value: values.propertyAddresses || "" },
-            { key: "property_type",      field_value: values.propertyType || "" },
-            { key: "parking_spaces",     field_value: values.spaces || "" },
-            { key: "topics_to_discuss",  field_value: (values.topicsToDiscuss || []).join(", ") },
-            { key: "followup_preference",field_value: values.followupPreference || "" },
-            { key: "message",            field_value: values.message || "" },
-          ],
-        }),
+        body: JSON.stringify(contactPayload),
       });
-      if (!contactRes.ok) throw new Error("Contact creation failed");
 
-      // Step 2: Fire webhook (non-blocking, fire-and-forget)
+      console.log("[Contact] GHL response status:", contactRes.status);
+      const responseBody = await contactRes.text();
+      console.log("[Contact] GHL response body:", responseBody);
+
+      if (!contactRes.ok) throw new Error(`Contact creation failed: ${contactRes.status} ${responseBody}`);
+
+      // Fire webhook (non-blocking)
       fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -108,14 +116,16 @@ export default function Contact() {
           message:             values.message || "",
           source: "Perfect Parking Website - Contact Form",
         }),
-      }).catch(() => {});
+      }).catch((err) => console.log("[Contact] Webhook error:", err));
 
       trackEvent("generate_lead", {
         event_category: "contact",
         event_label: values.propertyType || "general",
       });
+
       navigate("/thank-you");
-    } catch {
+    } catch (err) {
+      console.error("[Contact] Submission error:", err);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

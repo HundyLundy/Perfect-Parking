@@ -1,0 +1,123 @@
+CONTEXT
+
+The /contact form is submitting but contact data (name, phone, email) is not being written to GHL. The API call appears to be failing silently in the browser. I've confirmed the GHL Contacts API works correctly when called server-side — the issue is happening in the browser.
+
+THE FIX — Two steps
+
+
+
+
+Step 1: Add debug logging to Contact.tsx
+
+In artifacts/perfect-parking/src/pages/Contact.tsx, update the onSubmit function to add detailed console logging so we can see exactly what's happening. Replace the try/catch block with this version:
+
+TypeScript
+
+
+async function onSubmit(values: FormValues) {
+  setIsSubmitting(true);
+  setSubmitStatus("idle");
+  const nameParts = values.name.trim().split(" ");
+  const firstName = nameParts[0] || values.name;
+  const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+
+  const contactPayload = {
+    locationId: "ZF2Qjd4J1GmT9w5XbinN",
+    firstName,
+    lastName,
+    phone: values.phone,
+    email: values.email,
+    customFields: [
+      { key: "property_addresses", field_value: values.propertyAddresses || "" },
+      { key: "property_type",      field_value: values.propertyType || "" },
+      { key: "parking_spaces",     field_value: values.spaces || "" },
+      { key: "topics_to_discuss",  field_value: (values.topicsToDiscuss || []).join(", ") },
+      { key: "followup_preference",field_value: values.followupPreference || "" },
+      { key: "message",            field_value: values.message || "" },
+    ],
+  };
+
+  console.log("[Contact] Submitting payload:", JSON.stringify(contactPayload, null, 2));
+
+  try {
+    const contactRes = await fetch(GHL_CONTACTS_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${GHL_TOKEN}`,
+        "Version": "2021-07-28",
+      },
+      body: JSON.stringify(contactPayload),
+    });
+
+    console.log("[Contact] GHL response status:", contactRes.status);
+    const responseBody = await contactRes.text();
+    console.log("[Contact] GHL response body:", responseBody);
+
+    if (!contactRes.ok) throw new Error(`Contact creation failed: ${contactRes.status} ${responseBody}`);
+
+    // Fire webhook (non-blocking)
+    fetch(GHL_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email: values.email,
+        phone: values.phone,
+        property_addresses:  values.propertyAddresses || "",
+        property_type:       values.propertyType || "",
+        parking_spaces:      values.spaces || "",
+        topics_to_discuss:   (values.topicsToDiscuss || []).join(", "),
+        followup_preference: values.followupPreference || "",
+        message:             values.message || "",
+        source: "Perfect Parking Website - Contact Form",
+      }),
+    }).catch((err) => console.log("[Contact] Webhook error:", err));
+
+    trackEvent("generate_lead", {
+      event_category: "contact",
+      event_label: values.propertyType || "general",
+    });
+
+    navigate("/thank-you");
+  } catch (err) {
+    console.error("[Contact] Submission error:", err);
+    setSubmitStatus("error");
+  } finally {
+    setIsSubmitting(false);
+  }
+}
+
+
+
+
+
+
+Step 2: Also check if the form validation is blocking submission
+
+In the same file, confirm that the <form> tag uses form.handleSubmit(onSubmit) correctly and that all required fields (name, email, phone) are properly wired with {...field} from react-hook-form's FormField render prop. If any required field is not wired correctly, the form will silently fail validation and never call onSubmit at all.
+
+Specifically check:
+
+•
+The name field input
+
+•
+The email field input
+
+•
+The phone field input
+
+Make sure each one has {...field} spread on the <Input> component inside the FormField render prop.
+
+
+
+
+Step 3: Commit and push
+
+After making both changes, commit with message:
+Contact form: add GHL response logging for debugging
+
+And push to GitHub so Vercel redeploys.
+
