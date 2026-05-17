@@ -70,6 +70,7 @@ export default function Contact() {
       lastName,
       phone: values.phone,
       email: values.email,
+      tags: ["website-contact"],
       customFields: [
         { key: "property_addresses", field_value: values.propertyAddresses || "" },
         { key: "property_type",      field_value: values.propertyType || "" },
@@ -79,8 +80,6 @@ export default function Contact() {
         { key: "message",            field_value: values.message || "" },
       ],
     };
-
-    console.log("[Contact] Submitting payload:", JSON.stringify(contactPayload, null, 2));
 
     try {
       const contactRes = await fetch(GHL_CONTACTS_URL, {
@@ -93,11 +92,7 @@ export default function Contact() {
         body: JSON.stringify(contactPayload),
       });
 
-      console.log("[Contact] GHL response status:", contactRes.status);
-      const responseBody = await contactRes.text();
-      console.log("[Contact] GHL response body:", responseBody);
-
-      if (!contactRes.ok) throw new Error(`Contact creation failed: ${contactRes.status} ${responseBody}`);
+      if (!contactRes.ok) throw new Error(`Contact creation failed: ${contactRes.status}`);
 
       // Fire webhook (non-blocking)
       fetch(GHL_WEBHOOK_URL, {
