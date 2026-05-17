@@ -26,7 +26,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <Navbar />
-      <main className="flex-grow pt-[88px]">{children}</main>
+      <main className="flex-grow pt-[180px] lg:pt-[88px]">{children}</main>
       <Footer />
     </div>
   );

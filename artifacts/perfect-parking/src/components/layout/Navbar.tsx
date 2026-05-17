@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/analytics";
 
@@ -51,7 +51,6 @@ const PILL_DESKTOP_STYLE: React.CSSProperties = {
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [pillHover, setPillHover] = useState<string | null>(null);
   const [location] = useLocation();
@@ -64,7 +63,6 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
     setDropdownOpen(false);
   }, [location]);
 
@@ -87,14 +85,54 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm py-3" : "bg-white py-5"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-4">
+
+        {/* ── MOBILE layout: centered logo + 3 pill CTAs ── */}
+        <div className="lg:hidden flex flex-col items-center py-2 gap-2">
+          <Link href="/" className="flex items-center">
+            <video
+              autoPlay loop muted playsInline preload="none"
+              className="h-[80px] w-auto rounded-xl"
+              poster={`${import.meta.env.BASE_URL}logo-pp.webp`}
+            >
+              <source src={`${import.meta.env.BASE_URL}pp-logo-anim.mov`} type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}pp-logo-anim.mov`} type="video/quicktime" />
+              <img src={`${import.meta.env.BASE_URL}logo-pp.webp`} alt="Perfect Parking Logo" className="h-[80px] w-auto object-contain" />
+            </video>
+          </Link>
+          <div className="flex flex-wrap justify-center gap-2 pb-1">
+            <Link
+              href="/parkers"
+              className="inline-flex items-center rounded-full px-4 py-1.5 text-[0.78rem] font-semibold transition-all active:bg-[#00305b] active:text-white"
+              style={{ border: "1.5px solid #00305b", color: "#00305b" }}
+            >
+              Click Here for Parking Help
+            </Link>
+            <Link
+              href="/solutions"
+              className="inline-flex items-center rounded-full px-4 py-1.5 text-[0.78rem] font-semibold transition-all active:bg-[#00305b] active:text-white"
+              style={{ border: "1.5px solid #00305b", color: "#00305b" }}
+            >
+              More Info for Lot Owners
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center rounded-full px-4 py-1.5 text-[0.78rem] font-semibold transition-all active:bg-[#00305b] active:text-white"
+              style={{ border: "1.5px solid #00305b", color: "#00305b" }}
+            >
+              Would Perfect Parking Work for You?
+            </Link>
+          </div>
+        </div>
+
+        {/* ── DESKTOP layout: original single-row ── */}
+        <div className="hidden lg:flex items-center gap-4 py-5">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-50 shrink-0">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
             <video
               autoPlay loop muted playsInline preload="none"
               className="h-[120px] w-auto rounded-xl"
@@ -106,9 +144,8 @@ export function Navbar() {
             </video>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-3">
-            {/* Parking Help — navy outline pill */}
+          {/* Desktop nav pills */}
+          <nav className="flex items-center gap-3">
             <Link
               href="/parkers"
               className={PILL_DESKTOP}
@@ -119,7 +156,6 @@ export function Navbar() {
               Click Here for Parking Help
             </Link>
 
-            {/* More Info for Lot Owners dropdown — navy outline pill */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -189,7 +225,6 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Would Perfect Parking Work for You? — navy outline pill */}
             <Link
               href="/contact"
               className={PILL_DESKTOP}
@@ -201,11 +236,9 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Spacer */}
-          <div className="hidden lg:block flex-1" />
+          <div className="flex-1" />
 
-          {/* Phone + Partner CTA */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="flex items-center gap-5">
             <a
               href="tel:+13615851111"
               className="text-sm font-semibold text-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
@@ -228,111 +261,8 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="lg:hidden ml-auto">
-            <button
-              className="z-50 p-2 text-foreground"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
         </div>
       </div>
-
-      {/* Mobile full-screen slide-in panel */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 lg:hidden overflow-y-auto"
-            style={{ background: "#00305b" }}
-          >
-            <div className="flex flex-col min-h-full pt-32 pb-12 px-8">
-
-              {/* Pills — white outline on navy bg */}
-              <div className="flex flex-wrap gap-3 mb-6">
-                <Link
-                  href="/parkers"
-                  className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-all"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
-                >
-                  Click Here for Parking Help
-                </Link>
-                <span
-                  className="inline-flex items-center gap-1 rounded-full px-5 py-2 text-sm font-semibold"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
-                >
-                  More Info for Lot Owners <ChevronDown className="w-3.5 h-3.5" />
-                </span>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold transition-all"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.7)", color: "rgba(255,255,255,0.9)" }}
-                >
-                  Would Perfect Parking Work for You?
-                </Link>
-              </div>
-
-              <div className="py-8 border-b border-white/10 space-y-8">
-                {exploreColumns.map((col) => (
-                  <div key={col.label}>
-                    <p
-                      className="text-[11px] font-bold uppercase tracking-widest mb-4"
-                      style={{ color: "#DEC600" }}
-                    >
-                      {col.label}
-                    </p>
-                    <ul className="space-y-3">
-                      {col.links.map((link) => {
-                        const mobileStyle: React.CSSProperties = link.sub
-                          ? { color: "rgba(255,255,255,0.65)", fontWeight: 400 }
-                          : { color: "#e8eff7", fontWeight: 700 };
-                        const cls = link.sub
-                          ? "text-base transition-colors block pl-4"
-                          : "text-lg transition-colors block";
-                        return (
-                          <li key={link.name}>
-                            {link.href.startsWith("mailto:") ? (
-                              <a href={link.href} className={cls} style={mobileStyle}>
-                                {link.name}
-                              </a>
-                            ) : (
-                              <Link href={link.href} className={cls} style={mobileStyle}>
-                                {link.name}
-                              </Link>
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 space-y-4">
-                <a
-                  href="tel:+13615851111"
-                  className="block text-white/80 text-base font-semibold text-center hover:text-white transition-colors"
-                >
-                  (361) 585-1111
-                </a>
-                <Link
-                  href="/contact"
-                  className="block w-full text-center py-4 rounded-xl font-bold text-lg"
-                  style={{ background: "#DEC600", color: "#00305b" }}
-                >
-                  Partner With Us
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
