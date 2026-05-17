@@ -149,6 +149,13 @@ export default function Home() {
                 >
                   How It Works
                 </button>
+                <a
+                  href="/contact"
+                  className="px-8 py-4 text-lg font-semibold rounded-xl flex items-center justify-center transition-all duration-200 hover:opacity-90"
+                  style={{ background: "#E8EFF7", color: "#0A2342", border: "1px solid #C5D5E8" }}
+                >
+                  Speak to Our Team →
+                </a>
               </div>
               <p className="text-white/60 text-sm" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
                 Most property owners are leaving $1,000–$4,000/month on the table. Find out exactly how much yours is worth — free, no commitment.
@@ -179,22 +186,6 @@ export default function Home() {
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Average Setup</div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* SOFT CTA */}
-      <section className="py-10 bg-white text-center border-b border-border/30">
-        <div className="max-w-sm mx-auto px-4">
-          <a
-            href="/contact"
-            className="inline-block px-8 py-4 font-semibold rounded-xl text-base transition-colors hover:opacity-90"
-            style={{ background: "#E8EFF7", color: "#0A2342", border: "1px solid #C5D5E8" }}
-          >
-            Speak to Our Team →
-          </a>
-          <p className="mt-3 text-sm" style={{ color: "#6B7280" }}>
-            No commitment. We'll give you a straight answer either way.
-          </p>
         </div>
       </section>
 
