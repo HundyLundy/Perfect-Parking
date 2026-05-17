@@ -178,7 +178,7 @@ export default function Estimate() {
               {/* ── Optional section ── */}
               <div className="border-t border-white/15 pt-2">
                 <p className="text-[#dec600] text-xs font-bold uppercase tracking-widest">
-                  Optional — Share More to Speed Things Up
+                  Optional — Share More If You Want To
                 </p>
               </div>
 
